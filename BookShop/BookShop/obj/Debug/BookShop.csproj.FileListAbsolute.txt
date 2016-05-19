@@ -1,0 +1,13 @@
+C:\Users\LongHK\Desktop\BookShop\BookShop\bin\Debug\BookShop.exe.config
+C:\Users\LongHK\Desktop\BookShop\BookShop\bin\Debug\BookShop.exe
+C:\Users\LongHK\Desktop\BookShop\BookShop\bin\Debug\BookShop.pdb
+C:\Users\LongHK\Desktop\BookShop\BookShop\obj\Debug\BookShop.Form1.resources
+C:\Users\LongHK\Desktop\BookShop\BookShop\obj\Debug\BookShop.Properties.Resources.resources
+C:\Users\LongHK\Desktop\BookShop\BookShop\obj\Debug\BookShop.csproj.GenerateResource.Cache
+C:\Users\LongHK\Desktop\BookShop\BookShop\obj\Debug\BookShop.exe
+C:\Users\LongHK\Desktop\BookShop\BookShop\obj\Debug\BookShop.pdb
+C:\Users\LongHK\Desktop\BookShop\BookShop\bin\Debug\EntityFramework.dll
+C:\Users\LongHK\Desktop\BookShop\BookShop\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\LongHK\Desktop\BookShop\BookShop\bin\Debug\EntityFramework.xml
+C:\Users\LongHK\Desktop\BookShop\BookShop\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\LongHK\Desktop\BookShop\BookShop\obj\Debug\BookShop.csprojResolveAssemblyReference.cache
