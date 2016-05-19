@@ -11,3 +11,6 @@ C:\Users\LongHK\Desktop\BookShop\BookShop\bin\Debug\EntityFramework.SqlServer.dl
 C:\Users\LongHK\Desktop\BookShop\BookShop\bin\Debug\EntityFramework.xml
 C:\Users\LongHK\Desktop\BookShop\BookShop\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\LongHK\Desktop\BookShop\BookShop\obj\Debug\BookShop.csprojResolveAssemblyReference.cache
+E:\TAI LIEU HOC TAP\Tai lieu hoc ky 6\Cong nghe phan mem\GitHub\BookShop_CNPM\BookShop\BookShop\bin\Debug\BookShop.exe.config
+E:\TAI LIEU HOC TAP\Tai lieu hoc ky 6\Cong nghe phan mem\GitHub\BookShop_CNPM\BookShop\BookShop\obj\Debug\BookShop.exe
+E:\TAI LIEU HOC TAP\Tai lieu hoc ky 6\Cong nghe phan mem\GitHub\BookShop_CNPM\BookShop\BookShop\obj\Debug\BookShop.pdb

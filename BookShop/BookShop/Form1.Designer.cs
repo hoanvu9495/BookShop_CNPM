@@ -31,20 +31,22 @@
             this.tcl_Home = new System.Windows.Forms.TabControl();
             this.tpe_Home = new System.Windows.Forms.TabPage();
             this.tpe_function = new System.Windows.Forms.TabPage();
-            this.tpe_Book = new System.Windows.Forms.TabPage();
-            this.tpe_Author = new System.Windows.Forms.TabPage();
-            this.tpe_Publisher = new System.Windows.Forms.TabPage();
-            this.tpe_Promotion = new System.Windows.Forms.TabPage();
-            this.tpe_Login = new System.Windows.Forms.TabPage();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tpe_sale = new System.Windows.Forms.TabPage();
             this.tpe_buy = new System.Windows.Forms.TabPage();
             this.tpe_Account = new System.Windows.Forms.TabPage();
             this.tpe_report = new System.Windows.Forms.TabPage();
             this.tpe_Statistical = new System.Windows.Forms.TabPage();
+            this.tpe_Book = new System.Windows.Forms.TabPage();
+            this.tpe_Author = new System.Windows.Forms.TabPage();
+            this.tpe_Publisher = new System.Windows.Forms.TabPage();
+            this.tpe_Promotion = new System.Windows.Forms.TabPage();
+            this.tpe_Login = new System.Windows.Forms.TabPage();
+            this.btn_Xem = new System.Windows.Forms.Button();
             this.tcl_Home.SuspendLayout();
             this.tpe_function.SuspendLayout();
             this.tabControl1.SuspendLayout();
+            this.tpe_sale.SuspendLayout();
             this.SuspendLayout();
             // 
             // tcl_Home
@@ -85,56 +87,6 @@
             this.tpe_function.Text = "Chức năng";
             this.tpe_function.UseVisualStyleBackColor = true;
             // 
-            // tpe_Book
-            // 
-            this.tpe_Book.Location = new System.Drawing.Point(4, 34);
-            this.tpe_Book.Name = "tpe_Book";
-            this.tpe_Book.Padding = new System.Windows.Forms.Padding(3);
-            this.tpe_Book.Size = new System.Drawing.Size(931, 350);
-            this.tpe_Book.TabIndex = 2;
-            this.tpe_Book.Text = "Sách";
-            this.tpe_Book.UseVisualStyleBackColor = true;
-            // 
-            // tpe_Author
-            // 
-            this.tpe_Author.Location = new System.Drawing.Point(4, 34);
-            this.tpe_Author.Name = "tpe_Author";
-            this.tpe_Author.Padding = new System.Windows.Forms.Padding(3);
-            this.tpe_Author.Size = new System.Drawing.Size(931, 350);
-            this.tpe_Author.TabIndex = 3;
-            this.tpe_Author.Text = "Tác giả";
-            this.tpe_Author.UseVisualStyleBackColor = true;
-            // 
-            // tpe_Publisher
-            // 
-            this.tpe_Publisher.Location = new System.Drawing.Point(4, 34);
-            this.tpe_Publisher.Name = "tpe_Publisher";
-            this.tpe_Publisher.Padding = new System.Windows.Forms.Padding(3);
-            this.tpe_Publisher.Size = new System.Drawing.Size(931, 350);
-            this.tpe_Publisher.TabIndex = 4;
-            this.tpe_Publisher.Text = "Nhà xuất bản";
-            this.tpe_Publisher.UseVisualStyleBackColor = true;
-            // 
-            // tpe_Promotion
-            // 
-            this.tpe_Promotion.Location = new System.Drawing.Point(4, 34);
-            this.tpe_Promotion.Name = "tpe_Promotion";
-            this.tpe_Promotion.Padding = new System.Windows.Forms.Padding(3);
-            this.tpe_Promotion.Size = new System.Drawing.Size(931, 350);
-            this.tpe_Promotion.TabIndex = 5;
-            this.tpe_Promotion.Text = "Khuyến mại";
-            this.tpe_Promotion.UseVisualStyleBackColor = true;
-            // 
-            // tpe_Login
-            // 
-            this.tpe_Login.Location = new System.Drawing.Point(4, 34);
-            this.tpe_Login.Name = "tpe_Login";
-            this.tpe_Login.Padding = new System.Windows.Forms.Padding(3);
-            this.tpe_Login.Size = new System.Drawing.Size(931, 350);
-            this.tpe_Login.TabIndex = 6;
-            this.tpe_Login.Text = "Đăng nhập";
-            this.tpe_Login.UseVisualStyleBackColor = true;
-            // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tpe_sale);
@@ -152,6 +104,7 @@
             // 
             // tpe_sale
             // 
+            this.tpe_sale.Controls.Add(this.btn_Xem);
             this.tpe_sale.Location = new System.Drawing.Point(4, 24);
             this.tpe_sale.Name = "tpe_sale";
             this.tpe_sale.Padding = new System.Windows.Forms.Padding(3);
@@ -200,6 +153,65 @@
             this.tpe_Statistical.Text = "Thống kê";
             this.tpe_Statistical.UseVisualStyleBackColor = true;
             // 
+            // tpe_Book
+            // 
+            this.tpe_Book.Location = new System.Drawing.Point(4, 29);
+            this.tpe_Book.Name = "tpe_Book";
+            this.tpe_Book.Padding = new System.Windows.Forms.Padding(3);
+            this.tpe_Book.Size = new System.Drawing.Size(931, 355);
+            this.tpe_Book.TabIndex = 2;
+            this.tpe_Book.Text = "Sách";
+            this.tpe_Book.UseVisualStyleBackColor = true;
+            // 
+            // tpe_Author
+            // 
+            this.tpe_Author.Location = new System.Drawing.Point(4, 29);
+            this.tpe_Author.Name = "tpe_Author";
+            this.tpe_Author.Padding = new System.Windows.Forms.Padding(3);
+            this.tpe_Author.Size = new System.Drawing.Size(931, 355);
+            this.tpe_Author.TabIndex = 3;
+            this.tpe_Author.Text = "Tác giả";
+            this.tpe_Author.UseVisualStyleBackColor = true;
+            // 
+            // tpe_Publisher
+            // 
+            this.tpe_Publisher.Location = new System.Drawing.Point(4, 29);
+            this.tpe_Publisher.Name = "tpe_Publisher";
+            this.tpe_Publisher.Padding = new System.Windows.Forms.Padding(3);
+            this.tpe_Publisher.Size = new System.Drawing.Size(931, 355);
+            this.tpe_Publisher.TabIndex = 4;
+            this.tpe_Publisher.Text = "Nhà xuất bản";
+            this.tpe_Publisher.UseVisualStyleBackColor = true;
+            // 
+            // tpe_Promotion
+            // 
+            this.tpe_Promotion.Location = new System.Drawing.Point(4, 29);
+            this.tpe_Promotion.Name = "tpe_Promotion";
+            this.tpe_Promotion.Padding = new System.Windows.Forms.Padding(3);
+            this.tpe_Promotion.Size = new System.Drawing.Size(931, 355);
+            this.tpe_Promotion.TabIndex = 5;
+            this.tpe_Promotion.Text = "Khuyến mại";
+            this.tpe_Promotion.UseVisualStyleBackColor = true;
+            // 
+            // tpe_Login
+            // 
+            this.tpe_Login.Location = new System.Drawing.Point(4, 29);
+            this.tpe_Login.Name = "tpe_Login";
+            this.tpe_Login.Padding = new System.Windows.Forms.Padding(3);
+            this.tpe_Login.Size = new System.Drawing.Size(931, 355);
+            this.tpe_Login.TabIndex = 6;
+            this.tpe_Login.Text = "Đăng nhập";
+            this.tpe_Login.UseVisualStyleBackColor = true;
+            // 
+            // btn_Xem
+            // 
+            this.btn_Xem.Location = new System.Drawing.Point(22, 19);
+            this.btn_Xem.Name = "btn_Xem";
+            this.btn_Xem.Size = new System.Drawing.Size(75, 23);
+            this.btn_Xem.TabIndex = 0;
+            this.btn_Xem.Text = "Xem";
+            this.btn_Xem.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -213,6 +225,7 @@
             this.tcl_Home.ResumeLayout(false);
             this.tpe_function.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
+            this.tpe_sale.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -233,6 +246,7 @@
         private System.Windows.Forms.TabPage tpe_Publisher;
         private System.Windows.Forms.TabPage tpe_Promotion;
         private System.Windows.Forms.TabPage tpe_Login;
+        private System.Windows.Forms.Button btn_Xem;
     }
 }
 
