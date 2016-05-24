@@ -40,3 +40,16 @@ E:\BookShop\BookShop\obj\Debug\BookShop.csprojResolveAssemblyReference.cache
 E:\BookShop\BookShop\obj\Debug\BookShop.Properties.Resources.resources
 E:\BookShop\BookShop\obj\Debug\BookShop.csproj.GenerateResource.Cache
 E:\BookShop\BookShop\obj\Debug\BookShop.Form1.resources
+E:\GitHub\Book-Shop-v1.0\BookShop_CNPM\BookShop_v1.0\BookShop\BookShop\bin\Debug\BookShop.exe.config
+E:\GitHub\Book-Shop-v1.0\BookShop_CNPM\BookShop_v1.0\BookShop\BookShop\obj\Debug\BookShop.exe
+E:\GitHub\Book-Shop-v1.0\BookShop_CNPM\BookShop_v1.0\BookShop\BookShop\obj\Debug\BookShop.pdb
+E:\GitHub\Book-Shop-v1.0\BookShop_CNPM\BookShop_v1.0\BookShop\BookShop\bin\Debug\BookShop.exe
+E:\GitHub\Book-Shop-v1.0\BookShop_CNPM\BookShop_v1.0\BookShop\BookShop\bin\Debug\BookShop.pdb
+E:\GitHub\Book-Shop-v1.0\BookShop_CNPM\BookShop_v1.0\BookShop\BookShop\bin\Debug\EntityFramework.dll
+E:\GitHub\Book-Shop-v1.0\BookShop_CNPM\BookShop_v1.0\BookShop\BookShop\bin\Debug\EntityFramework.SqlServer.dll
+E:\GitHub\Book-Shop-v1.0\BookShop_CNPM\BookShop_v1.0\BookShop\BookShop\bin\Debug\EntityFramework.xml
+E:\GitHub\Book-Shop-v1.0\BookShop_CNPM\BookShop_v1.0\BookShop\BookShop\bin\Debug\EntityFramework.SqlServer.xml
+E:\GitHub\Book-Shop-v1.0\BookShop_CNPM\BookShop_v1.0\BookShop\BookShop\obj\Debug\BookShop.csprojResolveAssemblyReference.cache
+E:\GitHub\Book-Shop-v1.0\BookShop_CNPM\BookShop_v1.0\BookShop\BookShop\obj\Debug\BookShop.Form1.resources
+E:\GitHub\Book-Shop-v1.0\BookShop_CNPM\BookShop_v1.0\BookShop\BookShop\obj\Debug\BookShop.Properties.Resources.resources
+E:\GitHub\Book-Shop-v1.0\BookShop_CNPM\BookShop_v1.0\BookShop\BookShop\obj\Debug\BookShop.csproj.GenerateResource.Cache

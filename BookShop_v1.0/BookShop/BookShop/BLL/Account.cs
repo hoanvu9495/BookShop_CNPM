@@ -1,4 +1,5 @@
-﻿using System.Text.RegularExpressions;
+﻿using System.Linq;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using BookShop.Entities;
 using BookShop.DAL;
@@ -24,6 +25,12 @@ namespace BookShop.BLL
 
         public static void Insert(NHANVIEN item, string repassword)
         {
+            
+            if (AccountDataAccess.GetAllAccount().Any(a => a.TENDANGNHAP == item.TENDANGNHAP))
+            {
+                MessageBox.Show(@"Tài khoản đã tồn tại!");
+                return;
+            }
             if (repassword != item.MATKHAU)
             {
                 MessageBox.Show(@"Mật khẩu không trùng!");

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using BookShop.Entities;
@@ -52,6 +53,11 @@ namespace BookShop.DAL
                 MessageBox.Show(e.Message, @"Error", MessageBoxButtons.OK);
                 throw;
             }
+        }
+
+        public static List<NHANVIEN> GetAllAccount()
+        {
+            return (from a in DbGlb.NHANVIENs select a).ToList();
         }
 
         /// <summary>

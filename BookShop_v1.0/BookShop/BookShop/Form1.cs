@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using BookShop.BLL;
@@ -49,6 +50,11 @@ namespace BookShop
                         TabPageAccountLoad();
                         btn_UpdateAccount.Enabled = false;
                         break;
+                }
+                case 8:
+                {
+                    TabPagePublisherLoad();
+                    break;
                 }
                 default:
                 {
@@ -186,12 +192,14 @@ namespace BookShop
             tcl_Home.SelectedTab = tpe_Function;
             tcl_Function.SelectedTab = tpe_Account2;
 
-            txt_UsernameAccountDetail.Text = _session.TENDANGNHAP;
-            txt_PasswordAccountDetail.Text = _session.MATKHAU;
-            txt_FullNameAccountDetail.Text = _session.TEN;
-            txt_PhoneAcocuntDetail.Text = _session.SDT;
+            txt_UsernameAccountDetail.Text = _session.TENDANGNHAP.Trim();
+            txt_PasswordAccountDetail.Text = _session.MATKHAU.Trim();
+            txt_FullNameAccountDetail.Text = _session.TEN.Trim();
+            txt_PhoneAcocuntDetail.Text = _session.SDT.Trim();
             if (_session.NGAYSINH != null) dtp_BirthdayAccountDetail.Value = _session.NGAYSINH.Value;
             txt_AccessAcountDetail.Text = _session.ID_QUYEN == 1 ? "Admin" : "Nhân viên";
+
+            btn_EditAccountDetail.Enabled = false;
         }
 
         /// <summary>
@@ -269,6 +277,49 @@ namespace BookShop
         private void Account_TextChanged(object sender, EventArgs e)
         {
             btn_UpdateAccount.Enabled = true;
+        }
+
+        /// <summary>
+        /// TODO: Update infor user login. Input Receive from tpe_Account2
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btn_EditAccountDetail_Click(object sender, EventArgs e)
+        {
+
+            var item = new NHANVIEN
+            {
+                ID = _session.ID,
+                TEN = txt_FullNameAccountDetail.Text,
+                TENDANGNHAP = txt_UsernameAccountDetail.Text,
+                MATKHAU = txt_PasswordAccountDetail.Text,
+                NGAYSINH = dtp_BirthdayAccountDetail.Value,
+                ID_QUYEN = _session.ID_QUYEN,
+                SDT = txt_PhoneAcocuntDetail.Text
+            };
+            if (!Account.Update(item, txt_PasswordAccountDetail.Text)) return;
+
+            _session = Account.GetItem(_session.ID);
+            var existed = false;
+            foreach (var a in tcl_Function.TabPages.Cast<object>().Where(i => i == tpe_Account2))
+            {
+                existed = true;
+            }
+            if (!existed) tcl_Function.TabPages.Add(tpe_Account2);
+            tcl_Home.SelectedTab = tpe_Function;
+            tcl_Function.SelectedTab = tpe_Account2;
+
+            txt_UsernameAccountDetail.Text = _session.TENDANGNHAP.Trim();
+            txt_PasswordAccountDetail.Text = _session.MATKHAU.Trim();
+            txt_FullNameAccountDetail.Text = _session.TEN.Trim();
+            txt_PhoneAcocuntDetail.Text = _session.SDT.Trim();
+            if (_session.NGAYSINH != null) dtp_BirthdayAccountDetail.Value = _session.NGAYSINH.Value;
+            txt_AccessAcountDetail.Text = _session.ID_QUYEN == 1 ? "Admin" : "Nhân viên";
+        }
+
+        private void txt_UsernameAccountDetail_TextChanged(object sender, EventArgs e)
+        {
+            btn_EditAccountDetail.Enabled = true;
         }
 
         private void groupBox5_Enter(object sender, EventArgs e)
@@ -715,5 +766,149 @@ namespace BookShop
 
         }
 
+        //================================== PUBLISHER ===============================================
+
+        public void TabPagePublisherLoad()
+        {
+            dgv_Publisher.DataSource = null;
+            var data = Publisher.GetTable();
+
+            dgv_Publisher.DataSource = data.DataSource;
+            dgv_Publisher.Columns[7].Visible = false;
+            dgv_Publisher.Columns[8].Visible = false;
+            dgv_Publisher.Columns[9].Visible = false;
+            dgv_Publisher.Columns[1].Visible = false;
+
+            btn_AddNewPublisher.Visible = true;
+            btn_DeletePublisher.Enabled = false;
+            btn_UpdatePublisher.Enabled = false;
+            cbx_StatusPublisher.SelectedIndex = 0;
+            cbx_StatusPublisher.Enabled = false;
+
+            dgv_Publisher.Columns[6].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+        }
+
+        private void dgv_Publisher_RowPrePaint(object sender, DataGridViewRowPrePaintEventArgs e)
+        {
+            dgv_Publisher.Rows[e.RowIndex].Cells["STT_P"].Value = e.RowIndex + 1;
+        }
+
+        private void btn_CreateNewPublisher_Click(object sender, EventArgs e)
+        {
+            txt_PublisherName.Text = "";
+            txt_PublisherAddress.Text = "";
+            txt_PublisherPhone.Text = "";
+            txt_PublisherFax.Text = "";
+            rtb_PublisherIntroduce.Text = "";
+
+            btn_CreateNewPublisher.Visible = false;
+            btn_AddNewPublisher.Visible = true;
+            btn_UpdatePublisher.Enabled = false;
+            btn_DeletePublisher.Enabled = false;
+
+            cbx_StatusPublisher.SelectedItem = 0;
+            cbx_StatusPublisher.Enabled = false;
+        }
+
+        private void btn_AddNewPublisher_Click(object sender, EventArgs e)
+        {
+            var item = new NHAXUATBAN
+            {
+                TEN = txt_PublisherName.Text.Trim(),
+                DIACHI = txt_PublisherAddress.Text.Trim(),
+                SDT = txt_PublisherPhone.Text.Trim(),
+                FAX = txt_PublisherFax.Text.Trim(),
+                GIOITHIEU = rtb_PublisherIntroduce.Text.Trim()
+            };
+
+            if (Publisher.Insert(item))
+            {
+                TabPagePublisherLoad();
+            }
+            else
+            {
+                MessageBox.Show(@"Không thể insert dữ liệu!");
+            }
+        }
+
+        private void btn_UpdatePublisher_Click(object sender, EventArgs e)
+        {
+            var item = new NHAXUATBAN
+            {
+                TEN = txt_PublisherName.Text.Trim(),
+                DIACHI = txt_PublisherAddress.Text.Trim(),
+                SDT = txt_PublisherPhone.Text.Trim(),
+                FAX = txt_PublisherFax.Text.Trim(),
+                GIOITHIEU = rtb_PublisherIntroduce.Text.Trim(),
+                ISDELETE = cbx_StatusPublisher.SelectedIndex.ToString().Equals("1")
+            };
+
+            if (!Publisher.Update(item, _idSelected)) return;
+            TabPagePublisherLoad();
+            dgv_Publisher.Rows[_seletedRow].Selected = true;
+            btn_CreateNewPublisher.PerformClick();
+        }
+
+        private void btn_DeletePublisher_Click(object sender, EventArgs e)
+        {
+            if (Publisher.Delete(_idSelected))
+            {
+                TabPagePublisherLoad();
+            }
+        }
+
+        private void txt_PublisherName_TextChanged(object sender, EventArgs e)
+        {
+            if(!btn_AddNewPublisher.Visible)btn_UpdatePublisher.Enabled = true;
+        }
+
+        private void dgv_Publisher_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var id = dgv_Publisher.Rows[e.RowIndex].Cells[1].Value;
+            var item = Publisher.GetItem(Int32.Parse(id.ToString()));
+
+            txt_PublisherName.Text = item.TEN.Trim();
+            txt_PublisherAddress.Text = item.DIACHI.Trim();
+            txt_PublisherPhone.Text = item.SDT.Trim();
+            txt_PublisherFax.Text = item.FAX.Trim();
+            rtb_PublisherIntroduce.Text = item.GIOITHIEU.Trim();
+
+            cbx_StatusPublisher.Enabled = true;
+            if (item.ISDELETE == false)
+            {
+                lbl_StatusPublisher.ForeColor = Color.Green;
+                cbx_StatusPublisher.ForeColor = Color.Green;
+                cbx_StatusPublisher.SelectedIndex = 0;
+            }
+            else
+            {
+                lbl_StatusPublisher.ForeColor = Color.Red;
+                cbx_StatusPublisher.ForeColor = Color.Red;
+                cbx_StatusPublisher.SelectedIndex = 1;
+            }
+
+            btn_AddNewPublisher.Visible = false;
+            btn_CreateNewPublisher.Visible = true;
+            btn_DeletePublisher.Enabled = true;
+            btn_UpdatePublisher.Enabled = false;
+
+            _idSelected = item.ID;
+            _seletedRow = e.RowIndex;
+        }
+
+        private void cbx_StatusPublisher_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbx_StatusPublisher.SelectedIndex == 0)
+            {
+                lbl_StatusPublisher.ForeColor = Color.Green;
+                cbx_StatusPublisher.ForeColor = Color.Green;
+            }
+            else
+            {
+                lbl_StatusPublisher.ForeColor = Color.Red;
+                cbx_StatusPublisher.ForeColor = Color.Red;
+            }
+            if (!btn_AddNewPublisher.Visible) btn_UpdatePublisher.Enabled = true;
+        }
     }
 }
