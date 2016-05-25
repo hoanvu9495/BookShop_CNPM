@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.tcl_Home = new System.Windows.Forms.TabControl();
             this.tpe_Home = new System.Windows.Forms.TabPage();
             this.tpe_Function = new System.Windows.Forms.TabPage();
@@ -194,6 +195,10 @@
             this.bOOKSHOPDataSetHoaDon = new BookShop.BOOKSHOPDataSetHoaDon();
             this.hOADONBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.hOADONTableAdapter = new BookShop.BOOKSHOPDataSetHoaDonTableAdapters.HOADONTableAdapter();
+            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.BOOKSHOPDataSetShowKM = new BookShop.BOOKSHOPDataSetShowKM();
+            this.CHITIETKMBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.CHITIETKMTableAdapter = new BookShop.BOOKSHOPDataSetShowKMTableAdapters.CHITIETKMTableAdapter();
             this.tcl_Home.SuspendLayout();
             this.tpe_Function.SuspendLayout();
             this.tcl_Function.SuspendLayout();
@@ -217,10 +222,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgv_AllChuDe)).BeginInit();
             this.tpe_PublisherManager.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Publisher)).BeginInit();
+            this.tpe_Promotion.SuspendLayout();
             this.tpe_Login.SuspendLayout();
             this.flp_StatusUser.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bOOKSHOPDataSetHoaDon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hOADONBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BOOKSHOPDataSetShowKM)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CHITIETKMBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tcl_Home
@@ -1780,6 +1788,7 @@
             // 
             // tpe_Promotion
             // 
+            this.tpe_Promotion.Controls.Add(this.reportViewer1);
             this.tpe_Promotion.Location = new System.Drawing.Point(4, 32);
             this.tpe_Promotion.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.tpe_Promotion.Name = "tpe_Promotion";
@@ -1943,7 +1952,7 @@
             this.flp_StatusUser.Controls.Add(this.lbe_Hello);
             this.flp_StatusUser.Controls.Add(this.lbl_Username);
             this.flp_StatusUser.Controls.Add(this.btn_Logout);
-            this.flp_StatusUser.Location = new System.Drawing.Point(1018, 11);
+            this.flp_StatusUser.Location = new System.Drawing.Point(1006, 12);
             this.flp_StatusUser.Name = "flp_StatusUser";
             this.flp_StatusUser.Size = new System.Drawing.Size(192, 34);
             this.flp_StatusUser.TabIndex = 9;
@@ -1968,6 +1977,32 @@
             // hOADONTableAdapter
             // 
             this.hOADONTableAdapter.ClearBeforeFill = true;
+            // 
+            // reportViewer1
+            // 
+            this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            reportDataSource1.Name = "DataSetShowKM";
+            reportDataSource1.Value = this.CHITIETKMBindingSource;
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "BookShop.Report1.rdlc";
+            this.reportViewer1.Location = new System.Drawing.Point(5, 4);
+            this.reportViewer1.Name = "reportViewer1";
+            this.reportViewer1.Size = new System.Drawing.Size(1222, 606);
+            this.reportViewer1.TabIndex = 0;
+            // 
+            // BOOKSHOPDataSetShowKM
+            // 
+            this.BOOKSHOPDataSetShowKM.DataSetName = "BOOKSHOPDataSetShowKM";
+            this.BOOKSHOPDataSetShowKM.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // CHITIETKMBindingSource
+            // 
+            this.CHITIETKMBindingSource.DataMember = "CHITIETKM";
+            this.CHITIETKMBindingSource.DataSource = this.BOOKSHOPDataSetShowKM;
+            // 
+            // CHITIETKMTableAdapter
+            // 
+            this.CHITIETKMTableAdapter.ClearBeforeFill = true;
             // 
             // Form1
             // 
@@ -2019,12 +2054,15 @@
             this.tpe_PublisherManager.ResumeLayout(false);
             this.tpe_PublisherManager.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Publisher)).EndInit();
+            this.tpe_Promotion.ResumeLayout(false);
             this.tpe_Login.ResumeLayout(false);
             this.tpe_Login.PerformLayout();
             this.flp_StatusUser.ResumeLayout(false);
             this.flp_StatusUser.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bOOKSHOPDataSetHoaDon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.hOADONBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BOOKSHOPDataSetShowKM)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CHITIETKMBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2196,6 +2234,10 @@
         private BOOKSHOPDataSetHoaDon bOOKSHOPDataSetHoaDon;
         private System.Windows.Forms.BindingSource hOADONBindingSource;
         private BOOKSHOPDataSetHoaDonTableAdapters.HOADONTableAdapter hOADONTableAdapter;
+        private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
+        private System.Windows.Forms.BindingSource CHITIETKMBindingSource;
+        private BOOKSHOPDataSetShowKM BOOKSHOPDataSetShowKM;
+        private BOOKSHOPDataSetShowKMTableAdapters.CHITIETKMTableAdapter CHITIETKMTableAdapter;
     }
 }
 

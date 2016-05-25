@@ -24,11 +24,14 @@ namespace BookShop
         /// </summary>
         private void Form1_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'BOOKSHOPDataSetShowKM.CHITIETKM' table. You can move, or remove it, as needed.
+            this.CHITIETKMTableAdapter.Fill(this.BOOKSHOPDataSetShowKM.CHITIETKM);
 
             tcl_Home.TabPages.Remove(tpe_Function);
             tcl_Function.TabPages.Remove(tpe_Account);
             tcl_Home.SelectedTab = tpe_Home;
             tcl_Function.TabPages.Remove(tpe_Account2);
+            this.reportViewer1.RefreshReport();
         }
 
 
