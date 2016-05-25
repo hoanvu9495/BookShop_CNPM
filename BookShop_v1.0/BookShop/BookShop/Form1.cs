@@ -5,6 +5,7 @@ using System.Linq;
 using System.Windows.Forms;
 using BookShop.BLL;
 using BookShop.Entities;
+using BookShop.DAL;
 
 namespace BookShop
 {
@@ -766,6 +767,20 @@ namespace BookShop
 
         }
 
+        int indexRowAllHD;
+        /// <summary>
+        /// double click vào datagridview allHD
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void dgv_AllHD_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            indexRowAllHD = e.RowIndex;
+            txt_MaHD.Text = dgv_AllHD.Rows[indexRowAllHD].Cells[0].Value.ToString();
+            var nv= AccountDataAccess.GetItem(int.Parse(dgv_AllHD.Rows[indexRowAllHD].Cells[1].Value.ToString()));
+            txt_NhanVien.Text = nv.TEN;
+        }
+
         //================================== PUBLISHER ===============================================
 
         public void TabPagePublisherLoad()
@@ -910,5 +925,7 @@ namespace BookShop
             }
             if (!btn_AddNewPublisher.Visible) btn_UpdatePublisher.Enabled = true;
         }
+
+      
     }
 }

@@ -4,6 +4,7 @@ using System.Windows.Forms;
 using BookShop.Entities;
 using BookShop.DAL;
 
+
 namespace BookShop.BLL
 {
     class Account
@@ -128,5 +129,7 @@ namespace BookShop.BLL
             MessageBox.Show(@"Thay đổi dữ liệu thanh công!");
             return true;
         }
+        
     }
+
 }

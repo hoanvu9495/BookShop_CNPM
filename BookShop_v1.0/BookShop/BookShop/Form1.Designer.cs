@@ -326,9 +326,9 @@
             this.grp_CTHD.Controls.Add(this.btn_Xoa);
             this.grp_CTHD.Controls.Add(this.btn_SuaCTHD);
             this.grp_CTHD.Controls.Add(this.dgv_CTHD);
-            this.grp_CTHD.Location = new System.Drawing.Point(426, 19);
+            this.grp_CTHD.Location = new System.Drawing.Point(426, 7);
             this.grp_CTHD.Name = "grp_CTHD";
-            this.grp_CTHD.Size = new System.Drawing.Size(764, 537);
+            this.grp_CTHD.Size = new System.Drawing.Size(764, 549);
             this.grp_CTHD.TabIndex = 2;
             this.grp_CTHD.TabStop = false;
             this.grp_CTHD.Text = "Chi tiết hóa đơn";
@@ -555,6 +555,7 @@
             this.dgv_AllHD.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_AllHD.Size = new System.Drawing.Size(394, 462);
             this.dgv_AllHD.TabIndex = 0;
+            this.dgv_AllHD.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_AllHD_CellDoubleClick);
             // 
             // tpe_buy
             // 
@@ -1092,9 +1093,9 @@
             // 
             // btn_XoaCTKM
             // 
-            this.btn_XoaCTKM.Location = new System.Drawing.Point(619, 93);
+            this.btn_XoaCTKM.Location = new System.Drawing.Point(619, 91);
             this.btn_XoaCTKM.Name = "btn_XoaCTKM";
-            this.btn_XoaCTKM.Size = new System.Drawing.Size(61, 23);
+            this.btn_XoaCTKM.Size = new System.Drawing.Size(61, 26);
             this.btn_XoaCTKM.TabIndex = 18;
             this.btn_XoaCTKM.Text = "Xóa";
             this.btn_XoaCTKM.UseVisualStyleBackColor = true;
@@ -1102,9 +1103,9 @@
             // 
             // btn_ThemSachKM
             // 
-            this.btn_ThemSachKM.Location = new System.Drawing.Point(471, 93);
+            this.btn_ThemSachKM.Location = new System.Drawing.Point(471, 91);
             this.btn_ThemSachKM.Name = "btn_ThemSachKM";
-            this.btn_ThemSachKM.Size = new System.Drawing.Size(62, 23);
+            this.btn_ThemSachKM.Size = new System.Drawing.Size(62, 26);
             this.btn_ThemSachKM.TabIndex = 17;
             this.btn_ThemSachKM.Text = "ADD";
             this.btn_ThemSachKM.UseVisualStyleBackColor = true;
@@ -1145,9 +1146,9 @@
             // 
             // btn_NhapLaiCTKM
             // 
-            this.btn_NhapLaiCTKM.Location = new System.Drawing.Point(686, 92);
+            this.btn_NhapLaiCTKM.Location = new System.Drawing.Point(686, 90);
             this.btn_NhapLaiCTKM.Name = "btn_NhapLaiCTKM";
-            this.btn_NhapLaiCTKM.Size = new System.Drawing.Size(56, 23);
+            this.btn_NhapLaiCTKM.Size = new System.Drawing.Size(56, 26);
             this.btn_NhapLaiCTKM.TabIndex = 12;
             this.btn_NhapLaiCTKM.Text = "Nhập lại";
             this.btn_NhapLaiCTKM.UseVisualStyleBackColor = true;
@@ -1155,9 +1156,9 @@
             // 
             // btn_XoaKM
             // 
-            this.btn_XoaKM.Location = new System.Drawing.Point(677, 58);
+            this.btn_XoaKM.Location = new System.Drawing.Point(677, 53);
             this.btn_XoaKM.Name = "btn_XoaKM";
-            this.btn_XoaKM.Size = new System.Drawing.Size(65, 23);
+            this.btn_XoaKM.Size = new System.Drawing.Size(65, 27);
             this.btn_XoaKM.TabIndex = 11;
             this.btn_XoaKM.Text = "Xóa";
             this.btn_XoaKM.UseVisualStyleBackColor = true;
@@ -1165,9 +1166,9 @@
             // 
             // btn_SuaCTKM
             // 
-            this.btn_SuaCTKM.Location = new System.Drawing.Point(542, 93);
+            this.btn_SuaCTKM.Location = new System.Drawing.Point(542, 91);
             this.btn_SuaCTKM.Name = "btn_SuaCTKM";
-            this.btn_SuaCTKM.Size = new System.Drawing.Size(68, 23);
+            this.btn_SuaCTKM.Size = new System.Drawing.Size(68, 26);
             this.btn_SuaCTKM.TabIndex = 10;
             this.btn_SuaCTKM.Text = "Sửa";
             this.btn_SuaCTKM.UseVisualStyleBackColor = true;
@@ -1175,9 +1176,9 @@
             // 
             // btn_ThemKM
             // 
-            this.btn_ThemKM.Location = new System.Drawing.Point(677, 26);
+            this.btn_ThemKM.Location = new System.Drawing.Point(677, 21);
             this.btn_ThemKM.Name = "btn_ThemKM";
-            this.btn_ThemKM.Size = new System.Drawing.Size(65, 23);
+            this.btn_ThemKM.Size = new System.Drawing.Size(65, 27);
             this.btn_ThemKM.TabIndex = 9;
             this.btn_ThemKM.Text = "Thêm";
             this.btn_ThemKM.UseVisualStyleBackColor = true;
@@ -1466,7 +1467,7 @@
             // 
             this.btn_ResetChuDe.Location = new System.Drawing.Point(640, 54);
             this.btn_ResetChuDe.Name = "btn_ResetChuDe";
-            this.btn_ResetChuDe.Size = new System.Drawing.Size(75, 24);
+            this.btn_ResetChuDe.Size = new System.Drawing.Size(75, 27);
             this.btn_ResetChuDe.TabIndex = 8;
             this.btn_ResetChuDe.Text = "Nhập lại";
             this.btn_ResetChuDe.UseVisualStyleBackColor = true;
@@ -1476,7 +1477,7 @@
             // 
             this.btn_XoaChuDe.Location = new System.Drawing.Point(721, 54);
             this.btn_XoaChuDe.Name = "btn_XoaChuDe";
-            this.btn_XoaChuDe.Size = new System.Drawing.Size(75, 24);
+            this.btn_XoaChuDe.Size = new System.Drawing.Size(75, 27);
             this.btn_XoaChuDe.TabIndex = 6;
             this.btn_XoaChuDe.Text = "Xóa";
             this.btn_XoaChuDe.UseVisualStyleBackColor = true;
@@ -1486,7 +1487,7 @@
             // 
             this.btn_SuaChuDe.Location = new System.Drawing.Point(559, 55);
             this.btn_SuaChuDe.Name = "btn_SuaChuDe";
-            this.btn_SuaChuDe.Size = new System.Drawing.Size(75, 24);
+            this.btn_SuaChuDe.Size = new System.Drawing.Size(75, 27);
             this.btn_SuaChuDe.TabIndex = 5;
             this.btn_SuaChuDe.Text = "Sửa";
             this.btn_SuaChuDe.UseVisualStyleBackColor = true;
@@ -1496,7 +1497,7 @@
             // 
             this.btn_ThemChuDe.Location = new System.Drawing.Point(478, 55);
             this.btn_ThemChuDe.Name = "btn_ThemChuDe";
-            this.btn_ThemChuDe.Size = new System.Drawing.Size(75, 24);
+            this.btn_ThemChuDe.Size = new System.Drawing.Size(75, 27);
             this.btn_ThemChuDe.TabIndex = 4;
             this.btn_ThemChuDe.Text = "Thêm";
             this.btn_ThemChuDe.UseVisualStyleBackColor = true;
@@ -1506,7 +1507,7 @@
             // 
             this.btn_AllChuDe.Location = new System.Drawing.Point(287, 20);
             this.btn_AllChuDe.Name = "btn_AllChuDe";
-            this.btn_AllChuDe.Size = new System.Drawing.Size(75, 24);
+            this.btn_AllChuDe.Size = new System.Drawing.Size(75, 29);
             this.btn_AllChuDe.TabIndex = 3;
             this.btn_AllChuDe.Text = "Tất cả";
             this.btn_AllChuDe.UseVisualStyleBackColor = true;
@@ -1516,7 +1517,7 @@
             // 
             this.btn_TimChuDe.Location = new System.Drawing.Point(205, 21);
             this.btn_TimChuDe.Name = "btn_TimChuDe";
-            this.btn_TimChuDe.Size = new System.Drawing.Size(75, 24);
+            this.btn_TimChuDe.Size = new System.Drawing.Size(75, 29);
             this.btn_TimChuDe.TabIndex = 2;
             this.btn_TimChuDe.Text = "Tìm";
             this.btn_TimChuDe.UseVisualStyleBackColor = true;
@@ -1997,7 +1998,7 @@
             this.flp_StatusUser.Controls.Add(this.lbe_Hello);
             this.flp_StatusUser.Controls.Add(this.lbl_Username);
             this.flp_StatusUser.Controls.Add(this.btn_Logout);
-            this.flp_StatusUser.Location = new System.Drawing.Point(1066, 7);
+            this.flp_StatusUser.Location = new System.Drawing.Point(1054, 8);
             this.flp_StatusUser.Name = "flp_StatusUser";
             this.flp_StatusUser.Size = new System.Drawing.Size(192, 34);
             this.flp_StatusUser.TabIndex = 9;
