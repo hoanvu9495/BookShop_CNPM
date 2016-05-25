@@ -1943,7 +1943,7 @@
             this.flp_StatusUser.Controls.Add(this.lbe_Hello);
             this.flp_StatusUser.Controls.Add(this.lbl_Username);
             this.flp_StatusUser.Controls.Add(this.btn_Logout);
-            this.flp_StatusUser.Location = new System.Drawing.Point(1030, 10);
+            this.flp_StatusUser.Location = new System.Drawing.Point(1018, 11);
             this.flp_StatusUser.Name = "flp_StatusUser";
             this.flp_StatusUser.Size = new System.Drawing.Size(192, 34);
             this.flp_StatusUser.TabIndex = 9;

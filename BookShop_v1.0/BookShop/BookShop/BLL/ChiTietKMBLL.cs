@@ -31,7 +31,7 @@ namespace BookShop.BLL
         {
             DBConnection db = new DBConnection();
             DataGridView data = new DataGridView();
-            var item = db.CHITIETKMs.Where(n => n.ID_KM == id).ToList();
+            var item = db.CHITIETKMs.Where(n => n.ID_KM == id).Select(n => new {n.ID_KM,n.ID_SACH,n.SACH.TEN,n.PTKM}).ToList();
             data.DataSource = item;
             return data;
         }

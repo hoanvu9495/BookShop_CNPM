@@ -531,6 +531,8 @@ namespace BookShop
         {
             dgv_CTKM.DataSource = null;
             dgv_CTKM.DataSource = ChiTietKMBLL.getCTKM(Makm).DataSource;
+            dgv_CTKM.Columns[1].Visible = false;
+            dgv_CTKM.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
 
         private void dgv_AllSach_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -542,7 +544,7 @@ namespace BookShop
             txt_TenKM.Text = dgv_AllKM.Rows[e.RowIndex].Cells[1].Value.ToString();
             dtp_NgBatDauKM.Value = DateTime.Parse(dgv_AllKM.Rows[e.RowIndex].Cells[2].Value.ToString());
             dtp_NgKetThucKM.Value = DateTime.Parse(dgv_AllKM.Rows[e.RowIndex].Cells[3].Value.ToString());
-            dgv_CTKM.DataSource = ChiTietKMBLL.getCTKM(id).DataSource;
+            loadCTKM();
             btn_ThemSachKM.Enabled = false;
 
         }
@@ -570,9 +572,13 @@ namespace BookShop
         /// <param name="e"></param>
         private void dgv_CTKM_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            indexRowCTKM = e.RowIndex;
+            if (e.RowIndex>=0)
+            {
+                indexRowCTKM = e.RowIndex;
+            }
+            
             cbx_SachKM.SelectedValue = dgv_CTKM.Rows[indexRowCTKM].Cells[1].Value;
-            txt_PtKM.Text = dgv_CTKM.Rows[indexRowCTKM].Cells[2].Value.ToString();
+            txt_PtKM.Text = dgv_CTKM.Rows[indexRowCTKM].Cells[3].Value.ToString();
         }
         /// <summary>
         /// Sửa phần trăm khuyến mại cho sách trong khuyến mại

@@ -67,7 +67,7 @@ namespace BookShop.BLL
         {
             var db = new DBConnection();
             var data = new DataGridView();
-            var item = db.KHUYENMAIs.Where(n=>n.ISDELETE!=true).ToList();
+            var item = db.KHUYENMAIs.Where(n => n.ISDELETE != true).ToList();
             data.DataSource = item;
             return data;
         }
