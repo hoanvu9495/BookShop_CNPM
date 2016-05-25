@@ -25,13 +25,13 @@ namespace BookShop
         private void Form1_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'BOOKSHOPDataSetShowKM.CHITIETKM' table. You can move, or remove it, as needed.
-            this.CHITIETKMTableAdapter.Fill(this.BOOKSHOPDataSetShowKM.CHITIETKM);
+
 
             tcl_Home.TabPages.Remove(tpe_Function);
             tcl_Function.TabPages.Remove(tpe_Account);
             tcl_Home.SelectedTab = tpe_Home;
             tcl_Function.TabPages.Remove(tpe_Account2);
-            this.reportViewer1.RefreshReport();
+
         }
 
 
@@ -757,7 +757,7 @@ namespace BookShop
         {
             indexRowCTHD = e.RowIndex;
             cbx_Sach.SelectedValue = int.Parse(dgv_CTHD.Rows[indexRowCTHD].Cells[1].Value.ToString());
-            txt_SLSach.Text = dgv_CTHD.Rows[indexRowCTHD].Cells[2].Value.ToString();
+            txt_SLSach.Text = dgv_CTHD.Rows[indexRowCTHD].Cells[5].Value.ToString();
             btn_ThemSachHD.Enabled = false;
             btn_SuaCTHD.Enabled = true;
             btn_XoaCTHD.Enabled = true;

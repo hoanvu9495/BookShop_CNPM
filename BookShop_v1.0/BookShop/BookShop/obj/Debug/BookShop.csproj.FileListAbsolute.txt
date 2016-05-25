@@ -66,5 +66,3 @@ E:\TAI LIEU HOC TAP\Tai lieu hoc ky 6\Cong nghe phan mem\PhanMem GIT\BookShop_CN
 E:\TAI LIEU HOC TAP\Tai lieu hoc ky 6\Cong nghe phan mem\PhanMem GIT\BookShop_CNPM\BookShop_v1.0\BookShop\BookShop\obj\Debug\BookShop.Form1.resources
 E:\TAI LIEU HOC TAP\Tai lieu hoc ky 6\Cong nghe phan mem\PhanMem GIT\BookShop_CNPM\BookShop_v1.0\BookShop\BookShop\obj\Debug\BookShop.Properties.Resources.resources
 E:\TAI LIEU HOC TAP\Tai lieu hoc ky 6\Cong nghe phan mem\PhanMem GIT\BookShop_CNPM\BookShop_v1.0\BookShop\BookShop\obj\Debug\BookShop.csproj.GenerateResource.Cache
-E:\TAI LIEU HOC TAP\Tai lieu hoc ky 6\Cong nghe phan mem\PhanMem GIT\BookShop_CNPM\BookShop_v1.0\BookShop\BookShop\obj\Debug\RdlCompile.cache
-E:\TAI LIEU HOC TAP\Tai lieu hoc ky 6\Cong nghe phan mem\PhanMem GIT\BookShop_CNPM\BookShop_v1.0\BookShop\BookShop\obj\Debug\RdlCompile.compiled

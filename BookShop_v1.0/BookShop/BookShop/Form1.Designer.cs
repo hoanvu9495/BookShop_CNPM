@@ -192,13 +192,6 @@
             this.btn_Logout = new System.Windows.Forms.Button();
             this.flp_StatusUser = new System.Windows.Forms.FlowLayoutPanel();
             this.imageList2 = new System.Windows.Forms.ImageList(this.components);
-            this.bOOKSHOPDataSetHoaDon = new BookShop.BOOKSHOPDataSetHoaDon();
-            this.hOADONBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.hOADONTableAdapter = new BookShop.BOOKSHOPDataSetHoaDonTableAdapters.HOADONTableAdapter();
-            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.BOOKSHOPDataSetShowKM = new BookShop.BOOKSHOPDataSetShowKM();
-            this.CHITIETKMBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.CHITIETKMTableAdapter = new BookShop.BOOKSHOPDataSetShowKMTableAdapters.CHITIETKMTableAdapter();
             this.tcl_Home.SuspendLayout();
             this.tpe_Function.SuspendLayout();
             this.tcl_Function.SuspendLayout();
@@ -225,10 +218,6 @@
             this.tpe_Promotion.SuspendLayout();
             this.tpe_Login.SuspendLayout();
             this.flp_StatusUser.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bOOKSHOPDataSetHoaDon)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.hOADONBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BOOKSHOPDataSetShowKM)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CHITIETKMBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tcl_Home
@@ -1788,7 +1777,6 @@
             // 
             // tpe_Promotion
             // 
-            this.tpe_Promotion.Controls.Add(this.reportViewer1);
             this.tpe_Promotion.Location = new System.Drawing.Point(4, 32);
             this.tpe_Promotion.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.tpe_Promotion.Name = "tpe_Promotion";
@@ -1963,46 +1951,7 @@
             this.imageList2.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList2.ImageStream")));
             this.imageList2.TransparentColor = System.Drawing.Color.Transparent;
             this.imageList2.Images.SetKeyName(0, "creation.jpg");
-            // 
-            // bOOKSHOPDataSetHoaDon
-            // 
-            this.bOOKSHOPDataSetHoaDon.DataSetName = "BOOKSHOPDataSetHoaDon";
-            this.bOOKSHOPDataSetHoaDon.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // hOADONBindingSource
-            // 
-            this.hOADONBindingSource.DataMember = "HOADON";
-            this.hOADONBindingSource.DataSource = this.bOOKSHOPDataSetHoaDon;
-            // 
-            // hOADONTableAdapter
-            // 
-            this.hOADONTableAdapter.ClearBeforeFill = true;
-            // 
-            // reportViewer1
-            // 
-            this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            reportDataSource1.Name = "DataSetShowKM";
-            reportDataSource1.Value = this.CHITIETKMBindingSource;
-            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
-            this.reportViewer1.LocalReport.ReportEmbeddedResource = "BookShop.Report1.rdlc";
-            this.reportViewer1.Location = new System.Drawing.Point(5, 4);
-            this.reportViewer1.Name = "reportViewer1";
-            this.reportViewer1.Size = new System.Drawing.Size(1222, 606);
-            this.reportViewer1.TabIndex = 0;
-            // 
-            // BOOKSHOPDataSetShowKM
-            // 
-            this.BOOKSHOPDataSetShowKM.DataSetName = "BOOKSHOPDataSetShowKM";
-            this.BOOKSHOPDataSetShowKM.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // CHITIETKMBindingSource
-            // 
-            this.CHITIETKMBindingSource.DataMember = "CHITIETKM";
-            this.CHITIETKMBindingSource.DataSource = this.BOOKSHOPDataSetShowKM;
-            // 
-            // CHITIETKMTableAdapter
-            // 
-            this.CHITIETKMTableAdapter.ClearBeforeFill = true;
+
             // 
             // Form1
             // 
@@ -2059,10 +2008,7 @@
             this.tpe_Login.PerformLayout();
             this.flp_StatusUser.ResumeLayout(false);
             this.flp_StatusUser.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bOOKSHOPDataSetHoaDon)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.hOADONBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BOOKSHOPDataSetShowKM)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CHITIETKMBindingSource)).EndInit();
+
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2231,13 +2177,7 @@
         private System.Windows.Forms.Label lbl_StatusPublisher;
         private System.Windows.Forms.DataGridViewTextBoxColumn STT_P;
         private System.Windows.Forms.ComboBox cbx_StatusPublisher;
-        private BOOKSHOPDataSetHoaDon bOOKSHOPDataSetHoaDon;
-        private System.Windows.Forms.BindingSource hOADONBindingSource;
-        private BOOKSHOPDataSetHoaDonTableAdapters.HOADONTableAdapter hOADONTableAdapter;
-        private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
-        private System.Windows.Forms.BindingSource CHITIETKMBindingSource;
-        private BOOKSHOPDataSetShowKM BOOKSHOPDataSetShowKM;
-        private BOOKSHOPDataSetShowKMTableAdapters.CHITIETKMTableAdapter CHITIETKMTableAdapter;
+
     }
 }
 
