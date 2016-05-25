@@ -973,6 +973,248 @@ namespace BookShop
             }
             if (!btn_AddNewPublisher.Visible) btn_UpdatePublisher.Enabled = true;
         }
+        /////////////////////////////////Sơn?????????????????????////
+        //id row đang chọn bảng BOOK
+        public int indexRowSach;
+        int indexrowTacgia;
+        int indexrowhdnhap;
+        string biasach;
+        OpenFileDialog ofd = new OpenFileDialog();
+        /// <summary>
+        /// load dữ liệu
+        /// </summary>
+        public void loadBook()
+        {
+            txt_BookID.Text = BookBLL.loadID().ToString();
+            dgv_Book.DataSource = BookBLL.getAllBook().DataSource;
+            cbx_themes.DataSource = BookBLL.getChudeCBX();
+            cbx_themes.ValueMember = "ID";
+            cbx_themes.DisplayMember = "TEN";
+            cbx_nxb.DataSource = BookBLL.getNxbCBX();
+            cbx_nxb.ValueMember = "ID";
+            cbx_nxb.DisplayMember = "TEN";
+        }
+        /// <summary>
+        /// Doubleclickcell hiển thị thông tin tương ứng 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void dgv_Book_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+        /// <summary>
+        /// lấy dữ liệu từ datagridview
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void tpe_Book_Click(object sender, EventArgs e)
+        {
+            dgv_Book.DataSource = BookBLL.getAllBook().DataSource;
+        }
+        /// <summary>
+        /// Load dữ liệu lên datagridview
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btn_loaddataBook_Click(object sender, EventArgs e)
+        {
+            loadBook();
+        }
+        /// <summary>
+        /// Chọn ảnh cho sách
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btn_openPicture_Click(object sender, EventArgs e)
+        {
+
+        }
+        /// <summary>
+        /// Tạo 1 cuốn sách mới
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btn_CreateBook_Click(object sender, EventArgs e)
+        {
+
+        }
+        /// <summary>
+        /// Sửa thông tin 1 cuốn sách
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btn_updateBook_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+        /// <summary>
+        /// Load thông tin tác giả
+        /// </summary>
+        public void loadAuthor()
+        {
+            txt_AuthorID.Text = AuthorBLL.loadID().ToString();
+            dgv_Author.DataSource = AuthorBLL.getAllAuthor().DataSource;
+
+        }
+        /// <summary>
+        /// load
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btn_loadAuthor_Click(object sender, EventArgs e)
+        {
+            loadAuthor();
+        }
+        /// <summary>
+        /// Đưa thông tin tác giả lên datagridview
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void dgv_Author_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+        /// <summary>
+        /// Cập nhật thông tin tác giả
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btn_Update_Click(object sender, EventArgs e)
+        {
+
+        }
+        /// <summary>
+        /// Xóa 1 tác giả
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btn_Delete_Click(object sender, EventArgs e)
+        {
+
+        }
+        /// <summary>
+        /// Thêm mới 1 tác giả
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btn_AuthorInsert_Click(object sender, EventArgs e)
+        {
+
+        }
+        /// <summary>
+        /// ngưng bán 1 cuốn sách
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btn_stopBook_Click(object sender, EventArgs e)
+        {
+
+        }
+        /// <summary>
+        /// tìm kiếm 1 cuốn sách nào đó theo thông tin sẵn có
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btn_bookSearch_Click(object sender, EventArgs e)
+        {
+
+        }
+        /// <summary>
+        /// Tìm kiếm tác giả
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btn_AuthorSearch_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        /// <summary>
+        /// Load thông tin tác giả
+        /// </summary>
+        public void loadbill()
+        {
+            txt_billID.Text = BillBLL.loadID().ToString();
+            dgv_Bill.DataSource = BillBLL.getAllBill().DataSource;
+            cbx_billNXB.DataSource = BillBLL.getNxbCBX();
+            cbx_billNXB.ValueMember = "ID";
+            cbx_billNXB.DisplayMember = "TEN";
+        }
+        /// <summary>
+        /// load
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btn_loadBill_Click(object sender, EventArgs e)
+        {
+            loadbill();
+        }
+        /// <summary>
+        /// Đưa thông tin phiếu nhập lên datagridview
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void dgv_Bill_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            indexrowhdnhap = e.RowIndex;
+            txt_billID.Text = dgv_Bill.Rows[indexrowhdnhap].Cells[0].Value.ToString();
+            cbx_billNXB.SelectedValue = dgv_Bill.Rows[indexrowhdnhap].Cells[1].Value;
+            date_Bill.Text = dgv_Bill.Rows[indexrowhdnhap].Cells[2].Value.ToString();
+            txt_billSl.Text = dgv_Bill.Rows[indexrowhdnhap].Cells[3].Value.ToString();
+        }
+        /// <summary>
+        /// Cập nhật thông tin phiếu nhập
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btn_billUpdate_Click(object sender, EventArgs e)
+        {
+            int id_nxb = int.Parse(cbx_billNXB.SelectedValue.ToString());
+            DateTime ngay = DateTime.Parse(date_Bill.Text);
+            BillBLL.updateBill(int.Parse(txt_billID.Text), id_nxb, ngay, int.Parse(txt_billSl.Text));
+            dgv_Bill.DataSource = BillBLL.getAllBill().DataSource;
+        }
+        /// <summary>
+        /// Xóa 1 phiếu nhập
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btn_billDelete_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Xóa?", "Question", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                BillBLL.deleteBill(int.Parse(txt_billID.Text));
+                dgv_Bill.DataSource = BillBLL.getAllBill().DataSource;
+            }
+            else
+            {
+                this.Activate();
+            }
+        }
+        /// <summary>
+        /// Thêm mới 1 phiếu nhập
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btn_billCreate_Click(object sender, EventArgs e)
+        {
+            int _ID = int.Parse(txt_billID.Text);
+            BillBLL.createBill(_ID, int.Parse(cbx_billNXB.SelectedValue.ToString()), DateTime.Parse(date_Bill.Text), int.Parse(txt_billSl.Text));
+            dgv_Bill.DataSource = BillBLL.getAllBill().DataSource;
+        }
+
+        /// <summary>
+        /// tìm kiếm 1 phiếu nhập nào đó theo thông tin sẵn có
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btn_billSearch_Click(object sender, EventArgs e)
+        {
+            dgv_Bill.DataSource = BillBLL.searchBill(int.Parse(txt_billID.Text)).DataSource;
+        }
 
 
 

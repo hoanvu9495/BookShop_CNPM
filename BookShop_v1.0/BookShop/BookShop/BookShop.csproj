@@ -64,6 +64,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BLL\Account.cs" />
+    <Compile Include="BLL\AuthorBLL.cs" />
+    <Compile Include="BLL\BillBLL.cs" />
+    <Compile Include="BLL\BookBLL.cs" />
     <Compile Include="BLL\ChiTietHDBLL.cs" />
     <Compile Include="BLL\ChiTietKMBLL.cs" />
     <Compile Include="BLL\ChuDeBLL.cs" />
@@ -72,6 +75,9 @@
     <Compile Include="BLL\Publisher.cs" />
     <Compile Include="BLL\SachBLL.cs" />
     <Compile Include="DAL\AccountDataAccess.cs" />
+    <Compile Include="DAL\AuthorDataAccess.cs" />
+    <Compile Include="DAL\BillDataAccess.cs" />
+    <Compile Include="DAL\BookDataAccess.cs" />
     <Compile Include="DAL\HoaDonDAL.cs" />
     <Compile Include="DAL\PublisherDataAccess.cs" />
     <Compile Include="DAL\SachDAL.cs" />
