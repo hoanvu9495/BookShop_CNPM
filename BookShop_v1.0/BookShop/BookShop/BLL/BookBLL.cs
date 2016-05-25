@@ -59,8 +59,8 @@ namespace BookShop.BLL
         public static List<NHAXUATBAN> getNxbCBX()
         {
             var db = new DBConnection();
-            var lstcd = db.NHAXUATBANs.Where(n => n.ISDELETE != true).ToList();
-            return lstcd;
+            var lstnxb = db.NHAXUATBANs.Where(n => n.ISDELETE != true).ToList();
+            return lstnxb;
         }
         /// <summary>
         /// Sửa thông tin 1 cuốn sách

@@ -14,7 +14,6 @@ namespace BookShop.Entities
         {
             CHITIETHOADONs = new HashSet<CHITIETHOADON>();
             CHITIETKMs = new HashSet<CHITIETKM>();
-            CHITIETPHIEUNHAPs = new HashSet<CHITIETPHIEUNHAP>();
             VIETSACHes = new HashSet<VIETSACH>();
         }
 
@@ -51,9 +50,6 @@ namespace BookShop.Entities
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CHITIETKM> CHITIETKMs { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CHITIETPHIEUNHAP> CHITIETPHIEUNHAPs { get; set; }
 
         public virtual CHUDE CHUDE { get; set; }
 

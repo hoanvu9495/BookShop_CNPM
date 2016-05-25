@@ -66,3 +66,16 @@ E:\TAI LIEU HOC TAP\Tai lieu hoc ky 6\Cong nghe phan mem\PhanMem GIT\BookShop_CN
 E:\TAI LIEU HOC TAP\Tai lieu hoc ky 6\Cong nghe phan mem\PhanMem GIT\BookShop_CNPM\BookShop_v1.0\BookShop\BookShop\obj\Debug\BookShop.Form1.resources
 E:\TAI LIEU HOC TAP\Tai lieu hoc ky 6\Cong nghe phan mem\PhanMem GIT\BookShop_CNPM\BookShop_v1.0\BookShop\BookShop\obj\Debug\BookShop.Properties.Resources.resources
 E:\TAI LIEU HOC TAP\Tai lieu hoc ky 6\Cong nghe phan mem\PhanMem GIT\BookShop_CNPM\BookShop_v1.0\BookShop\BookShop\obj\Debug\BookShop.csproj.GenerateResource.Cache
+C:\Users\mhong\Documents\github\BookShop_CNPM\BookShop_v1.0\BookShop\BookShop\bin\Debug\BookShop.exe.config
+C:\Users\mhong\Documents\github\BookShop_CNPM\BookShop_v1.0\BookShop\BookShop\obj\Debug\BookShop.exe
+C:\Users\mhong\Documents\github\BookShop_CNPM\BookShop_v1.0\BookShop\BookShop\obj\Debug\BookShop.pdb
+C:\Users\mhong\Documents\github\BookShop_CNPM\BookShop_v1.0\BookShop\BookShop\bin\Debug\BookShop.exe
+C:\Users\mhong\Documents\github\BookShop_CNPM\BookShop_v1.0\BookShop\BookShop\bin\Debug\BookShop.pdb
+C:\Users\mhong\Documents\github\BookShop_CNPM\BookShop_v1.0\BookShop\BookShop\bin\Debug\EntityFramework.dll
+C:\Users\mhong\Documents\github\BookShop_CNPM\BookShop_v1.0\BookShop\BookShop\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\mhong\Documents\github\BookShop_CNPM\BookShop_v1.0\BookShop\BookShop\bin\Debug\EntityFramework.xml
+C:\Users\mhong\Documents\github\BookShop_CNPM\BookShop_v1.0\BookShop\BookShop\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\mhong\Documents\github\BookShop_CNPM\BookShop_v1.0\BookShop\BookShop\obj\Debug\BookShop.Form1.resources
+C:\Users\mhong\Documents\github\BookShop_CNPM\BookShop_v1.0\BookShop\BookShop\obj\Debug\BookShop.Properties.Resources.resources
+C:\Users\mhong\Documents\github\BookShop_CNPM\BookShop_v1.0\BookShop\BookShop\obj\Debug\BookShop.csproj.GenerateResource.Cache
+C:\Users\mhong\Documents\github\BookShop_CNPM\BookShop_v1.0\BookShop\BookShop\obj\Debug\BookShop.csprojResolveAssemblyReference.cache

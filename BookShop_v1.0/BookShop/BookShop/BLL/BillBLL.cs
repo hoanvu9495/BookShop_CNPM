@@ -59,7 +59,7 @@ namespace BookShop.BLL
         /// <param name="id_nxb">mã nhà xuất bản</param>
         /// <param name="ngay">ngày nhập</param>
         /// <param name="sl"> số lượng</param>
-        public static void createBill(int id, int id_nxb, DateTime ngay, int sl)
+        public static void createBill(int id, int id_nxb, DateTime ngay, int sl,string tensach,string slct)
         {
             DBConnection db = new DBConnection();
             PHIEUNHAP pn = new PHIEUNHAP();
@@ -67,6 +67,8 @@ namespace BookShop.BLL
             pn.ID_NXB = id_nxb;
             pn.NGAYNHAP = ngay;
             pn.SOLUONG = sl;
+            pn.TENSACH = tensach;
+            pn.SOLUONGCT = slct;
             pn.ISDELETE = true;
             db.PHIEUNHAPs.Attach(pn);
             db.PHIEUNHAPs.Add(pn);
@@ -79,7 +81,7 @@ namespace BookShop.BLL
         /// <param name="id_nxb">mã nhà xuất bản</param>
         /// <param name="ngay">ngày nhập</param>
         /// <param name="sl"> số lượng</param>
-        public static void updateBill(int id, int id_nxb, DateTime ngay, int sl)
+        public static void updateBill(int id, int id_nxb, DateTime ngay, int sl, string tensach, string slct)
         {
             DBConnection db = new DBConnection();
             PHIEUNHAP pn = new PHIEUNHAP();
@@ -87,6 +89,8 @@ namespace BookShop.BLL
             pn.ID_NXB = id_nxb;
             pn.NGAYNHAP = ngay;
             pn.SOLUONG = sl;
+            pn.TENSACH = tensach;
+            pn.SOLUONGCT = slct;
             pn.ISDELETE = true;
             db.PHIEUNHAPs.Attach(pn);
             var entry = db.Entry(pn);

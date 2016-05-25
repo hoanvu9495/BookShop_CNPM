@@ -8,14 +8,13 @@ namespace BookShop.Entities
     public partial class DBConnection : DbContext
     {
         public DBConnection()
-            : base("name=DBConnection")
+            : base("name=DBconnection")
         {
         }
 
         public virtual DbSet<CHITIETDATHANG> CHITIETDATHANGs { get; set; }
         public virtual DbSet<CHITIETHOADON> CHITIETHOADONs { get; set; }
         public virtual DbSet<CHITIETKM> CHITIETKMs { get; set; }
-        public virtual DbSet<CHITIETPHIEUNHAP> CHITIETPHIEUNHAPs { get; set; }
         public virtual DbSet<CHUDE> CHUDEs { get; set; }
         public virtual DbSet<DATHANG> DATHANGs { get; set; }
         public virtual DbSet<HOADON> HOADONs { get; set; }
@@ -61,10 +60,12 @@ namespace BookShop.Entities
 
             modelBuilder.Entity<NHANVIEN>()
                 .Property(e => e.SDT)
+                .IsFixedLength()
                 .IsUnicode(false);
 
             modelBuilder.Entity<NHANVIEN>()
                 .Property(e => e.MATKHAU)
+                .IsFixedLength()
                 .IsUnicode(false);
 
             modelBuilder.Entity<NHANVIEN>()
@@ -98,10 +99,8 @@ namespace BookShop.Entities
                 .HasForeignKey(e => e.ID_QUYEN);
 
             modelBuilder.Entity<PHIEUNHAP>()
-                .HasMany(e => e.CHITIETPHIEUNHAPs)
-                .WithRequired(e => e.PHIEUNHAP)
-                .HasForeignKey(e => e.ID_PN)
-                .WillCascadeOnDelete(false);
+                .Property(e => e.SOLUONGCT)
+                .IsUnicode(false);
 
             modelBuilder.Entity<SACH>()
                 .Property(e => e.BIA)
@@ -120,12 +119,6 @@ namespace BookShop.Entities
 
             modelBuilder.Entity<SACH>()
                 .HasMany(e => e.CHITIETKMs)
-                .WithRequired(e => e.SACH)
-                .HasForeignKey(e => e.ID_SACH)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<SACH>()
-                .HasMany(e => e.CHITIETPHIEUNHAPs)
                 .WithRequired(e => e.SACH)
                 .HasForeignKey(e => e.ID_SACH)
                 .WillCascadeOnDelete(false);

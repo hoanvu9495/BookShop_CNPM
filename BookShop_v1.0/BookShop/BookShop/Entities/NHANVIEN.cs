@@ -24,13 +24,13 @@ namespace BookShop.Entities
 
         public DateTime? NGAYSINH { get; set; }
 
-        [StringLength(50)]
+        [StringLength(13)]
         public string SDT { get; set; }
 
         [StringLength(20)]
         public string TENDANGNHAP { get; set; }
 
-        [StringLength(50)]
+        [StringLength(10)]
         public string MATKHAU { get; set; }
 
         public int? ID_QUYEN { get; set; }

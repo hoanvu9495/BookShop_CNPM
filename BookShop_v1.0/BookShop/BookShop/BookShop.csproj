@@ -84,7 +84,6 @@
     <Compile Include="Entities\CHITIETDATHANG.cs" />
     <Compile Include="Entities\CHITIETHOADON.cs" />
     <Compile Include="Entities\CHITIETKM.cs" />
-    <Compile Include="Entities\CHITIETPHIEUNHAP.cs" />
     <Compile Include="Entities\CHUDE.cs" />
     <Compile Include="Entities\DATHANG.cs" />
     <Compile Include="Entities\DBConnection.cs" />

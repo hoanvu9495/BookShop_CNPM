@@ -66,7 +66,11 @@
             this.btn_billUpdate = new System.Windows.Forms.Button();
             this.btn_billCreate = new System.Windows.Forms.Button();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.txt_billBook = new System.Windows.Forms.TextBox();
+            this.label62 = new System.Windows.Forms.Label();
+            this.txt_billSLS = new System.Windows.Forms.TextBox();
             this.label42 = new System.Windows.Forms.Label();
+            this.label61 = new System.Windows.Forms.Label();
             this.label43 = new System.Windows.Forms.Label();
             this.label44 = new System.Windows.Forms.Label();
             this.label45 = new System.Windows.Forms.Label();
@@ -700,7 +704,11 @@
             // 
             // groupBox6
             // 
+            this.groupBox6.Controls.Add(this.txt_billBook);
+            this.groupBox6.Controls.Add(this.label62);
+            this.groupBox6.Controls.Add(this.txt_billSLS);
             this.groupBox6.Controls.Add(this.label42);
+            this.groupBox6.Controls.Add(this.label61);
             this.groupBox6.Controls.Add(this.label43);
             this.groupBox6.Controls.Add(this.label44);
             this.groupBox6.Controls.Add(this.label45);
@@ -712,9 +720,34 @@
             this.groupBox6.Controls.Add(this.txt_billID);
             this.groupBox6.Location = new System.Drawing.Point(144, 36);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(663, 100);
+            this.groupBox6.Size = new System.Drawing.Size(905, 100);
             this.groupBox6.TabIndex = 5;
             this.groupBox6.TabStop = false;
+            // 
+            // txt_billBook
+            // 
+            this.txt_billBook.Location = new System.Drawing.Point(722, 15);
+            this.txt_billBook.Multiline = true;
+            this.txt_billBook.Name = "txt_billBook";
+            this.txt_billBook.Size = new System.Drawing.Size(165, 79);
+            this.txt_billBook.TabIndex = 11;
+            // 
+            // label62
+            // 
+            this.label62.AutoSize = true;
+            this.label62.Location = new System.Drawing.Point(502, 22);
+            this.label62.Name = "label62";
+            this.label62.Size = new System.Drawing.Size(47, 19);
+            this.label62.TabIndex = 8;
+            this.label62.Text = "SLCT";
+            // 
+            // txt_billSLS
+            // 
+            this.txt_billSLS.Location = new System.Drawing.Point(555, 15);
+            this.txt_billSLS.Multiline = true;
+            this.txt_billSLS.Name = "txt_billSLS";
+            this.txt_billSLS.Size = new System.Drawing.Size(116, 27);
+            this.txt_billSLS.TabIndex = 10;
             // 
             // label42
             // 
@@ -724,6 +757,15 @@
             this.label42.Size = new System.Drawing.Size(30, 19);
             this.label42.TabIndex = 5;
             this.label42.Text = "Mã";
+            // 
+            // label61
+            // 
+            this.label61.AutoSize = true;
+            this.label61.Location = new System.Drawing.Point(677, 22);
+            this.label61.Name = "label61";
+            this.label61.Size = new System.Drawing.Size(39, 19);
+            this.label61.TabIndex = 7;
+            this.label61.Text = "Sách";
             // 
             // label43
             // 
@@ -756,7 +798,7 @@
             // 
             this.txt_billSearch.Location = new System.Drawing.Point(396, 68);
             this.txt_billSearch.Name = "txt_billSearch";
-            this.txt_billSearch.Size = new System.Drawing.Size(243, 26);
+            this.txt_billSearch.Size = new System.Drawing.Size(275, 26);
             this.txt_billSearch.TabIndex = 4;
             // 
             // btn_billSearch
@@ -1181,6 +1223,7 @@
             this.btn_loadAuthor.TabIndex = 3;
             this.btn_loadAuthor.Text = "Load";
             this.btn_loadAuthor.UseVisualStyleBackColor = true;
+            this.btn_loadAuthor.Click += new System.EventHandler(this.btn_loadAuthor_Click);
             // 
             // btn_AuthorInsert
             // 
@@ -1192,6 +1235,7 @@
             this.btn_AuthorInsert.TabIndex = 3;
             this.btn_AuthorInsert.Text = "+Thêm mới";
             this.btn_AuthorInsert.UseVisualStyleBackColor = true;
+            this.btn_AuthorInsert.Click += new System.EventHandler(this.btn_AuthorInsert_Click);
             // 
             // txt_AuthorDC
             // 
@@ -1231,6 +1275,7 @@
             this.btn_AuthorDelete.TabIndex = 2;
             this.btn_AuthorDelete.Text = "Xóa";
             this.btn_AuthorDelete.UseVisualStyleBackColor = true;
+            this.btn_AuthorDelete.Click += new System.EventHandler(this.btn_Delete_Click);
             // 
             // btn_AuthorUpdate
             // 
@@ -1241,6 +1286,7 @@
             this.btn_AuthorUpdate.TabIndex = 2;
             this.btn_AuthorUpdate.Text = "Sửa";
             this.btn_AuthorUpdate.UseVisualStyleBackColor = true;
+            this.btn_AuthorUpdate.Click += new System.EventHandler(this.btn_Update_Click);
             // 
             // label57
             // 
@@ -1291,6 +1337,7 @@
             this.btn_AuthorSearch.TabIndex = 9;
             this.btn_AuthorSearch.Text = "Tìm";
             this.btn_AuthorSearch.UseVisualStyleBackColor = true;
+            this.btn_AuthorSearch.Click += new System.EventHandler(this.btn_AuthorSearch_Click);
             // 
             // dgv_Author
             // 
@@ -1301,6 +1348,7 @@
             this.dgv_Author.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_Author.Size = new System.Drawing.Size(949, 234);
             this.dgv_Author.TabIndex = 6;
+            this.dgv_Author.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_Author_CellDoubleClick);
             // 
             // txt_AuthorSearch
             // 
@@ -2182,6 +2230,7 @@
             this.dgv_Book.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_Book.Size = new System.Drawing.Size(559, 236);
             this.dgv_Book.TabIndex = 1;
+            this.dgv_Book.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_Book_CellDoubleClick);
             // 
             // groupBox8
             // 
@@ -2211,6 +2260,7 @@
             this.btn_stopBook.TabIndex = 4;
             this.btn_stopBook.Text = "Ngưng bán";
             this.btn_stopBook.UseVisualStyleBackColor = true;
+            this.btn_stopBook.Click += new System.EventHandler(this.btn_stopBook_Click);
             // 
             // txt_BookK
             // 
@@ -2229,6 +2279,7 @@
             this.btn_updateBook.TabIndex = 4;
             this.btn_updateBook.Text = "Sửa";
             this.btn_updateBook.UseVisualStyleBackColor = true;
+            this.btn_updateBook.Click += new System.EventHandler(this.btn_updateBook_Click);
             // 
             // btn_CreateBook
             // 
@@ -2240,6 +2291,7 @@
             this.btn_CreateBook.TabIndex = 4;
             this.btn_CreateBook.Text = "+Thêm";
             this.btn_CreateBook.UseVisualStyleBackColor = true;
+            this.btn_CreateBook.Click += new System.EventHandler(this.btn_CreateBook_Click);
             // 
             // txt_soTrang
             // 
@@ -2433,6 +2485,7 @@
             this.btn_openPicture.TabIndex = 4;
             this.btn_openPicture.Text = "...";
             this.btn_openPicture.UseVisualStyleBackColor = true;
+            this.btn_openPicture.Click += new System.EventHandler(this.btn_openPicture_Click);
             // 
             // txt_BookSt
             // 
@@ -2728,7 +2781,7 @@
             this.flp_StatusUser.Controls.Add(this.lbe_Hello);
             this.flp_StatusUser.Controls.Add(this.lbl_Username);
             this.flp_StatusUser.Controls.Add(this.btn_Logout);
-            this.flp_StatusUser.Location = new System.Drawing.Point(970, 15);
+            this.flp_StatusUser.Location = new System.Drawing.Point(946, 17);
             this.flp_StatusUser.Name = "flp_StatusUser";
             this.flp_StatusUser.Size = new System.Drawing.Size(192, 34);
             this.flp_StatusUser.TabIndex = 9;
@@ -3051,6 +3104,10 @@
         private System.Windows.Forms.Label label55;
         private System.Windows.Forms.Label label56;
         private System.Windows.Forms.PictureBox picBox_Bookimage;
+        private System.Windows.Forms.TextBox txt_billSLS;
+        private System.Windows.Forms.Label label61;
+        private System.Windows.Forms.Label label62;
+        private System.Windows.Forms.TextBox txt_billBook;
 
     }
 }
