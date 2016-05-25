@@ -24,14 +24,14 @@ namespace BookShop
         /// </summary>
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+
             tcl_Home.TabPages.Remove(tpe_Function);
             tcl_Function.TabPages.Remove(tpe_Account);
             tcl_Home.SelectedTab = tpe_Home;
             tcl_Function.TabPages.Remove(tpe_Account2);
         }
 
-       
+
 
         /// <summary>
         /// TODO: Select TabPage to Load Table
@@ -43,26 +43,26 @@ namespace BookShop
             switch (e.TabPage.TabIndex)
             {
                 case 1:
-                {
-                    break;
-                }
+                    {
+                        break;
+                    }
                 case 2:
-                {
+                    {
                         TabPageAccountLoad();
                         btn_UpdateAccount.Enabled = false;
                         break;
-                }
+                    }
                 case 8:
-                {
-                    TabPagePublisherLoad();
-                    break;
-                }
+                    {
+                        TabPagePublisherLoad();
+                        break;
+                    }
                 default:
-                {
-                    break;
-                }
+                    {
+                        break;
+                    }
             }
-            
+
         }
 
         /// <summary>
@@ -616,7 +616,9 @@ namespace BookShop
 
         private void btn_Xoa_Click(object sender, EventArgs e)
         {
-
+            HoaDonBLL.deleteHD(int.Parse(txt_MaHD.Text));
+            loadCTHD();
+            loadHD();
         }
         /// <summary>
         /// Sửa thông tin chi tiết hóa đơn
@@ -628,7 +630,7 @@ namespace BookShop
             int mahd = int.Parse(txt_MaHD.Text);
             int maSach = int.Parse(cbx_Sach.SelectedValue.ToString());
             int sl = int.Parse(txt_SLSach.Text);
-            if (listCTHD == null)
+            if (listCTHD.Count() == 0)
             {
 
                 ChiTietHDBLL.edit(mahd, maSach, sl);
@@ -649,17 +651,20 @@ namespace BookShop
         /// </summary>
         public void loadCTHD()
         {
-            if (listCTHD != null)
+            if (listCTHD.Count() != 0)
             {
                 dgv_CTHD.DataSource = null;
                 dgv_CTHD.DataSource = listCTHD;
+                txt_TongTienHD.Text = HoaDonBLL.tongTienHD(listCTHD).ToString();
             }
             else
             {
+
                 dgv_CTHD.DataSource = null;
-                dgv_CTHD.DataSource = ChiTietHDBLL.getCTHDByID(MaHD);
+                dgv_CTHD.DataSource = ChiTietHDBLL.getCTHDByID(MaHD).DataSource;
+                txt_TongTienHD.Text = dgv_AllHD.Rows[indexRowAllHD].Cells[5].Value.ToString();
             }
-            txt_TongTienHD.Text = HoaDonBLL.tongTienHD(listCTHD).ToString();
+
         }
         /// <summary>
         /// Load thông tin liên quan đến hóa đơn lên tabpage
@@ -670,20 +675,15 @@ namespace BookShop
             cbx_Sach.DataSource = SachBLL.getSach();
             cbx_Sach.DisplayMember = "TEN";
             cbx_Sach.ValueMember = "ID";
-            dgv_AllHD.DataSource = HoaDonBLL.getAllHD();
+            dgv_AllHD.DataSource = HoaDonBLL.getAllHD().DataSource;
+            dgv_AllHD.Columns[1].Visible = false;
+            dgv_AllHD.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgv_AllHD.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
+            dgv_AllHD.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
             txt_MaHD.Text = HoaDonBLL.getMaHD().ToString();
             btn_SuaCTHD.Enabled = false;
             btn_Xoa.Enabled = false;
             btn_SuaCTHD.Enabled = false;
-            //if (txt_SLSach.Text.Count()==0||cbx_Sach.SelectedValue==null)
-            //{
-            //    btn_ThemSachHD.Enabled = false;
-            //}
-            //else
-            //{
-            //    btn_ThemSachHD.Enabled = true;
-            //}
-            MaHD = int.Parse(txt_MaHD.Text);
 
         }
 
@@ -706,20 +706,35 @@ namespace BookShop
         /// <param name="e"></param>
         private void btn_ThemSachHD_Click(object sender, EventArgs e)
         {
-            CHITIETHOADON cthd = new CHITIETHOADON();
-            cthd.ID_HD = int.Parse(txt_MaHD.Text);
-            cthd.ID_SACH = int.Parse(cbx_Sach.SelectedValue.ToString());
-            cthd.SOLUONG = int.Parse(txt_SLSach.Text);
-            cthd.GIA = SachBLL.getSachID(int.Parse(cbx_Sach.SelectedValue.ToString())).GIABAN;
-            cthd.PTKM = ChiTietKMBLL.getPTKMIDSach(int.Parse(cbx_Sach.SelectedValue.ToString()));
-            cthd.ISDELETE = false;
-            listCTHD.Add(cthd);
-            dgv_CTHD.DataSource = null;
-            dgv_CTHD.DataSource = listCTHD;
-
-            txt_SLSach.ResetText();
-            cbx_Sach.ResetText();
-            loadCTHD();
+            int sl;
+            if (txt_SLSach.Text.Count()>0 && int.TryParse(txt_SLSach.Text,out sl))
+            {
+                if (listCTHD.Where(n => n.ID_SACH == int.Parse(cbx_Sach.SelectedValue.ToString())).SingleOrDefault() == null && !ChiTietHDBLL.Is_CTHD(MaHD, int.Parse(cbx_Sach.SelectedValue.ToString())))
+                {
+                    CHITIETHOADON cthd = new CHITIETHOADON();
+                    cthd.ID_HD = int.Parse(txt_MaHD.Text);
+                    cthd.ID_SACH = int.Parse(cbx_Sach.SelectedValue.ToString());
+                    cthd.SOLUONG = int.Parse(txt_SLSach.Text);
+                    cthd.GIA = SachBLL.getSachID(int.Parse(cbx_Sach.SelectedValue.ToString())).GIABAN;
+                    cthd.PTKM = ChiTietKMBLL.getPTKMIDSach(int.Parse(cbx_Sach.SelectedValue.ToString()));
+                    cthd.ISDELETE = false;
+                    listCTHD.Add(cthd);
+                    txt_SLSach.ResetText();
+                    cbx_Sach.ResetText();
+                    loadCTHD();
+                }
+                else
+                {
+                    MessageBox.Show("Cuốn sách này đã có trong hóa đơn");
+                    return;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Có lỗi , tại trường số lượng");
+            }
+            
+           
         }
 
         //Mã rows dgv_CTHD đang chọn
@@ -737,12 +752,13 @@ namespace BookShop
             btn_ThemSachHD.Enabled = false;
             btn_SuaCTHD.Enabled = true;
             btn_XoaCTHD.Enabled = true;
+            loadCTHD();
         }
 
         private void btn_XoaCTHD_Click(object sender, EventArgs e)
         {
             int maSach = int.Parse(dgv_CTHD.Rows[indexRowCTHD].Cells[1].Value.ToString());
-            if (listCTHD != null)
+            if (listCTHD.Count() != 0)
             {
                 var item = listCTHD.Where(n => n.ID_SACH == maSach).SingleOrDefault();
                 listCTHD.Remove(item);
@@ -760,6 +776,9 @@ namespace BookShop
             txt_SLSach.ResetText();
             btn_SuaCTHD.Enabled = false;
             btn_ThemSachHD.Enabled = true;
+            listCTHD.Clear();
+            dgv_CTHD.DataSource = null;
+            txt_TongTienHD.Text = "0";
         }
 
         private void btn_TimChuDe_Click(object sender, EventArgs e)
@@ -777,10 +796,30 @@ namespace BookShop
         {
             indexRowAllHD = e.RowIndex;
             txt_MaHD.Text = dgv_AllHD.Rows[indexRowAllHD].Cells[0].Value.ToString();
-            var nv= AccountDataAccess.GetItem(int.Parse(dgv_AllHD.Rows[indexRowAllHD].Cells[1].Value.ToString()));
+            var nv = AccountDataAccess.GetItem(int.Parse(dgv_AllHD.Rows[indexRowAllHD].Cells[1].Value.ToString()));
             txt_NhanVien.Text = nv.TEN;
+            MaHD = int.Parse(dgv_AllHD.Rows[indexRowAllHD].Cells[0].Value.ToString());
+            loadCTHD();
+            btn_Xoa.Enabled = true;
+
         }
 
+        /// <summary>
+        /// THêm mới 1 hóa đơn
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btn_ThemSach_Click(object sender, EventArgs e)
+        {
+            int idNV = _session.ID;
+            int sl = int.Parse(listCTHD.Select(n => n.SOLUONG).Sum().ToString());
+            string tongtien = txt_TongTienHD.Text;
+            HoaDonBLL.creatHD(txt_MaHD.Text, idNV, tongtien, sl, dtp_NgayHD.Value, listCTHD);
+            loadHD();
+            listCTHD.Clear();
+            loadCTKM();
+
+        }
         //================================== PUBLISHER ===============================================
 
         public void TabPagePublisherLoad()
@@ -874,7 +913,7 @@ namespace BookShop
 
         private void txt_PublisherName_TextChanged(object sender, EventArgs e)
         {
-            if(!btn_AddNewPublisher.Visible)btn_UpdatePublisher.Enabled = true;
+            if (!btn_AddNewPublisher.Visible) btn_UpdatePublisher.Enabled = true;
         }
 
         private void dgv_Publisher_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -926,6 +965,9 @@ namespace BookShop
             if (!btn_AddNewPublisher.Visible) btn_UpdatePublisher.Enabled = true;
         }
 
-      
+
+
+
+
     }
 }

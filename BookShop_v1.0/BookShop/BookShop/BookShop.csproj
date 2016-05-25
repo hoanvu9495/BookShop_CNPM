@@ -68,6 +68,16 @@
     <Compile Include="BLL\KhuyenMaiBLL.cs" />
     <Compile Include="BLL\Publisher.cs" />
     <Compile Include="BLL\SachBLL.cs" />
+    <Compile Include="BOOKSHOPDataSetCTHD.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BOOKSHOPDataSetCTHD.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="BOOKSHOPDataSetHoaDon.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BOOKSHOPDataSetHoaDon.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DAL\AccountDataAccess.cs" />
     <Compile Include="DAL\HoaDonDAL.cs" />
     <Compile Include="DAL\PublisherDataAccess.cs" />
@@ -110,6 +120,28 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="BOOKSHOPDataSetCTHD.xsc">
+      <DependentUpon>BOOKSHOPDataSetCTHD.xsd</DependentUpon>
+    </None>
+    <None Include="BOOKSHOPDataSetCTHD.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BOOKSHOPDataSetCTHD.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="BOOKSHOPDataSetCTHD.xss">
+      <DependentUpon>BOOKSHOPDataSetCTHD.xsd</DependentUpon>
+    </None>
+    <None Include="BOOKSHOPDataSetHoaDon.xsc">
+      <DependentUpon>BOOKSHOPDataSetHoaDon.xsd</DependentUpon>
+    </None>
+    <None Include="BOOKSHOPDataSetHoaDon.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BOOKSHOPDataSetHoaDon.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="BOOKSHOPDataSetHoaDon.xss">
+      <DependentUpon>BOOKSHOPDataSetHoaDon.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
