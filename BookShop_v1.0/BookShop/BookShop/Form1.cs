@@ -25,7 +25,16 @@ namespace BookShop
         private void Form1_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'BOOKSHOPDataSet1.VWTHONGTINKM' table. You can move, or remove it, as needed.
-            this.VWTHONGTINKMTableAdapter.Fill(this.BOOKSHOPDataSet1.VWTHONGTINKM);
+            try
+            {
+                this.VWTHONGTINKMTableAdapter.Fill(this.BOOKSHOPDataSet1.VWTHONGTINKM);
+            }
+            catch (Exception)
+            {
+                
+              
+            }
+            
             // TODO: This line of code loads data into the 'BOOKSHOPDataSet1.SACH' table. You can move, or remove it, as needed.
             this.SACHTableAdapter.Fill(this.BOOKSHOPDataSet1.SACH);
             // TODO: This line of code loads data into the 'BOOKSHOPDataSet1.NHAXUATBAN' table. You can move, or remove it, as needed.
@@ -72,6 +81,11 @@ namespace BookShop
                         btn_UpdateAccount.Enabled = false;
                         break;
                     }
+                case 4:
+                    {
+                        loadAuthor();
+                        break;
+                    }
                 case 6:
                     {
                         loadKM();
@@ -85,6 +99,11 @@ namespace BookShop
                 case 8:
                     {
                         TabPagePublisherLoad();
+                        break;
+                    }
+                case 9:
+                    {
+                        loadBook();
                         break;
                     }
                 default:

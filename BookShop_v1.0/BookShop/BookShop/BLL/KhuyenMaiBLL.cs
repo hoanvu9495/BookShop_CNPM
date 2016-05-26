@@ -94,13 +94,10 @@ namespace BookShop.BLL
         public void deleteKM(int makm)
         {
             var item = _db.CHITIETKMs.Where(n => n.ID_KM == makm).ToList();
-            foreach (CHITIETKM a in item){
-                a.ISDELETE= true;
-                _db.SaveChanges();
-            }
-            var km = _db.KHUYENMAIs.Find(makm);
-            if (km == null) return;
-            km.ISDELETE = true;
+            _db.CHITIETKMs.RemoveRange(item);
+            _db.SaveChanges();
+            var item1=_db.KHUYENMAIs.Where(n => n.ID == makm).SingleOrDefault();
+            _db.KHUYENMAIs.Remove(item1);
             _db.SaveChanges();
         }
         
