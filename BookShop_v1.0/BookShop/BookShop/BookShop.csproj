@@ -74,6 +74,11 @@
     <Compile Include="BLL\KhuyenMaiBLL.cs" />
     <Compile Include="BLL\Publisher.cs" />
     <Compile Include="BLL\SachBLL.cs" />
+    <Compile Include="BOOKSHOPDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BOOKSHOPDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DAL\AccountDataAccess.cs" />
     <Compile Include="DAL\AuthorDataAccess.cs" />
     <Compile Include="DAL\BillDataAccess.cs" />
@@ -118,6 +123,18 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Report1.rdlc" />
+    <None Include="BOOKSHOPDataSet.xsc">
+      <DependentUpon>BOOKSHOPDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="BOOKSHOPDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BOOKSHOPDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="BOOKSHOPDataSet.xss">
+      <DependentUpon>BOOKSHOPDataSet.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

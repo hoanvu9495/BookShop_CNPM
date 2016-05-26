@@ -24,6 +24,8 @@ namespace BookShop
         /// </summary>
         private void Form1_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'BOOKSHOPDataSet.TACGIA' table. You can move, or remove it, as needed.
+            this.TACGIATableAdapter.Fill(this.BOOKSHOPDataSet.TACGIA);
             // TODO: This line of code loads data into the 'BOOKSHOPDataSetShowKM.CHITIETKM' table. You can move, or remove it, as needed.
 
 
@@ -32,6 +34,7 @@ namespace BookShop
             tcl_Home.SelectedTab = tpe_Home;
             tcl_Function.TabPages.Remove(tpe_Account2);
 
+            this.reportViewer1.RefreshReport();
         }
 
 
@@ -45,6 +48,11 @@ namespace BookShop
         {
             switch (e.TabPage.TabIndex)
             {
+                case 0:
+                    {
+                        loadHD();
+                        break;
+                    }
                 case 1:
                     {
                         break;
@@ -53,6 +61,16 @@ namespace BookShop
                     {
                         TabPageAccountLoad();
                         btn_UpdateAccount.Enabled = false;
+                        break;
+                    }
+                case 6:
+                    {
+                        loadKM();
+                        break;
+                    }
+                case 7:
+                    {
+                        loadDataChuDe();
                         break;
                     }
                 case 8:
@@ -575,11 +593,11 @@ namespace BookShop
         /// <param name="e"></param>
         private void dgv_CTKM_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex>=0)
+            if (e.RowIndex >= 0)
             {
                 indexRowCTKM = e.RowIndex;
             }
-            
+
             cbx_SachKM.SelectedValue = dgv_CTKM.Rows[indexRowCTKM].Cells[1].Value;
             txt_PtKM.Text = dgv_CTKM.Rows[indexRowCTKM].Cells[3].Value.ToString();
         }
@@ -716,7 +734,7 @@ namespace BookShop
         private void btn_ThemSachHD_Click(object sender, EventArgs e)
         {
             int sl;
-            if (txt_SLSach.Text.Count()>0 && int.TryParse(txt_SLSach.Text,out sl))
+            if (txt_SLSach.Text.Count() > 0 && int.TryParse(txt_SLSach.Text, out sl))
             {
                 if (listCTHD.Where(n => n.ID_SACH == int.Parse(cbx_Sach.SelectedValue.ToString())).SingleOrDefault() == null && !ChiTietHDBLL.Is_CTHD(MaHD, int.Parse(cbx_Sach.SelectedValue.ToString())))
                 {
@@ -742,8 +760,8 @@ namespace BookShop
             {
                 MessageBox.Show("Có lỗi , tại trường số lượng");
             }
-            
-           
+
+
         }
 
         //Mã rows dgv_CTHD đang chọn
@@ -1233,7 +1251,7 @@ namespace BookShop
         {
             int id_nxb = int.Parse(cbx_billNXB.SelectedValue.ToString());
             DateTime ngay = DateTime.Parse(date_Bill.Text);
-            BillBLL.updateBill(int.Parse(txt_billID.Text), id_nxb, ngay, int.Parse(txt_billSl.Text),txt_billBook.Text,txt_billSLS.Text);
+            BillBLL.updateBill(int.Parse(txt_billID.Text), id_nxb, ngay, int.Parse(txt_billSl.Text), txt_billBook.Text, txt_billSLS.Text);
             dgv_Bill.DataSource = BillBLL.getAllBill().DataSource;
         }
         /// <summary>

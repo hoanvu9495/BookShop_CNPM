@@ -79,3 +79,5 @@ C:\Users\mhong\Documents\github\BookShop_CNPM\BookShop_v1.0\BookShop\BookShop\ob
 C:\Users\mhong\Documents\github\BookShop_CNPM\BookShop_v1.0\BookShop\BookShop\obj\Debug\BookShop.Properties.Resources.resources
 C:\Users\mhong\Documents\github\BookShop_CNPM\BookShop_v1.0\BookShop\BookShop\obj\Debug\BookShop.csproj.GenerateResource.Cache
 C:\Users\mhong\Documents\github\BookShop_CNPM\BookShop_v1.0\BookShop\BookShop\obj\Debug\BookShop.csprojResolveAssemblyReference.cache
+E:\TAI LIEU HOC TAP\Tai lieu hoc ky 6\Cong nghe phan mem\PhanMem GIT\BookShop_CNPM\BookShop_v1.0\BookShop\BookShop\obj\Debug\RdlCompile.cache
+E:\TAI LIEU HOC TAP\Tai lieu hoc ky 6\Cong nghe phan mem\PhanMem GIT\BookShop_CNPM\BookShop_v1.0\BookShop\BookShop\obj\Debug\RdlCompile.compiled
