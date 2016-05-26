@@ -30,7 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource2 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource3 = new Microsoft.Reporting.WinForms.ReportDataSource();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource4 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.tcl_Home = new System.Windows.Forms.TabControl();
             this.tpe_Home = new System.Windows.Forms.TabPage();
             this.tpe_Function = new System.Windows.Forms.TabPage();
@@ -270,6 +273,17 @@
             this.BOOKSHOPDataSet = new BookShop.BOOKSHOPDataSet();
             this.TACGIABindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.TACGIATableAdapter = new BookShop.BOOKSHOPDataSetTableAdapters.TACGIATableAdapter();
+            this.reportViewer2 = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.BOOKSHOPDataSet1 = new BookShop.BOOKSHOPDataSet1();
+            this.NHAXUATBANBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.NHAXUATBANTableAdapter = new BookShop.BOOKSHOPDataSet1TableAdapters.NHAXUATBANTableAdapter();
+            this.sachTableAdapter1 = new BookShop.BOOKSHOPDataSet1TableAdapters.SACHTableAdapter();
+            this.reportViewer3 = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.SACHBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.SACHTableAdapter = new BookShop.BOOKSHOPDataSet1TableAdapters.SACHTableAdapter();
+            this.reportViewer4 = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.VWTHONGTINKMBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.VWTHONGTINKMTableAdapter = new BookShop.BOOKSHOPDataSet1TableAdapters.VWTHONGTINKMTableAdapter();
             this.tcl_Home.SuspendLayout();
             this.tpe_Function.SuspendLayout();
             this.tcl_Function.SuspendLayout();
@@ -306,11 +320,18 @@
             this.groupBox9.SuspendLayout();
             this.groupBox10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_Bookimage)).BeginInit();
+            this.tpe_Book.SuspendLayout();
             this.tpe_Author.SuspendLayout();
+            this.tpe_Publisher.SuspendLayout();
+            this.tpe_Promotion.SuspendLayout();
             this.tpe_Login.SuspendLayout();
             this.flp_StatusUser.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BOOKSHOPDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TACGIABindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BOOKSHOPDataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NHAXUATBANBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SACHBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.VWTHONGTINKMBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tcl_Home
@@ -2593,6 +2614,7 @@
             // 
             // tpe_Book
             // 
+            this.tpe_Book.Controls.Add(this.reportViewer3);
             this.tpe_Book.Location = new System.Drawing.Point(4, 32);
             this.tpe_Book.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.tpe_Book.Name = "tpe_Book";
@@ -2616,6 +2638,7 @@
             // 
             // tpe_Publisher
             // 
+            this.tpe_Publisher.Controls.Add(this.reportViewer2);
             this.tpe_Publisher.Location = new System.Drawing.Point(4, 32);
             this.tpe_Publisher.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.tpe_Publisher.Name = "tpe_Publisher";
@@ -2627,6 +2650,7 @@
             // 
             // tpe_Promotion
             // 
+            this.tpe_Promotion.Controls.Add(this.reportViewer4);
             this.tpe_Promotion.Location = new System.Drawing.Point(4, 32);
             this.tpe_Promotion.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.tpe_Promotion.Name = "tpe_Promotion";
@@ -2805,9 +2829,9 @@
             // reportViewer1
             // 
             this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            reportDataSource1.Name = "DataSet1";
-            reportDataSource1.Value = this.TACGIABindingSource;
-            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
+            reportDataSource2.Name = "DataSet1";
+            reportDataSource2.Value = this.TACGIABindingSource;
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource2);
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "BookShop.Report1.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(5, 4);
             this.reportViewer1.Name = "reportViewer1";
@@ -2827,6 +2851,78 @@
             // TACGIATableAdapter
             // 
             this.TACGIATableAdapter.ClearBeforeFill = true;
+            // 
+            // reportViewer2
+            // 
+            this.reportViewer2.Dock = System.Windows.Forms.DockStyle.Fill;
+            reportDataSource3.Name = "DataSetNXB";
+            reportDataSource3.Value = this.NHAXUATBANBindingSource;
+            this.reportViewer2.LocalReport.DataSources.Add(reportDataSource3);
+            this.reportViewer2.LocalReport.ReportEmbeddedResource = "BookShop.Report2.rdlc";
+            this.reportViewer2.Location = new System.Drawing.Point(5, 4);
+            this.reportViewer2.Name = "reportViewer2";
+            this.reportViewer2.Size = new System.Drawing.Size(1222, 606);
+            this.reportViewer2.TabIndex = 0;
+            // 
+            // BOOKSHOPDataSet1
+            // 
+            this.BOOKSHOPDataSet1.DataSetName = "BOOKSHOPDataSet1";
+            this.BOOKSHOPDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // NHAXUATBANBindingSource
+            // 
+            this.NHAXUATBANBindingSource.DataMember = "NHAXUATBAN";
+            this.NHAXUATBANBindingSource.DataSource = this.BOOKSHOPDataSet1;
+            // 
+            // NHAXUATBANTableAdapter
+            // 
+            this.NHAXUATBANTableAdapter.ClearBeforeFill = true;
+            // 
+            // sachTableAdapter1
+            // 
+            this.sachTableAdapter1.ClearBeforeFill = true;
+            // 
+            // reportViewer3
+            // 
+            this.reportViewer3.Dock = System.Windows.Forms.DockStyle.Fill;
+            reportDataSource1.Name = "DataSet1";
+            reportDataSource1.Value = this.SACHBindingSource;
+            this.reportViewer3.LocalReport.DataSources.Add(reportDataSource1);
+            this.reportViewer3.LocalReport.ReportEmbeddedResource = "BookShop.Report3.rdlc";
+            this.reportViewer3.Location = new System.Drawing.Point(5, 4);
+            this.reportViewer3.Name = "reportViewer3";
+            this.reportViewer3.Size = new System.Drawing.Size(1222, 606);
+            this.reportViewer3.TabIndex = 0;
+            // 
+            // SACHBindingSource
+            // 
+            this.SACHBindingSource.DataMember = "SACH";
+            this.SACHBindingSource.DataSource = this.BOOKSHOPDataSet1;
+            // 
+            // SACHTableAdapter
+            // 
+            this.SACHTableAdapter.ClearBeforeFill = true;
+            // 
+            // reportViewer4
+            // 
+            this.reportViewer4.Dock = System.Windows.Forms.DockStyle.Fill;
+            reportDataSource4.Name = "DataSet1";
+            reportDataSource4.Value = this.VWTHONGTINKMBindingSource;
+            this.reportViewer4.LocalReport.DataSources.Add(reportDataSource4);
+            this.reportViewer4.LocalReport.ReportEmbeddedResource = "BookShop.Report4.rdlc";
+            this.reportViewer4.Location = new System.Drawing.Point(5, 4);
+            this.reportViewer4.Name = "reportViewer4";
+            this.reportViewer4.Size = new System.Drawing.Size(1222, 606);
+            this.reportViewer4.TabIndex = 0;
+            // 
+            // VWTHONGTINKMBindingSource
+            // 
+            this.VWTHONGTINKMBindingSource.DataMember = "VWTHONGTINKM";
+            this.VWTHONGTINKMBindingSource.DataSource = this.BOOKSHOPDataSet1;
+            // 
+            // VWTHONGTINKMTableAdapter
+            // 
+            this.VWTHONGTINKMTableAdapter.ClearBeforeFill = true;
             // 
             // Form1
             // 
@@ -2897,13 +2993,20 @@
             this.groupBox10.ResumeLayout(false);
             this.groupBox10.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_Bookimage)).EndInit();
+            this.tpe_Book.ResumeLayout(false);
             this.tpe_Author.ResumeLayout(false);
+            this.tpe_Publisher.ResumeLayout(false);
+            this.tpe_Promotion.ResumeLayout(false);
             this.tpe_Login.ResumeLayout(false);
             this.tpe_Login.PerformLayout();
             this.flp_StatusUser.ResumeLayout(false);
             this.flp_StatusUser.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BOOKSHOPDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TACGIABindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BOOKSHOPDataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NHAXUATBANBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SACHBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.VWTHONGTINKMBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -3150,6 +3253,17 @@
         private System.Windows.Forms.BindingSource TACGIABindingSource;
         private BOOKSHOPDataSet BOOKSHOPDataSet;
         private BOOKSHOPDataSetTableAdapters.TACGIATableAdapter TACGIATableAdapter;
+        private Microsoft.Reporting.WinForms.ReportViewer reportViewer2;
+        private System.Windows.Forms.BindingSource NHAXUATBANBindingSource;
+        private BOOKSHOPDataSet1 BOOKSHOPDataSet1;
+        private BOOKSHOPDataSet1TableAdapters.NHAXUATBANTableAdapter NHAXUATBANTableAdapter;
+        private Microsoft.Reporting.WinForms.ReportViewer reportViewer3;
+        private BOOKSHOPDataSet1TableAdapters.SACHTableAdapter sachTableAdapter1;
+        private System.Windows.Forms.BindingSource SACHBindingSource;
+        private BOOKSHOPDataSet1TableAdapters.SACHTableAdapter SACHTableAdapter;
+        private Microsoft.Reporting.WinForms.ReportViewer reportViewer4;
+        private System.Windows.Forms.BindingSource VWTHONGTINKMBindingSource;
+        private BOOKSHOPDataSet1TableAdapters.VWTHONGTINKMTableAdapter VWTHONGTINKMTableAdapter;
 
     }
 }

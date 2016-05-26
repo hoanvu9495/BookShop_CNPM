@@ -24,6 +24,12 @@ namespace BookShop
         /// </summary>
         private void Form1_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'BOOKSHOPDataSet1.VWTHONGTINKM' table. You can move, or remove it, as needed.
+            this.VWTHONGTINKMTableAdapter.Fill(this.BOOKSHOPDataSet1.VWTHONGTINKM);
+            // TODO: This line of code loads data into the 'BOOKSHOPDataSet1.SACH' table. You can move, or remove it, as needed.
+            this.SACHTableAdapter.Fill(this.BOOKSHOPDataSet1.SACH);
+            // TODO: This line of code loads data into the 'BOOKSHOPDataSet1.NHAXUATBAN' table. You can move, or remove it, as needed.
+            this.NHAXUATBANTableAdapter.Fill(this.BOOKSHOPDataSet1.NHAXUATBAN);
             // TODO: This line of code loads data into the 'BOOKSHOPDataSet.TACGIA' table. You can move, or remove it, as needed.
             this.TACGIATableAdapter.Fill(this.BOOKSHOPDataSet.TACGIA);
             // TODO: This line of code loads data into the 'BOOKSHOPDataSetShowKM.CHITIETKM' table. You can move, or remove it, as needed.
@@ -35,6 +41,9 @@ namespace BookShop
             tcl_Function.TabPages.Remove(tpe_Account2);
 
             this.reportViewer1.RefreshReport();
+            this.reportViewer2.RefreshReport();
+            this.reportViewer3.RefreshReport();
+            this.reportViewer4.RefreshReport();
         }
 
 

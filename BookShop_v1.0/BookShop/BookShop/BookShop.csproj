@@ -79,6 +79,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BOOKSHOPDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="BOOKSHOPDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BOOKSHOPDataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DAL\AccountDataAccess.cs" />
     <Compile Include="DAL\AuthorDataAccess.cs" />
     <Compile Include="DAL\BillDataAccess.cs" />
@@ -124,6 +129,9 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Report1.rdlc" />
+    <EmbeddedResource Include="Report2.rdlc" />
+    <EmbeddedResource Include="Report3.rdlc" />
+    <EmbeddedResource Include="Report4.rdlc" />
     <None Include="BOOKSHOPDataSet.xsc">
       <DependentUpon>BOOKSHOPDataSet.xsd</DependentUpon>
     </None>
@@ -134,6 +142,17 @@
     </None>
     <None Include="BOOKSHOPDataSet.xss">
       <DependentUpon>BOOKSHOPDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="BOOKSHOPDataSet1.xsc">
+      <DependentUpon>BOOKSHOPDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="BOOKSHOPDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BOOKSHOPDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="BOOKSHOPDataSet1.xss">
+      <DependentUpon>BOOKSHOPDataSet1.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
