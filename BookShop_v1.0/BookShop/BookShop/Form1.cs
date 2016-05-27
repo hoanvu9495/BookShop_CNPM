@@ -32,10 +32,10 @@ namespace BookShop
             }
             catch (Exception)
             {
-                
-              
+
+
             }
-            
+
             // TODO: This line of code loads data into the 'BOOKSHOPDataSet1.SACH' table. You can move, or remove it, as needed.
             this.SACHTableAdapter.Fill(this.BOOKSHOPDataSet1.SACH);
             // TODO: This line of code loads data into the 'BOOKSHOPDataSet1.NHAXUATBAN' table. You can move, or remove it, as needed.
@@ -692,8 +692,8 @@ namespace BookShop
             {
                 if (sl <= SachBLL.getSlSach(SachBLL.getID(lab_TenSach.Text)))
                 {
-                    CHITIETHOADON cthd= new CHITIETHOADON();
-                    listCTHD.Where(n=>n.ID_HD==mahd && n.ID_SACH==maSach).Single().SOLUONG=sl;
+                    CHITIETHOADON cthd = new CHITIETHOADON();
+                    listCTHD.Where(n => n.ID_HD == mahd && n.ID_SACH == maSach).Single().SOLUONG = sl;
 
                     //ChiTietHDBLL.edit(mahd, maSach, sl);
                     loadCTHD();
@@ -702,7 +702,7 @@ namespace BookShop
                 {
                     MessageBox.Show("Trong kho không đủ số lượng sách!");
                 }
-                
+
             }
             else
             {
@@ -877,22 +877,33 @@ namespace BookShop
         /// <param name="e"></param>
         private void btn_ThemSach_Click(object sender, EventArgs e)
         {
-            int idNV = _session.ID;
-            int sl = int.Parse(listCTHD.Select(n => n.SOLUONG).Sum().ToString());
-            string tongtien = txt_TongTienHD.Text;
-            HoaDonBLL.creatHD(lab_MaHD.Text, idNV, tongtien, sl, Convert.ToDateTime(lab_NgayHD.Text), listCTHD);
-            if (txt_Tien.Text.Any())
+            if (listCTHD.Any())
             {
-                txt_TienDu.Text = (int.Parse(txt_Tien.Text) - int.Parse(txt_TongTienHD.Text)).ToString();
-            }
-            else
-            {
-                txt_TienDu.Text = (0 - int.Parse(txt_TongTienHD.Text)).ToString();
+                int idNV = _session.ID;
+                int sl = int.Parse(listCTHD.Select(n => n.SOLUONG).Sum().ToString());
+                string tongtien = txt_TongTienHD.Text;
+                HoaDonBLL.creatHD(lab_MaHD.Text, idNV, tongtien, sl, Convert.ToDateTime(lab_NgayHD.Text), listCTHD);
+                if (txt_Tien.Text.Any())
+                {
+                    txt_TienDu.Text = (int.Parse(txt_Tien.Text) - int.Parse(txt_TongTienHD.Text)).ToString();
+                }
+                else
+                {
+                    txt_TienDu.Text = (0 - int.Parse(txt_TongTienHD.Text)).ToString();
 
+                }
+
+                listCTHD.Clear();
             }
-            
-            listCTHD.Clear();
+
             //loadCTKM();
+
+            frm_HoaDonBanSach hd = new frm_HoaDonBanSach();
+
+                hd.ShowDialog();
+
+
+
 
         }
         //================================== PUBLISHER ===============================================

@@ -113,10 +113,19 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="frm_HoaDonBanSach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_HoaDonBanSach.Designer.cs">
+      <DependentUpon>frm_HoaDonBanSach.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_HoaDonBanSach.resx">
+      <DependentUpon>frm_HoaDonBanSach.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -132,6 +141,7 @@
     <EmbeddedResource Include="Report2.rdlc" />
     <EmbeddedResource Include="Report3.rdlc" />
     <EmbeddedResource Include="Report4.rdlc" />
+    <EmbeddedResource Include="Report5.rdlc" />
     <None Include="BOOKSHOPDataSet.xsc">
       <DependentUpon>BOOKSHOPDataSet.xsd</DependentUpon>
     </None>
