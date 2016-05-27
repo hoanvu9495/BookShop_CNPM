@@ -69,7 +69,7 @@ namespace BookShop.BLL
             pn.SOLUONG = sl;
             pn.TENSACH = tensach;
             pn.SOLUONGCT = slct;
-            pn.ISDELETE = true;
+            pn.ISDELETE = false;
             db.PHIEUNHAPs.Attach(pn);
             db.PHIEUNHAPs.Add(pn);
             db.SaveChanges();
@@ -91,7 +91,7 @@ namespace BookShop.BLL
             pn.SOLUONG = sl;
             pn.TENSACH = tensach;
             pn.SOLUONGCT = slct;
-            pn.ISDELETE = true;
+            pn.ISDELETE = false;
             db.PHIEUNHAPs.Attach(pn);
             var entry = db.Entry(pn);
             entry.State = EntityState.Modified;
@@ -119,7 +119,7 @@ namespace BookShop.BLL
         {
             DBConnection db = new DBConnection();
             DataGridView data = new DataGridView();
-            var item = db.PHIEUNHAPs.Where(x => x.ISDELETE == true).ToList().FindAll(x => x.ID == id);
+            var item = db.PHIEUNHAPs.Where(x => x.ISDELETE == false).ToList().FindAll(x => x.ID == id);
             data.DataSource = item;
             return data;
         }

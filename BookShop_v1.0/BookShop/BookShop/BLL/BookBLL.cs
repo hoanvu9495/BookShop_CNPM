@@ -90,7 +90,7 @@ namespace BookShop.BLL
             sa.SOLUONG = soluong;
             sa.KHO = kho;
             sa.SOTRANG = sotrang;
-            sa.ISDELETE = true;
+            sa.ISDELETE = false;
             db.SACHes.Attach(sa);
             var entry = db.Entry(sa);
             entry.State = EntityState.Modified;
@@ -124,7 +124,7 @@ namespace BookShop.BLL
             sa.SOLUONG = soluong;
             sa.KHO = kho;
             sa.SOTRANG = sotrang;
-            sa.ISDELETE = true;
+            sa.ISDELETE = false;
             db.SACHes.Attach(sa);
             db.SACHes.Add(sa);
             db.SaveChanges();
@@ -157,7 +157,7 @@ namespace BookShop.BLL
             sa.SOLUONG = soluong;
             sa.KHO = kho;
             sa.SOTRANG = sotrang;
-            sa.ISDELETE = false;
+            sa.ISDELETE = true;
             db.SACHes.Attach(sa);
             var entry = db.Entry(sa);
             entry.State = EntityState.Modified;

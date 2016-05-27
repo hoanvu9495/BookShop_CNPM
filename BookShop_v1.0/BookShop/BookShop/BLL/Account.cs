@@ -4,7 +4,6 @@ using System.Windows.Forms;
 using BookShop.Entities;
 using BookShop.DAL;
 
-
 namespace BookShop.BLL
 {
     class Account
@@ -26,7 +25,7 @@ namespace BookShop.BLL
 
         public static void Insert(NHANVIEN item, string repassword)
         {
-            
+
             if (AccountDataAccess.GetAllAccount().Any(a => a.TENDANGNHAP == item.TENDANGNHAP))
             {
                 MessageBox.Show(@"Tài khoản đã tồn tại!");
@@ -57,7 +56,7 @@ namespace BookShop.BLL
                 MessageBox.Show(@"Độ dài Số điện thoại không dài quá 20 ký tự!");
                 return;
             }
-            if (Regex.Matches(item.SDT,@"[0-9]").Count != item.SDT.Length)
+            if (Regex.Matches(item.SDT, @"[0-9]").Count != item.SDT.Length)
             {
                 MessageBox.Show(@"Số điện thoại không được chứa ký tự!");
                 return;
@@ -129,7 +128,5 @@ namespace BookShop.BLL
             MessageBox.Show(@"Thay đổi dữ liệu thanh công!");
             return true;
         }
-        
     }
-
 }

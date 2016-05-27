@@ -60,7 +60,7 @@ namespace BookShop.BLL
             tg.TEN = name.Trim();
             tg.DIACHI = dc.Trim();
             tg.SDT = phone;
-            tg.ISDELETE = true;
+            tg.ISDELETE = false;
             db.TACGIAs.Add(tg);
             db.SaveChanges();
         }
@@ -80,7 +80,7 @@ namespace BookShop.BLL
             tg.SDT = phone;
             tg.DIACHI = dc.Trim();
             db.TACGIAs.Attach(tg);
-            tg.ISDELETE = true;
+            tg.ISDELETE = false;
             var entry = db.Entry(tg);
             entry.State = EntityState.Modified;
             db.SaveChanges();
@@ -108,7 +108,7 @@ namespace BookShop.BLL
         {
             DBConnection db = new DBConnection();
             DataGridView data = new DataGridView();
-            var item = db.TACGIAs.Where(x => x.ISDELETE == true).ToList().FindAll(x => x.TEN == name);
+            var item = db.TACGIAs.Where(x => x.ISDELETE == false).ToList().FindAll(x => x.TEN == name);
             data.DataSource = item;
             return data;
         }

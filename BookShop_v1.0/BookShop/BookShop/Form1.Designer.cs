@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource2 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource3 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource4 = new Microsoft.Reporting.WinForms.ReportDataSource();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource17 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource18 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource19 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource20 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.SACHBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.BOOKSHOPDataSet1 = new BookShop.BOOKSHOPDataSet1();
             this.TACGIABindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -42,6 +42,7 @@
             this.VWTHONGTINKMBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tcl_Home = new System.Windows.Forms.TabControl();
             this.tpe_Home = new System.Windows.Forms.TabPage();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tpe_Function = new System.Windows.Forms.TabPage();
             this.tcl_Function = new System.Windows.Forms.TabControl();
             this.tpe_Sale = new System.Windows.Forms.TabPage();
@@ -284,7 +285,6 @@
             this.sachTableAdapter1 = new BookShop.BOOKSHOPDataSet1TableAdapters.SACHTableAdapter();
             this.SACHTableAdapter = new BookShop.BOOKSHOPDataSet1TableAdapters.SACHTableAdapter();
             this.VWTHONGTINKMTableAdapter = new BookShop.BOOKSHOPDataSet1TableAdapters.VWTHONGTINKMTableAdapter();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.SACHBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BOOKSHOPDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TACGIABindingSource)).BeginInit();
@@ -293,6 +293,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.VWTHONGTINKMBindingSource)).BeginInit();
             this.tcl_Home.SuspendLayout();
             this.tpe_Home.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tpe_Function.SuspendLayout();
             this.tcl_Function.SuspendLayout();
             this.tpe_Sale.SuspendLayout();
@@ -334,7 +335,6 @@
             this.tpe_Promotion.SuspendLayout();
             this.tpe_Login.SuspendLayout();
             this.flp_StatusUser.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // SACHBindingSource
@@ -400,6 +400,17 @@
             this.tpe_Home.TabIndex = 0;
             this.tpe_Home.Text = "Home";
             this.tpe_Home.UseVisualStyleBackColor = true;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(5, 4);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(1222, 606);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // tpe_Function
             // 
@@ -906,10 +917,13 @@
             // 
             // dgv_Bill
             // 
+            this.dgv_Bill.AllowUserToAddRows = false;
+            this.dgv_Bill.AllowUserToDeleteRows = false;
             this.dgv_Bill.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_Bill.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_Bill.Location = new System.Drawing.Point(144, 168);
             this.dgv_Bill.Name = "dgv_Bill";
+            this.dgv_Bill.ReadOnly = true;
             this.dgv_Bill.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_Bill.Size = new System.Drawing.Size(905, 253);
             this.dgv_Bill.TabIndex = 4;
@@ -1404,10 +1418,13 @@
             // 
             // dgv_Author
             // 
+            this.dgv_Author.AllowUserToAddRows = false;
+            this.dgv_Author.AllowUserToDeleteRows = false;
             this.dgv_Author.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_Author.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_Author.Location = new System.Drawing.Point(133, 277);
             this.dgv_Author.Name = "dgv_Author";
+            this.dgv_Author.ReadOnly = true;
             this.dgv_Author.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_Author.Size = new System.Drawing.Size(949, 234);
             this.dgv_Author.TabIndex = 6;
@@ -2271,13 +2288,14 @@
             this.tpe_Sach.TabIndex = 9;
             this.tpe_Sach.Text = "Sách";
             this.tpe_Sach.UseVisualStyleBackColor = true;
+            this.tpe_Sach.Click += new System.EventHandler(this.tpe_Sach_Click);
             // 
             // groupBox7
             // 
             this.groupBox7.Controls.Add(this.dgv_Book);
-            this.groupBox7.Location = new System.Drawing.Point(84, 113);
+            this.groupBox7.Location = new System.Drawing.Point(46, 350);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(584, 295);
+            this.groupBox7.Size = new System.Drawing.Size(1103, 217);
             this.groupBox7.TabIndex = 13;
             this.groupBox7.TabStop = false;
             // 
@@ -2286,12 +2304,12 @@
             this.dgv_Book.AllowUserToAddRows = false;
             this.dgv_Book.AllowUserToDeleteRows = false;
             this.dgv_Book.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_Book.Location = new System.Drawing.Point(15, 40);
+            this.dgv_Book.Location = new System.Drawing.Point(6, 25);
             this.dgv_Book.MultiSelect = false;
             this.dgv_Book.Name = "dgv_Book";
             this.dgv_Book.ReadOnly = true;
             this.dgv_Book.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_Book.Size = new System.Drawing.Size(559, 236);
+            this.dgv_Book.Size = new System.Drawing.Size(1076, 186);
             this.dgv_Book.TabIndex = 1;
             this.dgv_Book.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_Book_CellDoubleClick);
             // 
@@ -2308,7 +2326,7 @@
             this.groupBox8.Controls.Add(this.label47);
             this.groupBox8.Controls.Add(this.label48);
             this.groupBox8.Controls.Add(this.txt_bookSearch);
-            this.groupBox8.Location = new System.Drawing.Point(559, 3);
+            this.groupBox8.Location = new System.Drawing.Point(578, 13);
             this.groupBox8.Name = "groupBox8";
             this.groupBox8.Size = new System.Drawing.Size(571, 88);
             this.groupBox8.TabIndex = 12;
@@ -2431,7 +2449,7 @@
             this.groupBox9.Controls.Add(this.label50);
             this.groupBox9.Controls.Add(this.label51);
             this.groupBox9.Controls.Add(this.label52);
-            this.groupBox9.Location = new System.Drawing.Point(84, 3);
+            this.groupBox9.Location = new System.Drawing.Point(46, 13);
             this.groupBox9.Name = "groupBox9";
             this.groupBox9.Size = new System.Drawing.Size(453, 88);
             this.groupBox9.TabIndex = 11;
@@ -2524,15 +2542,15 @@
             this.groupBox10.Controls.Add(this.label56);
             this.groupBox10.Controls.Add(this.picBox_Bookimage);
             this.groupBox10.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox10.Location = new System.Drawing.Point(674, 113);
+            this.groupBox10.Location = new System.Drawing.Point(46, 107);
             this.groupBox10.Name = "groupBox10";
-            this.groupBox10.Size = new System.Drawing.Size(456, 295);
+            this.groupBox10.Size = new System.Drawing.Size(453, 248);
             this.groupBox10.TabIndex = 10;
             this.groupBox10.TabStop = false;
             // 
             // btn_loaddataBook
             // 
-            this.btn_loaddataBook.Location = new System.Drawing.Point(261, 238);
+            this.btn_loaddataBook.Location = new System.Drawing.Point(261, 212);
             this.btn_loaddataBook.Name = "btn_loaddataBook";
             this.btn_loaddataBook.Size = new System.Drawing.Size(75, 23);
             this.btn_loaddataBook.TabIndex = 5;
@@ -2542,7 +2560,7 @@
             // 
             // btn_openPicture
             // 
-            this.btn_openPicture.Location = new System.Drawing.Point(188, 238);
+            this.btn_openPicture.Location = new System.Drawing.Point(196, 212);
             this.btn_openPicture.Name = "btn_openPicture";
             this.btn_openPicture.Size = new System.Drawing.Size(35, 23);
             this.btn_openPicture.TabIndex = 4;
@@ -2559,7 +2577,7 @@
             // 
             // txt_BookMT
             // 
-            this.txt_BookMT.Location = new System.Drawing.Point(261, 120);
+            this.txt_BookMT.Location = new System.Drawing.Point(257, 102);
             this.txt_BookMT.Multiline = true;
             this.txt_BookMT.Name = "txt_BookMT";
             this.txt_BookMT.Size = new System.Drawing.Size(180, 82);
@@ -2567,14 +2585,14 @@
             // 
             // txt_BookPricein
             // 
-            this.txt_BookPricein.Location = new System.Drawing.Point(261, 69);
+            this.txt_BookPricein.Location = new System.Drawing.Point(257, 51);
             this.txt_BookPricein.Name = "txt_BookPricein";
             this.txt_BookPricein.Size = new System.Drawing.Size(180, 23);
             this.txt_BookPricein.TabIndex = 3;
             // 
             // txt_BookPriceout
             // 
-            this.txt_BookPriceout.Location = new System.Drawing.Point(261, 40);
+            this.txt_BookPriceout.Location = new System.Drawing.Point(257, 22);
             this.txt_BookPriceout.Name = "txt_BookPriceout";
             this.txt_BookPriceout.Size = new System.Drawing.Size(180, 23);
             this.txt_BookPriceout.TabIndex = 3;
@@ -2611,7 +2629,7 @@
             // 
             this.label54.AutoSize = true;
             this.label54.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label54.Location = new System.Drawing.Point(184, 120);
+            this.label54.Location = new System.Drawing.Point(180, 102);
             this.label54.Name = "label54";
             this.label54.Size = new System.Drawing.Size(49, 19);
             this.label54.TabIndex = 1;
@@ -2621,7 +2639,7 @@
             // 
             this.label55.AutoSize = true;
             this.label55.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label55.Location = new System.Drawing.Point(184, 69);
+            this.label55.Location = new System.Drawing.Point(180, 51);
             this.label55.Name = "label55";
             this.label55.Size = new System.Drawing.Size(71, 19);
             this.label55.TabIndex = 1;
@@ -2631,7 +2649,7 @@
             // 
             this.label56.AutoSize = true;
             this.label56.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label56.Location = new System.Drawing.Point(184, 43);
+            this.label56.Location = new System.Drawing.Point(180, 25);
             this.label56.Name = "label56";
             this.label56.Size = new System.Drawing.Size(61, 19);
             this.label56.TabIndex = 1;
@@ -2639,9 +2657,9 @@
             // 
             // picBox_Bookimage
             // 
-            this.picBox_Bookimage.Location = new System.Drawing.Point(17, 41);
+            this.picBox_Bookimage.Location = new System.Drawing.Point(17, 22);
             this.picBox_Bookimage.Name = "picBox_Bookimage";
-            this.picBox_Bookimage.Size = new System.Drawing.Size(162, 220);
+            this.picBox_Bookimage.Size = new System.Drawing.Size(162, 213);
             this.picBox_Bookimage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picBox_Bookimage.TabIndex = 0;
             this.picBox_Bookimage.TabStop = false;
@@ -2661,9 +2679,9 @@
             // reportViewer3
             // 
             this.reportViewer3.Dock = System.Windows.Forms.DockStyle.Fill;
-            reportDataSource1.Name = "DataSet1";
-            reportDataSource1.Value = this.SACHBindingSource;
-            this.reportViewer3.LocalReport.DataSources.Add(reportDataSource1);
+            reportDataSource17.Name = "DataSet1";
+            reportDataSource17.Value = this.SACHBindingSource;
+            this.reportViewer3.LocalReport.DataSources.Add(reportDataSource17);
             this.reportViewer3.LocalReport.ReportEmbeddedResource = "BookShop.Report3.rdlc";
             this.reportViewer3.Location = new System.Drawing.Point(5, 4);
             this.reportViewer3.Name = "reportViewer3";
@@ -2685,9 +2703,9 @@
             // reportViewer1
             // 
             this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            reportDataSource2.Name = "DataSet1";
-            reportDataSource2.Value = this.TACGIABindingSource;
-            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource2);
+            reportDataSource18.Name = "DataSet1";
+            reportDataSource18.Value = this.TACGIABindingSource;
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource18);
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "BookShop.Report1.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(5, 4);
             this.reportViewer1.Name = "reportViewer1";
@@ -2709,9 +2727,9 @@
             // reportViewer2
             // 
             this.reportViewer2.Dock = System.Windows.Forms.DockStyle.Fill;
-            reportDataSource3.Name = "DataSetNXB";
-            reportDataSource3.Value = this.NHAXUATBANBindingSource;
-            this.reportViewer2.LocalReport.DataSources.Add(reportDataSource3);
+            reportDataSource19.Name = "DataSetNXB";
+            reportDataSource19.Value = this.NHAXUATBANBindingSource;
+            this.reportViewer2.LocalReport.DataSources.Add(reportDataSource19);
             this.reportViewer2.LocalReport.ReportEmbeddedResource = "BookShop.Report2.rdlc";
             this.reportViewer2.Location = new System.Drawing.Point(5, 4);
             this.reportViewer2.Name = "reportViewer2";
@@ -2733,9 +2751,9 @@
             // reportViewer4
             // 
             this.reportViewer4.Dock = System.Windows.Forms.DockStyle.Fill;
-            reportDataSource4.Name = "DataSet1";
-            reportDataSource4.Value = this.VWTHONGTINKMBindingSource;
-            this.reportViewer4.LocalReport.DataSources.Add(reportDataSource4);
+            reportDataSource20.Name = "DataSet1";
+            reportDataSource20.Value = this.VWTHONGTINKMBindingSource;
+            this.reportViewer4.LocalReport.DataSources.Add(reportDataSource20);
             this.reportViewer4.LocalReport.ReportEmbeddedResource = "BookShop.Report4.rdlc";
             this.reportViewer4.Location = new System.Drawing.Point(5, 4);
             this.reportViewer4.Name = "reportViewer4";
@@ -2896,7 +2914,7 @@
             this.flp_StatusUser.Controls.Add(this.lbe_Hello);
             this.flp_StatusUser.Controls.Add(this.lbl_Username);
             this.flp_StatusUser.Controls.Add(this.btn_Logout);
-            this.flp_StatusUser.Location = new System.Drawing.Point(1048, 9);
+            this.flp_StatusUser.Location = new System.Drawing.Point(1036, 10);
             this.flp_StatusUser.Name = "flp_StatusUser";
             this.flp_StatusUser.Size = new System.Drawing.Size(192, 34);
             this.flp_StatusUser.TabIndex = 9;
@@ -2928,17 +2946,6 @@
             // 
             this.VWTHONGTINKMTableAdapter.ClearBeforeFill = true;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(5, 4);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1222, 606);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
@@ -2964,6 +2971,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.VWTHONGTINKMBindingSource)).EndInit();
             this.tcl_Home.ResumeLayout(false);
             this.tpe_Home.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tpe_Function.ResumeLayout(false);
             this.tcl_Function.ResumeLayout(false);
             this.tpe_Sale.ResumeLayout(false);
@@ -3023,7 +3031,6 @@
             this.tpe_Login.PerformLayout();
             this.flp_StatusUser.ResumeLayout(false);
             this.flp_StatusUser.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

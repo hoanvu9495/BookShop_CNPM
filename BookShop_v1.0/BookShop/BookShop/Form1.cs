@@ -1086,7 +1086,7 @@ namespace BookShop
         private void btn_openPicture_Click(object sender, EventArgs e)
         {
             ofd.Title = "Open Image";
-            ofd.InitialDirectory = @"F:\image";
+            ofd.InitialDirectory = @"F:\hinh anh";
             ofd.Filter = "Image|*.jpg;*.jpeg;*.png";
             if (ofd.ShowDialog() == DialogResult.OK)
             {
@@ -1319,6 +1319,11 @@ namespace BookShop
         private void btn_billSearch_Click(object sender, EventArgs e)
         {
             dgv_Bill.DataSource = BillBLL.searchBill(int.Parse(txt_billID.Text)).DataSource;
+        }
+
+        private void tpe_Sach_Click(object sender, EventArgs e)
+        {
+
         }
 
 

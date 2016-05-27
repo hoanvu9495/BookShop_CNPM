@@ -34,7 +34,7 @@ namespace BookShop.BLL
 
         public static bool Insert(NHAXUATBAN newItem)
         {
-            if (PublisherDataAccess.GetTablePublisher().Any(a=>a.TEN == newItem.TEN))
+            if (PublisherDataAccess.GetTablePublisher().Any(a => a.TEN == newItem.TEN))
             {
                 MessageBox.Show(@"Nhà Xuất Bản đã tồn tại!");
                 return false;
@@ -50,7 +50,7 @@ namespace BookShop.BLL
                 MessageBox.Show(@"Tên nhà xuất bản phải ngắn hơn 50 ký tự!");
                 return false;
             }
-            if(newItem.SDT.Length > 13)
+            if (newItem.SDT.Length > 13)
             {
                 MessageBox.Show(@"Số điện thoại nhà xuất bản phải ngắn hơn 13 ký tự!");
                 return false;

@@ -38,7 +38,7 @@ namespace BookShop.DAL
         {
             try
             {
-                return new DataGridView { DataSource = (from a in Db.NHAXUATBANs orderby a.ISDELETE descending select a).ToList()};
+                return new DataGridView { DataSource = (from a in Db.NHAXUATBANs orderby a.ISDELETE descending select a).ToList() };
             }
             catch (Exception)
             {

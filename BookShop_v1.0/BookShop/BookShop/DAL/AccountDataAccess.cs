@@ -13,7 +13,7 @@ namespace BookShop.DAL
         /// Connection global
         /// </summary>
         private static readonly DBConnection DbGlb = new DBConnection();
- 
+
         /// <summary>
         /// TODO: Check account is exsited in database
         /// </summary>
@@ -33,7 +33,7 @@ namespace BookShop.DAL
                 MessageBox.Show(e.Message, @"Error!", MessageBoxButtons.OK);
                 return null;
             }
-            
+
         }
 
         /// <summary>
@@ -44,8 +44,12 @@ namespace BookShop.DAL
         {
             try
             {
-                var data = new DataGridView {DataSource = (from a in DbGlb.NHANVIENs join b in DbGlb.PHANQUYENs on a.ID_QUYEN equals b.ID 
-                 select new {a.ID, a.TENDANGNHAP, a.MATKHAU, a.TEN, a.NGAYSINH, a.ISDELETE, a.SDT, TENQUYEN = b.TEN, a.ID_QUYEN }).ToList() };
+                var data = new DataGridView
+                {
+                    DataSource = (from a in DbGlb.NHANVIENs
+                                  join b in DbGlb.PHANQUYENs on a.ID_QUYEN equals b.ID
+                                  select new { a.ID, a.TENDANGNHAP, a.MATKHAU, a.TEN, a.NGAYSINH, a.ISDELETE, a.SDT, TENQUYEN = b.TEN, a.ID_QUYEN }).ToList()
+                };
                 return data;
             }
             catch (Exception e)
@@ -141,11 +145,12 @@ namespace BookShop.DAL
                 DbGlb.SaveChanges();
                 return true;
             }
-            catch (Exception)
+            catch (Exception e)
             {
+                MessageBox.Show(e.Message);
                 return false;
             }
         }
-       
+
     }
 }

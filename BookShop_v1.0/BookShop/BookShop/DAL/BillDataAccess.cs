@@ -18,7 +18,7 @@ namespace BookShop.DAL
         {
             DBConnection db = new DBConnection();
             DataGridView data = new DataGridView();
-            var item = db.PHIEUNHAPs.Where(x => x.ISDELETE == true).ToList();
+            var item = db.PHIEUNHAPs.Where(x => x.ISDELETE == false).ToList();
             data.DataSource = item;
             return data;
         }
