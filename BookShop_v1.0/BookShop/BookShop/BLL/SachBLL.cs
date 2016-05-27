@@ -30,5 +30,18 @@ namespace BookShop.BLL
             SACH sach = db.SACHes.Find(id);
             return sach;
         }
+        public static int getID(string ten)
+        {
+            var db = new DBConnection();
+            var sach = db.SACHes.Where(n=>n.TEN==ten).Single();
+            return int.Parse(sach.ID.ToString());
+        }
+
+        public static int getSlSach(int maSach)
+        {
+            var db = new DBConnection();
+            var sach = db.SACHes.Where(n => n.ID == maSach).Single();
+            return int.Parse(sach.SOLUONG.ToString());
+        }
     }
 }

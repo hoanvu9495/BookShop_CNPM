@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using BookShop.BLL;
 using BookShop.Entities;
 using BookShop.DAL;
+using Message = System.Web.Services.Description.Message;
 
 namespace BookShop
 {
@@ -174,6 +175,8 @@ namespace BookShop
                 if (item.ID_QUYEN != 1) return;
                 tcl_Function.TabPages.Insert(2, tpe_Account);
                 tcl_Function.SelectedTab = tpe_Sale;
+                loadHD();
+                loadAllSach();
             }
         }
 
@@ -383,7 +386,7 @@ namespace BookShop
         private void tpe_sale_Click(object sender, EventArgs e)
         {
             //dgv_AllHD.DataSource = HoaDonBLL.getAllSach().DataSource;
-            dtp_NgayHD.Value = DateTime.Now;
+            lab_MaHD.Text = DateTime.Now.ToString();
             //txt_MaHD.Text = HoaDonBLL.getMaHD().ToString();
         }
 
@@ -671,7 +674,7 @@ namespace BookShop
 
         private void btn_Xoa_Click(object sender, EventArgs e)
         {
-            HoaDonBLL.deleteHD(int.Parse(txt_MaHD.Text));
+            HoaDonBLL.deleteHD(int.Parse(lab_MaHD.Text));
             loadCTHD();
             loadHD();
         }
@@ -682,19 +685,30 @@ namespace BookShop
         /// <param name="e"></param>
         private void btn_Sua_Click(object sender, EventArgs e)
         {
-            int mahd = int.Parse(txt_MaHD.Text);
-            int maSach = int.Parse(cbx_Sach.SelectedValue.ToString());
+            int mahd = int.Parse(lab_MaHD.Text);
+            int maSach = SachBLL.getID(lab_TenSach.Text);
             int sl = int.Parse(txt_SLSach.Text);
-            if (listCTHD.Count() == 0)
+            if (listCTHD.Any())
             {
+                if (sl <= SachBLL.getSlSach(SachBLL.getID(lab_TenSach.Text)))
+                {
+                    CHITIETHOADON cthd= new CHITIETHOADON();
+                    listCTHD.Where(n=>n.ID_HD==mahd && n.ID_SACH==maSach).Single().SOLUONG=sl;
 
-                ChiTietHDBLL.edit(mahd, maSach, sl);
+                    //ChiTietHDBLL.edit(mahd, maSach, sl);
+                    loadCTHD();
+                }
+                else
+                {
+                    MessageBox.Show("Trong kho không đủ số lượng sách!");
+                }
+                
             }
             else
             {
                 //var item = (from a in listCTHD where a.ID_SACH == maSach select a).SingleOrDefault();
 
-                listCTHD.Where(n => n.ID_SACH == maSach).SingleOrDefault().SOLUONG = sl;
+                //listCTHD.Where(n => n.ID_SACH == maSach).SingleOrDefault().SOLUONG = sl;
 
 
             }
@@ -714,10 +728,8 @@ namespace BookShop
             }
             else
             {
-
                 dgv_CTHD.DataSource = null;
-                dgv_CTHD.DataSource = ChiTietHDBLL.getCTHDByID(MaHD).DataSource;
-                txt_TongTienHD.Text = dgv_AllHD.Rows[indexRowAllHD].Cells[5].Value.ToString();
+                txt_TongTienHD.Text = "0";
             }
 
         }
@@ -727,21 +739,14 @@ namespace BookShop
         public void loadHD()
         {
             //Đổ dữ liệu lên combobox
-            cbx_Sach.DataSource = SachBLL.getSach();
-            cbx_Sach.DisplayMember = "TEN";
-            cbx_Sach.ValueMember = "ID";
-            dgv_AllHD.DataSource = HoaDonBLL.getAllHD().DataSource;
-            dgv_AllHD.Columns[1].Visible = false;
-            dgv_AllHD.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dgv_AllHD.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
-            dgv_AllHD.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
-            txt_MaHD.Text = HoaDonBLL.getMaHD().ToString();
-            btn_SuaCTHD.Enabled = false;
-            btn_Xoa.Enabled = false;
-            btn_SuaCTHD.Enabled = false;
-
+            lab_MaHD.Text = HoaDonBLL.getMaHD().ToString();
+            lab_NhanVienHD.Text = _session.TEN;
+            lab_NgayHD.Text = DateTime.Now.ToString();
         }
-
+        public void loadAllSach()
+        {
+            dgv_AllSachHD.DataSource = ChiTietHDBLL.AllSach().DataSource;
+        }
         /// <summary>
         /// 
         /// </summary>
@@ -749,7 +754,7 @@ namespace BookShop
         /// <param name="e"></param>
         private void btn_all_Click(object sender, EventArgs e)
         {
-            loadHD();
+            loadAllSach();
         }
 
         //List chi tiêt hóa đơn chờ cập nhật
@@ -762,32 +767,35 @@ namespace BookShop
         private void btn_ThemSachHD_Click(object sender, EventArgs e)
         {
             int sl;
-            if (txt_SLSach.Text.Count() > 0 && int.TryParse(txt_SLSach.Text, out sl))
+            if (txt_SLSach.Text.Any() && int.TryParse(txt_SLSach.Text, out sl))
             {
-                if (listCTHD.Where(n => n.ID_SACH == int.Parse(cbx_Sach.SelectedValue.ToString())).SingleOrDefault() == null && !ChiTietHDBLL.Is_CTHD(MaHD, int.Parse(cbx_Sach.SelectedValue.ToString())))
+                if (sl <= SachBLL.getSlSach(SachBLL.getID(lab_TenSach.Text)))
                 {
-                    CHITIETHOADON cthd = new CHITIETHOADON();
-                    cthd.ID_HD = int.Parse(txt_MaHD.Text);
-                    cthd.ID_SACH = int.Parse(cbx_Sach.SelectedValue.ToString());
+                    var cthd = new CHITIETHOADON();
+                    cthd.ID_HD = int.Parse(lab_MaHD.Text);
+                    cthd.ID_SACH = SachBLL.getID(lab_TenSach.Text);
                     cthd.SOLUONG = int.Parse(txt_SLSach.Text);
-                    cthd.GIA = SachBLL.getSachID(int.Parse(cbx_Sach.SelectedValue.ToString())).GIABAN;
-                    cthd.PTKM = ChiTietKMBLL.getPTKMIDSach(int.Parse(cbx_Sach.SelectedValue.ToString()));
+                    cthd.GIA = SachBLL.getSachID(SachBLL.getID(lab_TenSach.Text)).GIABAN;
+                    cthd.PTKM = ChiTietKMBLL.getPTKMIDSach(SachBLL.getID(lab_TenSach.Text));
                     cthd.ISDELETE = false;
                     listCTHD.Add(cthd);
                     txt_SLSach.ResetText();
-                    cbx_Sach.ResetText();
+                    lab_TenSach.ResetText();
                     loadCTHD();
                 }
                 else
                 {
-                    MessageBox.Show("Cuốn sách này đã có trong hóa đơn");
-                    return;
+                    MessageBox.Show("Trong kho không đủ số lượng sách");
                 }
+
+
             }
             else
             {
-                MessageBox.Show("Có lỗi , tại trường số lượng");
+                MessageBox.Show("Có lỗi");
+                return;
             }
+
 
 
         }
@@ -802,8 +810,8 @@ namespace BookShop
         private void dgv_CTHD_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             indexRowCTHD = e.RowIndex;
-            cbx_Sach.SelectedValue = int.Parse(dgv_CTHD.Rows[indexRowCTHD].Cells[1].Value.ToString());
-            txt_SLSach.Text = dgv_CTHD.Rows[indexRowCTHD].Cells[5].Value.ToString();
+            lab_TenSach.Text = SachBLL.getSachID(int.Parse(dgv_CTHD.Rows[indexRowCTHD].Cells["ID_SACH"].Value.ToString())).TEN;
+            txt_SLSach.Text = dgv_CTHD.Rows[indexRowCTHD].Cells["SOLUONG"].Value.ToString();
             btn_ThemSachHD.Enabled = false;
             btn_SuaCTHD.Enabled = true;
             btn_XoaCTHD.Enabled = true;
@@ -823,17 +831,20 @@ namespace BookShop
                 ChiTietHDBLL.deleteCTHD(MaHD, maSach);
             }
             loadCTHD();
+            lab_TenSach.ResetText();
+            txt_SLSach.ResetText();
         }
 
         private void btn_Huy_Click(object sender, EventArgs e)
         {
-            cbx_Sach.ResetText();
+            lab_TenSach.ResetText();
             txt_SLSach.ResetText();
             btn_SuaCTHD.Enabled = false;
             btn_ThemSachHD.Enabled = true;
             listCTHD.Clear();
             dgv_CTHD.DataSource = null;
             txt_TongTienHD.Text = "0";
+            loadHD();
         }
 
         private void btn_TimChuDe_Click(object sender, EventArgs e)
@@ -849,13 +860,13 @@ namespace BookShop
         /// <param name="e"></param>
         private void dgv_AllHD_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            indexRowAllHD = e.RowIndex;
-            txt_MaHD.Text = dgv_AllHD.Rows[indexRowAllHD].Cells[0].Value.ToString();
-            var nv = AccountDataAccess.GetItem(int.Parse(dgv_AllHD.Rows[indexRowAllHD].Cells[1].Value.ToString()));
-            txt_NhanVien.Text = nv.TEN;
-            MaHD = int.Parse(dgv_AllHD.Rows[indexRowAllHD].Cells[0].Value.ToString());
-            loadCTHD();
-            btn_Xoa.Enabled = true;
+            //indexRowAllHD = e.RowIndex;
+            //txt_MaHD.Text = dgv_AllSachHD.Rows[indexRowAllHD].Cells[0].Value.ToString();
+            //var nv = AccountDataAccess.GetItem(int.Parse(dgv_AllSachHD.Rows[indexRowAllHD].Cells[1].Value.ToString()));
+            //txt_NhanVien.Text = nv.TEN;
+            //MaHD = int.Parse(dgv_AllSachHD.Rows[indexRowAllHD].Cells[0].Value.ToString());
+            //loadCTHD();
+            //btn_Xoa.Enabled = true;
 
         }
 
@@ -869,10 +880,19 @@ namespace BookShop
             int idNV = _session.ID;
             int sl = int.Parse(listCTHD.Select(n => n.SOLUONG).Sum().ToString());
             string tongtien = txt_TongTienHD.Text;
-            HoaDonBLL.creatHD(txt_MaHD.Text, idNV, tongtien, sl, dtp_NgayHD.Value, listCTHD);
-            loadHD();
+            HoaDonBLL.creatHD(lab_MaHD.Text, idNV, tongtien, sl, Convert.ToDateTime(lab_NgayHD.Text), listCTHD);
+            if (txt_Tien.Text.Any())
+            {
+                txt_TienDu.Text = (int.Parse(txt_Tien.Text) - int.Parse(txt_TongTienHD.Text)).ToString();
+            }
+            else
+            {
+                txt_TienDu.Text = (0 - int.Parse(txt_TongTienHD.Text)).ToString();
+
+            }
+            
             listCTHD.Clear();
-            loadCTKM();
+            //loadCTKM();
 
         }
         //================================== PUBLISHER ===============================================
@@ -1324,6 +1344,20 @@ namespace BookShop
         private void tpe_Sach_Click(object sender, EventArgs e)
         {
 
+        }
+        /// <summary>
+        /// Tìm sách ghi hóa đơn
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btn_TimKiem_Click(object sender, EventArgs e)
+        {
+            dgv_AllSachHD.DataSource = ChiTietHDBLL.TimKiem(txt_TimKiemSachHD.Text).DataSource;
+        }
+
+        private void dgv_AllSachHD_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            lab_TenSach.Text = dgv_AllSachHD.Rows[e.RowIndex].Cells["TEN"].Value.ToString();
         }
 
 

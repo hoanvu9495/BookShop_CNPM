@@ -30,10 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource17 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource18 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource19 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource20 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource2 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource3 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource4 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.SACHBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.BOOKSHOPDataSet1 = new BookShop.BOOKSHOPDataSet1();
             this.TACGIABindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -47,6 +47,15 @@
             this.tcl_Function = new System.Windows.Forms.TabControl();
             this.tpe_Sale = new System.Windows.Forms.TabPage();
             this.grp_CTHD = new System.Windows.Forms.GroupBox();
+            this.txt_TienDu = new System.Windows.Forms.TextBox();
+            this.label64 = new System.Windows.Forms.Label();
+            this.txt_Tien = new System.Windows.Forms.TextBox();
+            this.label63 = new System.Windows.Forms.Label();
+            this.lab_MaHD = new System.Windows.Forms.Label();
+            this.lab_TenSach = new System.Windows.Forms.Label();
+            this.lab = new System.Windows.Forms.Label();
+            this.lab_NhanVienHD = new System.Windows.Forms.Label();
+            this.lab_NgayHD = new System.Windows.Forms.Label();
             this.btn_XoaCTHD = new System.Windows.Forms.Button();
             this.label27 = new System.Windows.Forms.Label();
             this.btn_ThemSach = new System.Windows.Forms.Button();
@@ -55,22 +64,17 @@
             this.label29 = new System.Windows.Forms.Label();
             this.txt_TongTienHD = new System.Windows.Forms.TextBox();
             this.txt_SLSach = new System.Windows.Forms.TextBox();
-            this.cbx_Sach = new System.Windows.Forms.ComboBox();
             this.btn_Huy = new System.Windows.Forms.Button();
-            this.txt_NhanVien = new System.Windows.Forms.TextBox();
             this.label30 = new System.Windows.Forms.Label();
-            this.dtp_NgayHD = new System.Windows.Forms.DateTimePicker();
             this.label31 = new System.Windows.Forms.Label();
             this.label32 = new System.Windows.Forms.Label();
-            this.txt_MaHD = new System.Windows.Forms.TextBox();
-            this.btn_Xoa = new System.Windows.Forms.Button();
             this.btn_SuaCTHD = new System.Windows.Forms.Button();
             this.dgv_CTHD = new System.Windows.Forms.DataGridView();
             this.grp_DanhSach = new System.Windows.Forms.GroupBox();
             this.btn_all = new System.Windows.Forms.Button();
             this.btn_TimKiem = new System.Windows.Forms.Button();
-            this.txt_TimKiem = new System.Windows.Forms.TextBox();
-            this.dgv_AllHD = new System.Windows.Forms.DataGridView();
+            this.txt_TimKiemSachHD = new System.Windows.Forms.TextBox();
+            this.dgv_AllSachHD = new System.Windows.Forms.DataGridView();
             this.tpe_buy = new System.Windows.Forms.TabPage();
             this.btn_loadBill = new System.Windows.Forms.Button();
             this.btn_billDelete = new System.Windows.Forms.Button();
@@ -300,7 +304,7 @@
             this.grp_CTHD.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_CTHD)).BeginInit();
             this.grp_DanhSach.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_AllHD)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_AllSachHD)).BeginInit();
             this.tpe_buy.SuspendLayout();
             this.groupBox6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Bill)).BeginInit();
@@ -463,6 +467,15 @@
             // 
             // grp_CTHD
             // 
+            this.grp_CTHD.Controls.Add(this.txt_TienDu);
+            this.grp_CTHD.Controls.Add(this.label64);
+            this.grp_CTHD.Controls.Add(this.txt_Tien);
+            this.grp_CTHD.Controls.Add(this.label63);
+            this.grp_CTHD.Controls.Add(this.lab_MaHD);
+            this.grp_CTHD.Controls.Add(this.lab_TenSach);
+            this.grp_CTHD.Controls.Add(this.lab);
+            this.grp_CTHD.Controls.Add(this.lab_NhanVienHD);
+            this.grp_CTHD.Controls.Add(this.lab_NgayHD);
             this.grp_CTHD.Controls.Add(this.btn_XoaCTHD);
             this.grp_CTHD.Controls.Add(this.label27);
             this.grp_CTHD.Controls.Add(this.btn_ThemSach);
@@ -471,27 +484,98 @@
             this.grp_CTHD.Controls.Add(this.label29);
             this.grp_CTHD.Controls.Add(this.txt_TongTienHD);
             this.grp_CTHD.Controls.Add(this.txt_SLSach);
-            this.grp_CTHD.Controls.Add(this.cbx_Sach);
             this.grp_CTHD.Controls.Add(this.btn_Huy);
-            this.grp_CTHD.Controls.Add(this.txt_NhanVien);
             this.grp_CTHD.Controls.Add(this.label30);
-            this.grp_CTHD.Controls.Add(this.dtp_NgayHD);
             this.grp_CTHD.Controls.Add(this.label31);
             this.grp_CTHD.Controls.Add(this.label32);
-            this.grp_CTHD.Controls.Add(this.txt_MaHD);
-            this.grp_CTHD.Controls.Add(this.btn_Xoa);
             this.grp_CTHD.Controls.Add(this.btn_SuaCTHD);
             this.grp_CTHD.Controls.Add(this.dgv_CTHD);
-            this.grp_CTHD.Location = new System.Drawing.Point(587, 7);
+            this.grp_CTHD.Location = new System.Drawing.Point(417, 7);
             this.grp_CTHD.Name = "grp_CTHD";
-            this.grp_CTHD.Size = new System.Drawing.Size(619, 549);
+            this.grp_CTHD.Size = new System.Drawing.Size(789, 549);
             this.grp_CTHD.TabIndex = 2;
             this.grp_CTHD.TabStop = false;
             this.grp_CTHD.Text = "Chi tiết hóa đơn";
             // 
+            // txt_TienDu
+            // 
+            this.txt_TienDu.Location = new System.Drawing.Point(668, 62);
+            this.txt_TienDu.Name = "txt_TienDu";
+            this.txt_TienDu.Size = new System.Drawing.Size(100, 26);
+            this.txt_TienDu.TabIndex = 28;
+            // 
+            // label64
+            // 
+            this.label64.AutoSize = true;
+            this.label64.Location = new System.Drawing.Point(617, 66);
+            this.label64.Name = "label64";
+            this.label64.Size = new System.Drawing.Size(50, 19);
+            this.label64.TabIndex = 27;
+            this.label64.Text = "Số dư:";
+            // 
+            // txt_Tien
+            // 
+            this.txt_Tien.Location = new System.Drawing.Point(501, 62);
+            this.txt_Tien.Name = "txt_Tien";
+            this.txt_Tien.Size = new System.Drawing.Size(109, 26);
+            this.txt_Tien.TabIndex = 26;
+            // 
+            // label63
+            // 
+            this.label63.AutoSize = true;
+            this.label63.Location = new System.Drawing.Point(458, 66);
+            this.label63.Name = "label63";
+            this.label63.Size = new System.Drawing.Size(37, 19);
+            this.label63.TabIndex = 25;
+            this.label63.Text = "Tiền:";
+            // 
+            // lab_MaHD
+            // 
+            this.lab_MaHD.AutoSize = true;
+            this.lab_MaHD.Location = new System.Drawing.Point(47, 30);
+            this.lab_MaHD.Name = "lab_MaHD";
+            this.lab_MaHD.Size = new System.Drawing.Size(52, 19);
+            this.lab_MaHD.TabIndex = 24;
+            this.lab_MaHD.Text = "MaHD";
+            // 
+            // lab_TenSach
+            // 
+            this.lab_TenSach.AutoSize = true;
+            this.lab_TenSach.Location = new System.Drawing.Point(47, 93);
+            this.lab_TenSach.Name = "lab_TenSach";
+            this.lab_TenSach.Size = new System.Drawing.Size(0, 19);
+            this.lab_TenSach.TabIndex = 23;
+            // 
+            // lab
+            // 
+            this.lab.AutoSize = true;
+            this.lab.Location = new System.Drawing.Point(11, 93);
+            this.lab.Name = "lab";
+            this.lab.Size = new System.Drawing.Size(42, 19);
+            this.lab.TabIndex = 22;
+            this.lab.Text = "Sách:";
+            // 
+            // lab_NhanVienHD
+            // 
+            this.lab_NhanVienHD.AutoSize = true;
+            this.lab_NhanVienHD.Location = new System.Drawing.Point(47, 64);
+            this.lab_NhanVienHD.Name = "lab_NhanVienHD";
+            this.lab_NhanVienHD.Size = new System.Drawing.Size(32, 19);
+            this.lab_NhanVienHD.TabIndex = 21;
+            this.lab_NhanVienHD.Text = "NV";
+            // 
+            // lab_NgayHD
+            // 
+            this.lab_NgayHD.AutoSize = true;
+            this.lab_NgayHD.Location = new System.Drawing.Point(286, 31);
+            this.lab_NgayHD.Name = "lab_NgayHD";
+            this.lab_NgayHD.Size = new System.Drawing.Size(79, 19);
+            this.lab_NgayHD.TabIndex = 20;
+            this.lab_NgayHD.Text = "NgayThang";
+            // 
             // btn_XoaCTHD
             // 
-            this.btn_XoaCTHD.Location = new System.Drawing.Point(537, 94);
+            this.btn_XoaCTHD.Location = new System.Drawing.Point(493, 94);
             this.btn_XoaCTHD.Name = "btn_XoaCTHD";
             this.btn_XoaCTHD.Size = new System.Drawing.Size(73, 27);
             this.btn_XoaCTHD.TabIndex = 19;
@@ -502,7 +586,7 @@
             // label27
             // 
             this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(454, 66);
+            this.label27.Location = new System.Drawing.Point(411, 68);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(43, 19);
             this.label27.TabIndex = 18;
@@ -510,11 +594,11 @@
             // 
             // btn_ThemSach
             // 
-            this.btn_ThemSach.Location = new System.Drawing.Point(458, 24);
+            this.btn_ThemSach.Location = new System.Drawing.Point(651, 92);
             this.btn_ThemSach.Name = "btn_ThemSach";
-            this.btn_ThemSach.Size = new System.Drawing.Size(73, 32);
+            this.btn_ThemSach.Size = new System.Drawing.Size(117, 32);
             this.btn_ThemSach.TabIndex = 4;
-            this.btn_ThemSach.Text = "Thêm";
+            this.btn_ThemSach.Text = "Thanh toán";
             this.btn_ThemSach.UseVisualStyleBackColor = true;
             this.btn_ThemSach.Click += new System.EventHandler(this.btn_ThemSach_Click);
             // 
@@ -529,7 +613,7 @@
             // 
             // btn_ThemSachHD
             // 
-            this.btn_ThemSachHD.Location = new System.Drawing.Point(388, 93);
+            this.btn_ThemSachHD.Location = new System.Drawing.Point(344, 93);
             this.btn_ThemSachHD.Name = "btn_ThemSachHD";
             this.btn_ThemSachHD.Size = new System.Drawing.Size(61, 27);
             this.btn_ThemSachHD.TabIndex = 16;
@@ -551,7 +635,7 @@
             this.txt_TongTienHD.Enabled = false;
             this.txt_TongTienHD.Location = new System.Drawing.Point(286, 61);
             this.txt_TongTienHD.Name = "txt_TongTienHD";
-            this.txt_TongTienHD.Size = new System.Drawing.Size(163, 26);
+            this.txt_TongTienHD.Size = new System.Drawing.Size(119, 26);
             this.txt_TongTienHD.TabIndex = 14;
             // 
             // txt_SLSach
@@ -561,30 +645,15 @@
             this.txt_SLSach.Size = new System.Drawing.Size(31, 26);
             this.txt_SLSach.TabIndex = 13;
             // 
-            // cbx_Sach
-            // 
-            this.cbx_Sach.FormattingEnabled = true;
-            this.cbx_Sach.Location = new System.Drawing.Point(11, 94);
-            this.cbx_Sach.Name = "cbx_Sach";
-            this.cbx_Sach.Size = new System.Drawing.Size(213, 27);
-            this.cbx_Sach.TabIndex = 12;
-            // 
             // btn_Huy
             // 
-            this.btn_Huy.Location = new System.Drawing.Point(537, 62);
+            this.btn_Huy.Location = new System.Drawing.Point(572, 95);
             this.btn_Huy.Name = "btn_Huy";
             this.btn_Huy.Size = new System.Drawing.Size(73, 26);
             this.btn_Huy.TabIndex = 10;
             this.btn_Huy.Text = "Hủy";
             this.btn_Huy.UseVisualStyleBackColor = true;
             this.btn_Huy.Click += new System.EventHandler(this.btn_Huy_Click);
-            // 
-            // txt_NhanVien
-            // 
-            this.txt_NhanVien.Location = new System.Drawing.Point(47, 62);
-            this.txt_NhanVien.Name = "txt_NhanVien";
-            this.txt_NhanVien.Size = new System.Drawing.Size(141, 26);
-            this.txt_NhanVien.TabIndex = 9;
             // 
             // label30
             // 
@@ -594,16 +663,6 @@
             this.label30.Size = new System.Drawing.Size(34, 19);
             this.label30.TabIndex = 8;
             this.label30.Text = "NV:";
-            // 
-            // dtp_NgayHD
-            // 
-            this.dtp_NgayHD.CustomFormat = "dd/MM/yyyy - hh:mm:ss";
-            this.dtp_NgayHD.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtp_NgayHD.Location = new System.Drawing.Point(286, 28);
-            this.dtp_NgayHD.Name = "dtp_NgayHD";
-            this.dtp_NgayHD.Size = new System.Drawing.Size(166, 26);
-            this.dtp_NgayHD.TabIndex = 7;
-            this.dtp_NgayHD.Value = new System.DateTime(2016, 5, 21, 9, 49, 36, 0);
             // 
             // label31
             // 
@@ -623,27 +682,9 @@
             this.label32.TabIndex = 5;
             this.label32.Text = "Mã ";
             // 
-            // txt_MaHD
-            // 
-            this.txt_MaHD.Enabled = false;
-            this.txt_MaHD.Location = new System.Drawing.Point(47, 27);
-            this.txt_MaHD.Name = "txt_MaHD";
-            this.txt_MaHD.Size = new System.Drawing.Size(109, 26);
-            this.txt_MaHD.TabIndex = 4;
-            // 
-            // btn_Xoa
-            // 
-            this.btn_Xoa.Location = new System.Drawing.Point(537, 23);
-            this.btn_Xoa.Name = "btn_Xoa";
-            this.btn_Xoa.Size = new System.Drawing.Size(73, 33);
-            this.btn_Xoa.TabIndex = 3;
-            this.btn_Xoa.Text = "Xóa";
-            this.btn_Xoa.UseVisualStyleBackColor = true;
-            this.btn_Xoa.Click += new System.EventHandler(this.btn_Xoa_Click);
-            // 
             // btn_SuaCTHD
             // 
-            this.btn_SuaCTHD.Location = new System.Drawing.Point(458, 94);
+            this.btn_SuaCTHD.Location = new System.Drawing.Point(414, 94);
             this.btn_SuaCTHD.Name = "btn_SuaCTHD";
             this.btn_SuaCTHD.Size = new System.Drawing.Size(73, 26);
             this.btn_SuaCTHD.TabIndex = 2;
@@ -661,7 +702,7 @@
             this.dgv_CTHD.Name = "dgv_CTHD";
             this.dgv_CTHD.ReadOnly = true;
             this.dgv_CTHD.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_CTHD.Size = new System.Drawing.Size(602, 420);
+            this.dgv_CTHD.Size = new System.Drawing.Size(763, 420);
             this.dgv_CTHD.TabIndex = 0;
             this.dgv_CTHD.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgv_CTHD_CellMouseDoubleClick);
             // 
@@ -669,11 +710,11 @@
             // 
             this.grp_DanhSach.Controls.Add(this.btn_all);
             this.grp_DanhSach.Controls.Add(this.btn_TimKiem);
-            this.grp_DanhSach.Controls.Add(this.txt_TimKiem);
-            this.grp_DanhSach.Controls.Add(this.dgv_AllHD);
+            this.grp_DanhSach.Controls.Add(this.txt_TimKiemSachHD);
+            this.grp_DanhSach.Controls.Add(this.dgv_AllSachHD);
             this.grp_DanhSach.Location = new System.Drawing.Point(8, 7);
             this.grp_DanhSach.Name = "grp_DanhSach";
-            this.grp_DanhSach.Size = new System.Drawing.Size(573, 559);
+            this.grp_DanhSach.Size = new System.Drawing.Size(403, 559);
             this.grp_DanhSach.TabIndex = 1;
             this.grp_DanhSach.TabStop = false;
             this.grp_DanhSach.Text = "Danh sách";
@@ -696,27 +737,29 @@
             this.btn_TimKiem.TabIndex = 3;
             this.btn_TimKiem.Text = "Tìm";
             this.btn_TimKiem.UseVisualStyleBackColor = true;
+            this.btn_TimKiem.Click += new System.EventHandler(this.btn_TimKiem_Click);
             // 
-            // txt_TimKiem
+            // txt_TimKiemSachHD
             // 
-            this.txt_TimKiem.Location = new System.Drawing.Point(6, 34);
-            this.txt_TimKiem.Name = "txt_TimKiem";
-            this.txt_TimKiem.Size = new System.Drawing.Size(197, 26);
-            this.txt_TimKiem.TabIndex = 2;
+            this.txt_TimKiemSachHD.Location = new System.Drawing.Point(6, 34);
+            this.txt_TimKiemSachHD.Name = "txt_TimKiemSachHD";
+            this.txt_TimKiemSachHD.Size = new System.Drawing.Size(197, 26);
+            this.txt_TimKiemSachHD.TabIndex = 2;
             // 
-            // dgv_AllHD
+            // dgv_AllSachHD
             // 
-            this.dgv_AllHD.AllowUserToAddRows = false;
-            this.dgv_AllHD.AllowUserToDeleteRows = false;
-            this.dgv_AllHD.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_AllHD.Location = new System.Drawing.Point(7, 87);
-            this.dgv_AllHD.MultiSelect = false;
-            this.dgv_AllHD.Name = "dgv_AllHD";
-            this.dgv_AllHD.ReadOnly = true;
-            this.dgv_AllHD.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_AllHD.Size = new System.Drawing.Size(560, 462);
-            this.dgv_AllHD.TabIndex = 0;
-            this.dgv_AllHD.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_AllHD_CellDoubleClick);
+            this.dgv_AllSachHD.AllowUserToAddRows = false;
+            this.dgv_AllSachHD.AllowUserToDeleteRows = false;
+            this.dgv_AllSachHD.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_AllSachHD.Location = new System.Drawing.Point(7, 66);
+            this.dgv_AllSachHD.MultiSelect = false;
+            this.dgv_AllSachHD.Name = "dgv_AllSachHD";
+            this.dgv_AllSachHD.ReadOnly = true;
+            this.dgv_AllSachHD.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgv_AllSachHD.Size = new System.Drawing.Size(388, 483);
+            this.dgv_AllSachHD.TabIndex = 0;
+            this.dgv_AllSachHD.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_AllHD_CellDoubleClick);
+            this.dgv_AllSachHD.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgv_AllSachHD_CellMouseDoubleClick);
             // 
             // tpe_buy
             // 
@@ -2679,9 +2722,9 @@
             // reportViewer3
             // 
             this.reportViewer3.Dock = System.Windows.Forms.DockStyle.Fill;
-            reportDataSource17.Name = "DataSet1";
-            reportDataSource17.Value = this.SACHBindingSource;
-            this.reportViewer3.LocalReport.DataSources.Add(reportDataSource17);
+            reportDataSource1.Name = "DataSet1";
+            reportDataSource1.Value = this.SACHBindingSource;
+            this.reportViewer3.LocalReport.DataSources.Add(reportDataSource1);
             this.reportViewer3.LocalReport.ReportEmbeddedResource = "BookShop.Report3.rdlc";
             this.reportViewer3.Location = new System.Drawing.Point(5, 4);
             this.reportViewer3.Name = "reportViewer3";
@@ -2703,9 +2746,9 @@
             // reportViewer1
             // 
             this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            reportDataSource18.Name = "DataSet1";
-            reportDataSource18.Value = this.TACGIABindingSource;
-            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource18);
+            reportDataSource2.Name = "DataSet1";
+            reportDataSource2.Value = this.TACGIABindingSource;
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource2);
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "BookShop.Report1.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(5, 4);
             this.reportViewer1.Name = "reportViewer1";
@@ -2727,9 +2770,9 @@
             // reportViewer2
             // 
             this.reportViewer2.Dock = System.Windows.Forms.DockStyle.Fill;
-            reportDataSource19.Name = "DataSetNXB";
-            reportDataSource19.Value = this.NHAXUATBANBindingSource;
-            this.reportViewer2.LocalReport.DataSources.Add(reportDataSource19);
+            reportDataSource3.Name = "DataSetNXB";
+            reportDataSource3.Value = this.NHAXUATBANBindingSource;
+            this.reportViewer2.LocalReport.DataSources.Add(reportDataSource3);
             this.reportViewer2.LocalReport.ReportEmbeddedResource = "BookShop.Report2.rdlc";
             this.reportViewer2.Location = new System.Drawing.Point(5, 4);
             this.reportViewer2.Name = "reportViewer2";
@@ -2751,9 +2794,9 @@
             // reportViewer4
             // 
             this.reportViewer4.Dock = System.Windows.Forms.DockStyle.Fill;
-            reportDataSource20.Name = "DataSet1";
-            reportDataSource20.Value = this.VWTHONGTINKMBindingSource;
-            this.reportViewer4.LocalReport.DataSources.Add(reportDataSource20);
+            reportDataSource4.Name = "DataSet1";
+            reportDataSource4.Value = this.VWTHONGTINKMBindingSource;
+            this.reportViewer4.LocalReport.DataSources.Add(reportDataSource4);
             this.reportViewer4.LocalReport.ReportEmbeddedResource = "BookShop.Report4.rdlc";
             this.reportViewer4.Location = new System.Drawing.Point(5, 4);
             this.reportViewer4.Name = "reportViewer4";
@@ -2914,7 +2957,7 @@
             this.flp_StatusUser.Controls.Add(this.lbe_Hello);
             this.flp_StatusUser.Controls.Add(this.lbl_Username);
             this.flp_StatusUser.Controls.Add(this.btn_Logout);
-            this.flp_StatusUser.Location = new System.Drawing.Point(1036, 10);
+            this.flp_StatusUser.Location = new System.Drawing.Point(1012, 12);
             this.flp_StatusUser.Name = "flp_StatusUser";
             this.flp_StatusUser.Size = new System.Drawing.Size(192, 34);
             this.flp_StatusUser.TabIndex = 9;
@@ -2980,7 +3023,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgv_CTHD)).EndInit();
             this.grp_DanhSach.ResumeLayout(false);
             this.grp_DanhSach.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_AllHD)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_AllSachHD)).EndInit();
             this.tpe_buy.ResumeLayout(false);
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
@@ -3115,22 +3158,17 @@
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.TextBox txt_TongTienHD;
         private System.Windows.Forms.TextBox txt_SLSach;
-        private System.Windows.Forms.ComboBox cbx_Sach;
         private System.Windows.Forms.Button btn_Huy;
-        private System.Windows.Forms.TextBox txt_NhanVien;
         private System.Windows.Forms.Label label30;
-        private System.Windows.Forms.DateTimePicker dtp_NgayHD;
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.Label label32;
-        private System.Windows.Forms.TextBox txt_MaHD;
-        private System.Windows.Forms.Button btn_Xoa;
         private System.Windows.Forms.Button btn_SuaCTHD;
         private System.Windows.Forms.DataGridView dgv_CTHD;
         private System.Windows.Forms.GroupBox grp_DanhSach;
         private System.Windows.Forms.Button btn_all;
         private System.Windows.Forms.Button btn_TimKiem;
-        private System.Windows.Forms.TextBox txt_TimKiem;
-        private System.Windows.Forms.DataGridView dgv_AllHD;
+        private System.Windows.Forms.TextBox txt_TimKiemSachHD;
+        private System.Windows.Forms.DataGridView dgv_AllSachHD;
         private System.Windows.Forms.TabPage tpe_KhuyenMai;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Button btn_XoaCTKM;
@@ -3289,6 +3327,15 @@
         private System.Windows.Forms.BindingSource VWTHONGTINKMBindingSource;
         private BOOKSHOPDataSet1TableAdapters.VWTHONGTINKMTableAdapter VWTHONGTINKMTableAdapter;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.TextBox txt_TienDu;
+        private System.Windows.Forms.Label label64;
+        private System.Windows.Forms.TextBox txt_Tien;
+        private System.Windows.Forms.Label label63;
+        private System.Windows.Forms.Label lab_MaHD;
+        private System.Windows.Forms.Label lab_TenSach;
+        private System.Windows.Forms.Label lab;
+        private System.Windows.Forms.Label lab_NhanVienHD;
+        private System.Windows.Forms.Label lab_NgayHD;
 
     }
 }
