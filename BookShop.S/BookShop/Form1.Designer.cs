@@ -35,22 +35,33 @@
             this.tpe_Sale = new System.Windows.Forms.TabPage();
             this.btn_Xem = new System.Windows.Forms.Button();
             this.tpe_buy = new System.Windows.Forms.TabPage();
-            this.btn_loadBill = new System.Windows.Forms.Button();
-            this.btn_billDelete = new System.Windows.Forms.Button();
-            this.btn_billUpdate = new System.Windows.Forms.Button();
-            this.btn_billCreate = new System.Windows.Forms.Button();
+            this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.dgv_lstBill = new System.Windows.Forms.DataGridView();
+            this.lb_billMoney = new System.Windows.Forms.Label();
+            this.txt_billNV = new System.Windows.Forms.TextBox();
+            this.btn_billLoad = new System.Windows.Forms.Button();
+            this.lb_billDate = new System.Windows.Forms.Label();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.dgv_Bill = new System.Windows.Forms.DataGridView();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.dgv_bBook = new System.Windows.Forms.DataGridView();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.txt_giaNhap = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.lb_billNameb = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.btn_billUpdate = new System.Windows.Forms.Button();
+            this.label24 = new System.Windows.Forms.Label();
+            this.txt_billslBook = new System.Windows.Forms.TextBox();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.txt_billID = new System.Windows.Forms.TextBox();
+            this.btn_billCreate = new System.Windows.Forms.Button();
+            this.txt_billSearch = new System.Windows.Forms.TextBox();
             this.label22 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
-            this.txt_billSearch = new System.Windows.Forms.TextBox();
-            this.btn_billSearch = new System.Windows.Forms.Button();
-            this.txt_billSl = new System.Windows.Forms.TextBox();
-            this.date_Bill = new System.Windows.Forms.DateTimePicker();
-            this.cbx_billNXB = new System.Windows.Forms.ComboBox();
-            this.txt_billID = new System.Windows.Forms.TextBox();
-            this.dgv_Bill = new System.Windows.Forms.DataGridView();
             this.tpe_Account = new System.Windows.Forms.TabPage();
             this.tpe_report = new System.Windows.Forms.TabPage();
             this.tpe_Statistical = new System.Windows.Forms.TabPage();
@@ -58,10 +69,10 @@
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.dgv_Book = new System.Windows.Forms.DataGridView();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btn_bookInsert = new System.Windows.Forms.Button();
             this.btn_stopBook = new System.Windows.Forms.Button();
             this.txt_BookK = new System.Windows.Forms.TextBox();
             this.btn_updateBook = new System.Windows.Forms.Button();
-            this.btn_CreateBook = new System.Windows.Forms.Button();
             this.txt_soTrang = new System.Windows.Forms.TextBox();
             this.txt_BookSl = new System.Windows.Forms.TextBox();
             this.btn_bookSearch = new System.Windows.Forms.Button();
@@ -79,17 +90,15 @@
             this.label13 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dgv_TG = new System.Windows.Forms.DataGridView();
             this.btn_loaddataBook = new System.Windows.Forms.Button();
             this.btn_openPicture = new System.Windows.Forms.Button();
-            this.txt_BookSt = new System.Windows.Forms.TextBox();
             this.txt_BookMT = new System.Windows.Forms.TextBox();
             this.txt_BookPricein = new System.Windows.Forms.TextBox();
             this.txt_BookPriceout = new System.Windows.Forms.TextBox();
-            this.btn_BookDelete = new System.Windows.Forms.Button();
-            this.btn_BookUpdate = new System.Windows.Forms.Button();
-            this.label17 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.picBox_Bookimage = new System.Windows.Forms.PictureBox();
             this.tpe_Author = new System.Windows.Forms.TabPage();
@@ -119,19 +128,26 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btn_Login = new System.Windows.Forms.Button();
+            this.txt_searchBook = new System.Windows.Forms.TextBox();
             this.tcl_Home.SuspendLayout();
             this.tpe_Function.SuspendLayout();
             this.tcl_Function.SuspendLayout();
             this.tpe_Sale.SuspendLayout();
             this.tpe_buy.SuspendLayout();
-            this.groupBox5.SuspendLayout();
+            this.groupBox8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_lstBill)).BeginInit();
+            this.groupBox7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Bill)).BeginInit();
+            this.groupBox6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_bBook)).BeginInit();
+            this.groupBox5.SuspendLayout();
             this.tpe_Book.SuspendLayout();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Book)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_TG)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_Bookimage)).BeginInit();
             this.tpe_Author.SuspendLayout();
             this.group_Author.SuspendLayout();
@@ -223,12 +239,20 @@
             // 
             // tpe_buy
             // 
-            this.tpe_buy.Controls.Add(this.btn_loadBill);
-            this.tpe_buy.Controls.Add(this.btn_billDelete);
-            this.tpe_buy.Controls.Add(this.btn_billUpdate);
-            this.tpe_buy.Controls.Add(this.btn_billCreate);
+            this.tpe_buy.Controls.Add(this.groupBox8);
+            this.tpe_buy.Controls.Add(this.lb_billMoney);
+            this.tpe_buy.Controls.Add(this.txt_billNV);
+            this.tpe_buy.Controls.Add(this.btn_billLoad);
+            this.tpe_buy.Controls.Add(this.lb_billDate);
+            this.tpe_buy.Controls.Add(this.groupBox7);
+            this.tpe_buy.Controls.Add(this.groupBox6);
             this.tpe_buy.Controls.Add(this.groupBox5);
-            this.tpe_buy.Controls.Add(this.dgv_Bill);
+            this.tpe_buy.Controls.Add(this.label20);
+            this.tpe_buy.Controls.Add(this.txt_billID);
+            this.tpe_buy.Controls.Add(this.btn_billCreate);
+            this.tpe_buy.Controls.Add(this.label22);
+            this.tpe_buy.Controls.Add(this.label21);
+            this.tpe_buy.Controls.Add(this.label19);
             this.tpe_buy.Location = new System.Drawing.Point(4, 29);
             this.tpe_buy.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.tpe_buy.Name = "tpe_buy";
@@ -238,69 +262,243 @@
             this.tpe_buy.Text = "Nhập hàng";
             this.tpe_buy.UseVisualStyleBackColor = true;
             // 
-            // btn_loadBill
+            // groupBox8
             // 
-            this.btn_loadBill.Location = new System.Drawing.Point(77, 8);
-            this.btn_loadBill.Name = "btn_loadBill";
-            this.btn_loadBill.Size = new System.Drawing.Size(113, 23);
-            this.btn_loadBill.TabIndex = 3;
-            this.btn_loadBill.Text = "Load";
-            this.btn_loadBill.UseVisualStyleBackColor = true;
-            this.btn_loadBill.Click += new System.EventHandler(this.btn_loadBill_Click);
+            this.groupBox8.Controls.Add(this.dgv_lstBill);
+            this.groupBox8.Location = new System.Drawing.Point(630, 3);
+            this.groupBox8.Name = "groupBox8";
+            this.groupBox8.Size = new System.Drawing.Size(415, 164);
+            this.groupBox8.TabIndex = 18;
+            this.groupBox8.TabStop = false;
+            this.groupBox8.Text = "Danh sách phiếu nhập";
             // 
-            // btn_billDelete
+            // dgv_lstBill
             // 
-            this.btn_billDelete.Location = new System.Drawing.Point(270, 140);
-            this.btn_billDelete.Name = "btn_billDelete";
-            this.btn_billDelete.Size = new System.Drawing.Size(75, 23);
-            this.btn_billDelete.TabIndex = 2;
-            this.btn_billDelete.Text = "Xóa";
-            this.btn_billDelete.UseVisualStyleBackColor = true;
-            this.btn_billDelete.Click += new System.EventHandler(this.btn_billDelete_Click);
+            this.dgv_lstBill.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_lstBill.Location = new System.Drawing.Point(6, 25);
+            this.dgv_lstBill.Name = "dgv_lstBill";
+            this.dgv_lstBill.Size = new System.Drawing.Size(389, 126);
+            this.dgv_lstBill.TabIndex = 0;
+            // 
+            // lb_billMoney
+            // 
+            this.lb_billMoney.AutoSize = true;
+            this.lb_billMoney.Location = new System.Drawing.Point(418, 95);
+            this.lb_billMoney.Name = "lb_billMoney";
+            this.lb_billMoney.Size = new System.Drawing.Size(17, 19);
+            this.lb_billMoney.TabIndex = 17;
+            this.lb_billMoney.Text = "$";
+            // 
+            // txt_billNV
+            // 
+            this.txt_billNV.Location = new System.Drawing.Point(95, 14);
+            this.txt_billNV.Multiline = true;
+            this.txt_billNV.Name = "txt_billNV";
+            this.txt_billNV.Size = new System.Drawing.Size(125, 26);
+            this.txt_billNV.TabIndex = 16;
+            // 
+            // btn_billLoad
+            // 
+            this.btn_billLoad.Location = new System.Drawing.Point(351, 127);
+            this.btn_billLoad.Name = "btn_billLoad";
+            this.btn_billLoad.Size = new System.Drawing.Size(129, 40);
+            this.btn_billLoad.TabIndex = 14;
+            this.btn_billLoad.Text = "RESET";
+            this.btn_billLoad.UseVisualStyleBackColor = true;
+            this.btn_billLoad.Click += new System.EventHandler(this.btn_billLoad_Click);
+            // 
+            // lb_billDate
+            // 
+            this.lb_billDate.AutoSize = true;
+            this.lb_billDate.Location = new System.Drawing.Point(415, 55);
+            this.lb_billDate.Name = "lb_billDate";
+            this.lb_billDate.Size = new System.Drawing.Size(42, 19);
+            this.lb_billDate.TabIndex = 15;
+            this.lb_billDate.Text = " Date";
+            // 
+            // groupBox7
+            // 
+            this.groupBox7.Controls.Add(this.dgv_Bill);
+            this.groupBox7.Controls.Add(this.txt_billSearch);
+            this.groupBox7.Location = new System.Drawing.Point(8, 173);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(616, 280);
+            this.groupBox7.TabIndex = 12;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "Chi tiết phiếu nhập";
+            // 
+            // dgv_Bill
+            // 
+            this.dgv_Bill.AllowUserToAddRows = false;
+            this.dgv_Bill.AllowUserToDeleteRows = false;
+            this.dgv_Bill.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_Bill.Location = new System.Drawing.Point(11, 60);
+            this.dgv_Bill.Name = "dgv_Bill";
+            this.dgv_Bill.ReadOnly = true;
+            this.dgv_Bill.Size = new System.Drawing.Size(599, 203);
+            this.dgv_Bill.TabIndex = 0;
+            this.dgv_Bill.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_Bill_CellDoubleClick);
+            // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.dgv_bBook);
+            this.groupBox6.Controls.Add(this.txt_searchBook);
+            this.groupBox6.Location = new System.Drawing.Point(630, 173);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(415, 280);
+            this.groupBox6.TabIndex = 11;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Danh sách sách";
+            // 
+            // dgv_bBook
+            // 
+            this.dgv_bBook.AllowUserToAddRows = false;
+            this.dgv_bBook.AllowUserToDeleteRows = false;
+            this.dgv_bBook.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_bBook.Location = new System.Drawing.Point(6, 60);
+            this.dgv_bBook.Name = "dgv_bBook";
+            this.dgv_bBook.ReadOnly = true;
+            this.dgv_bBook.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgv_bBook.Size = new System.Drawing.Size(389, 203);
+            this.dgv_bBook.TabIndex = 0;
+            this.dgv_bBook.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_bBook_CellDoubleClick);
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.txt_giaNhap);
+            this.groupBox5.Controls.Add(this.label17);
+            this.groupBox5.Controls.Add(this.lb_billNameb);
+            this.groupBox5.Controls.Add(this.label26);
+            this.groupBox5.Controls.Add(this.label25);
+            this.groupBox5.Controls.Add(this.btn_billUpdate);
+            this.groupBox5.Controls.Add(this.label24);
+            this.groupBox5.Controls.Add(this.txt_billslBook);
+            this.groupBox5.Controls.Add(this.label23);
+            this.groupBox5.Location = new System.Drawing.Point(8, 46);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(326, 121);
+            this.groupBox5.TabIndex = 1;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Enter += new System.EventHandler(this.groupBox5_Enter);
+            // 
+            // txt_giaNhap
+            // 
+            this.txt_giaNhap.Location = new System.Drawing.Point(79, 49);
+            this.txt_giaNhap.Multiline = true;
+            this.txt_giaNhap.Name = "txt_giaNhap";
+            this.txt_giaNhap.Size = new System.Drawing.Size(123, 27);
+            this.txt_giaNhap.TabIndex = 17;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(7, 52);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(66, 19);
+            this.label17.TabIndex = 16;
+            this.label17.Text = "Giá nhập:";
+            // 
+            // lb_billNameb
+            // 
+            this.lb_billNameb.AutoSize = true;
+            this.lb_billNameb.Location = new System.Drawing.Point(74, 21);
+            this.lb_billNameb.Name = "lb_billNameb";
+            this.lb_billNameb.Size = new System.Drawing.Size(50, 19);
+            this.lb_billNameb.TabIndex = 15;
+            this.lb_billNameb.Text = " Name";
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(200, 55);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(0, 19);
+            this.label26.TabIndex = 13;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(73, 55);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(0, 19);
+            this.label25.TabIndex = 12;
             // 
             // btn_billUpdate
             // 
-            this.btn_billUpdate.Location = new System.Drawing.Point(175, 140);
+            this.btn_billUpdate.Location = new System.Drawing.Point(220, 49);
             this.btn_billUpdate.Name = "btn_billUpdate";
-            this.btn_billUpdate.Size = new System.Drawing.Size(75, 23);
+            this.btn_billUpdate.Size = new System.Drawing.Size(93, 27);
             this.btn_billUpdate.TabIndex = 2;
             this.btn_billUpdate.Text = "Sửa";
             this.btn_billUpdate.UseVisualStyleBackColor = true;
             this.btn_billUpdate.Click += new System.EventHandler(this.btn_billUpdate_Click);
             // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(7, 89);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(67, 19);
+            this.label24.TabIndex = 9;
+            this.label24.Text = "Số lượng:";
+            // 
+            // txt_billslBook
+            // 
+            this.txt_billslBook.Location = new System.Drawing.Point(79, 86);
+            this.txt_billslBook.Multiline = true;
+            this.txt_billslBook.Name = "txt_billslBook";
+            this.txt_billslBook.Size = new System.Drawing.Size(57, 22);
+            this.txt_billslBook.TabIndex = 8;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(8, 21);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(46, 19);
+            this.label23.TabIndex = 7;
+            this.label23.Text = "Sách :";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(16, 19);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(73, 19);
+            this.label20.TabIndex = 10;
+            this.label20.Text = "Nhân viên:";
+            // 
+            // txt_billID
+            // 
+            this.txt_billID.Location = new System.Drawing.Point(266, 12);
+            this.txt_billID.Multiline = true;
+            this.txt_billID.Name = "txt_billID";
+            this.txt_billID.Size = new System.Drawing.Size(68, 28);
+            this.txt_billID.TabIndex = 0;
+            // 
             // btn_billCreate
             // 
-            this.btn_billCreate.Location = new System.Drawing.Point(77, 140);
+            this.btn_billCreate.Location = new System.Drawing.Point(486, 127);
             this.btn_billCreate.Name = "btn_billCreate";
-            this.btn_billCreate.Size = new System.Drawing.Size(75, 23);
+            this.btn_billCreate.Size = new System.Drawing.Size(138, 40);
             this.btn_billCreate.TabIndex = 2;
-            this.btn_billCreate.Text = "+Thêm";
+            this.btn_billCreate.Text = "+Thêm mới chi tiết";
             this.btn_billCreate.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             this.btn_billCreate.UseVisualStyleBackColor = true;
             this.btn_billCreate.Click += new System.EventHandler(this.btn_billCreate_Click);
             // 
-            // groupBox5
+            // txt_billSearch
             // 
-            this.groupBox5.Controls.Add(this.label22);
-            this.groupBox5.Controls.Add(this.label21);
-            this.groupBox5.Controls.Add(this.label20);
-            this.groupBox5.Controls.Add(this.label19);
-            this.groupBox5.Controls.Add(this.txt_billSearch);
-            this.groupBox5.Controls.Add(this.btn_billSearch);
-            this.groupBox5.Controls.Add(this.txt_billSl);
-            this.groupBox5.Controls.Add(this.date_Bill);
-            this.groupBox5.Controls.Add(this.cbx_billNXB);
-            this.groupBox5.Controls.Add(this.txt_billID);
-            this.groupBox5.Location = new System.Drawing.Point(77, 37);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(663, 100);
-            this.groupBox5.TabIndex = 1;
-            this.groupBox5.TabStop = false;
+            this.txt_billSearch.Location = new System.Drawing.Point(11, 25);
+            this.txt_billSearch.Name = "txt_billSearch";
+            this.txt_billSearch.Size = new System.Drawing.Size(270, 26);
+            this.txt_billSearch.TabIndex = 4;
+            this.txt_billSearch.TextChanged += new System.EventHandler(this.txt_billSearch_TextChanged);
             // 
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(27, 22);
+            this.label22.Location = new System.Drawing.Point(230, 19);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(30, 19);
             this.label22.TabIndex = 5;
@@ -309,86 +507,20 @@
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(18, 71);
+            this.label21.Location = new System.Drawing.Point(350, 55);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(42, 19);
+            this.label21.Size = new System.Drawing.Size(49, 19);
             this.label21.TabIndex = 5;
-            this.label21.Text = "Ngày";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(164, 22);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(42, 19);
-            this.label20.TabIndex = 5;
-            this.label20.Text = "NXB";
+            this.label21.Text = "Ngày :";
             // 
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(326, 22);
+            this.label19.Location = new System.Drawing.Point(347, 95);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(64, 19);
+            this.label19.Size = new System.Drawing.Size(65, 19);
             this.label19.TabIndex = 5;
-            this.label19.Text = "Số lượng";
-            // 
-            // txt_billSearch
-            // 
-            this.txt_billSearch.Location = new System.Drawing.Point(396, 68);
-            this.txt_billSearch.Name = "txt_billSearch";
-            this.txt_billSearch.Size = new System.Drawing.Size(243, 26);
-            this.txt_billSearch.TabIndex = 4;
-            // 
-            // btn_billSearch
-            // 
-            this.btn_billSearch.Location = new System.Drawing.Point(330, 67);
-            this.btn_billSearch.Name = "btn_billSearch";
-            this.btn_billSearch.Size = new System.Drawing.Size(56, 26);
-            this.btn_billSearch.TabIndex = 2;
-            this.btn_billSearch.Text = "Tìm";
-            this.btn_billSearch.UseVisualStyleBackColor = true;
-            this.btn_billSearch.Click += new System.EventHandler(this.btn_billSearch_Click);
-            // 
-            // txt_billSl
-            // 
-            this.txt_billSl.Location = new System.Drawing.Point(396, 16);
-            this.txt_billSl.Name = "txt_billSl";
-            this.txt_billSl.Size = new System.Drawing.Size(100, 26);
-            this.txt_billSl.TabIndex = 3;
-            // 
-            // date_Bill
-            // 
-            this.date_Bill.Location = new System.Drawing.Point(77, 68);
-            this.date_Bill.Name = "date_Bill";
-            this.date_Bill.Size = new System.Drawing.Size(243, 26);
-            this.date_Bill.TabIndex = 2;
-            // 
-            // cbx_billNXB
-            // 
-            this.cbx_billNXB.FormattingEnabled = true;
-            this.cbx_billNXB.Location = new System.Drawing.Point(212, 15);
-            this.cbx_billNXB.Name = "cbx_billNXB";
-            this.cbx_billNXB.Size = new System.Drawing.Size(108, 27);
-            this.cbx_billNXB.TabIndex = 1;
-            // 
-            // txt_billID
-            // 
-            this.txt_billID.Location = new System.Drawing.Point(77, 15);
-            this.txt_billID.Name = "txt_billID";
-            this.txt_billID.Size = new System.Drawing.Size(87, 26);
-            this.txt_billID.TabIndex = 0;
-            // 
-            // dgv_Bill
-            // 
-            this.dgv_Bill.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgv_Bill.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_Bill.Location = new System.Drawing.Point(77, 169);
-            this.dgv_Bill.Name = "dgv_Bill";
-            this.dgv_Bill.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_Bill.Size = new System.Drawing.Size(905, 253);
-            this.dgv_Bill.TabIndex = 0;
-            this.dgv_Bill.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_Bill_CellDoubleClick);
+            this.label19.Text = "Tổng tiền";
             // 
             // tpe_Account
             // 
@@ -444,7 +576,7 @@
             this.groupBox4.Controls.Add(this.dgv_Book);
             this.groupBox4.Location = new System.Drawing.Point(8, 127);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(584, 295);
+            this.groupBox4.Size = new System.Drawing.Size(610, 383);
             this.groupBox4.TabIndex = 9;
             this.groupBox4.TabStop = false;
             // 
@@ -453,21 +585,21 @@
             this.dgv_Book.AllowUserToAddRows = false;
             this.dgv_Book.AllowUserToDeleteRows = false;
             this.dgv_Book.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_Book.Location = new System.Drawing.Point(15, 40);
+            this.dgv_Book.Location = new System.Drawing.Point(15, 25);
             this.dgv_Book.MultiSelect = false;
             this.dgv_Book.Name = "dgv_Book";
             this.dgv_Book.ReadOnly = true;
             this.dgv_Book.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_Book.Size = new System.Drawing.Size(559, 236);
+            this.dgv_Book.Size = new System.Drawing.Size(576, 339);
             this.dgv_Book.TabIndex = 1;
             this.dgv_Book.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_Book_CellDoubleClick);
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.btn_bookInsert);
             this.groupBox3.Controls.Add(this.btn_stopBook);
             this.groupBox3.Controls.Add(this.txt_BookK);
             this.groupBox3.Controls.Add(this.btn_updateBook);
-            this.groupBox3.Controls.Add(this.btn_CreateBook);
             this.groupBox3.Controls.Add(this.txt_soTrang);
             this.groupBox3.Controls.Add(this.txt_BookSl);
             this.groupBox3.Controls.Add(this.btn_bookSearch);
@@ -481,10 +613,21 @@
             this.groupBox3.TabIndex = 8;
             this.groupBox3.TabStop = false;
             // 
+            // btn_bookInsert
+            // 
+            this.btn_bookInsert.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_bookInsert.Location = new System.Drawing.Point(206, 46);
+            this.btn_bookInsert.Name = "btn_bookInsert";
+            this.btn_bookInsert.Size = new System.Drawing.Size(88, 30);
+            this.btn_bookInsert.TabIndex = 4;
+            this.btn_bookInsert.Text = "Thêm";
+            this.btn_bookInsert.UseVisualStyleBackColor = true;
+            this.btn_bookInsert.Click += new System.EventHandler(this.btn_CreateBook_Click);
+            // 
             // btn_stopBook
             // 
             this.btn_stopBook.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_stopBook.Location = new System.Drawing.Point(206, 46);
+            this.btn_stopBook.Location = new System.Drawing.Point(100, 46);
             this.btn_stopBook.Name = "btn_stopBook";
             this.btn_stopBook.Size = new System.Drawing.Size(88, 30);
             this.btn_stopBook.TabIndex = 4;
@@ -503,25 +646,13 @@
             // btn_updateBook
             // 
             this.btn_updateBook.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_updateBook.Location = new System.Drawing.Point(106, 46);
+            this.btn_updateBook.Location = new System.Drawing.Point(10, 46);
             this.btn_updateBook.Name = "btn_updateBook";
             this.btn_updateBook.Size = new System.Drawing.Size(75, 30);
             this.btn_updateBook.TabIndex = 4;
             this.btn_updateBook.Text = "Sửa";
             this.btn_updateBook.UseVisualStyleBackColor = true;
             this.btn_updateBook.Click += new System.EventHandler(this.btn_updateBook_Click);
-            // 
-            // btn_CreateBook
-            // 
-            this.btn_CreateBook.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_CreateBook.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btn_CreateBook.Location = new System.Drawing.Point(10, 46);
-            this.btn_CreateBook.Name = "btn_CreateBook";
-            this.btn_CreateBook.Size = new System.Drawing.Size(73, 30);
-            this.btn_CreateBook.TabIndex = 4;
-            this.btn_CreateBook.Text = "+Thêm";
-            this.btn_CreateBook.UseVisualStyleBackColor = true;
-            this.btn_CreateBook.Click += new System.EventHandler(this.btn_CreateBook_Click);
             // 
             // txt_soTrang
             // 
@@ -677,29 +808,35 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.dgv_TG);
             this.groupBox1.Controls.Add(this.btn_loaddataBook);
             this.groupBox1.Controls.Add(this.btn_openPicture);
-            this.groupBox1.Controls.Add(this.txt_BookSt);
             this.groupBox1.Controls.Add(this.txt_BookMT);
             this.groupBox1.Controls.Add(this.txt_BookPricein);
             this.groupBox1.Controls.Add(this.txt_BookPriceout);
-            this.groupBox1.Controls.Add(this.btn_BookDelete);
-            this.groupBox1.Controls.Add(this.btn_BookUpdate);
-            this.groupBox1.Controls.Add(this.label17);
             this.groupBox1.Controls.Add(this.label12);
             this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Controls.Add(this.label28);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.picBox_Bookimage);
             this.groupBox1.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(598, 127);
+            this.groupBox1.Location = new System.Drawing.Point(624, 127);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(456, 295);
+            this.groupBox1.Size = new System.Drawing.Size(456, 383);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             // 
+            // dgv_TG
+            // 
+            this.dgv_TG.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_TG.Location = new System.Drawing.Point(82, 96);
+            this.dgv_TG.Name = "dgv_TG";
+            this.dgv_TG.Size = new System.Drawing.Size(180, 118);
+            this.dgv_TG.TabIndex = 6;
+            // 
             // btn_loaddataBook
             // 
-            this.btn_loaddataBook.Location = new System.Drawing.Point(261, 238);
+            this.btn_loaddataBook.Location = new System.Drawing.Point(82, 329);
             this.btn_loaddataBook.Name = "btn_loaddataBook";
             this.btn_loaddataBook.Size = new System.Drawing.Size(75, 23);
             this.btn_loaddataBook.TabIndex = 5;
@@ -709,7 +846,7 @@
             // 
             // btn_openPicture
             // 
-            this.btn_openPicture.Location = new System.Drawing.Point(188, 238);
+            this.btn_openPicture.Location = new System.Drawing.Point(283, 255);
             this.btn_openPicture.Name = "btn_openPicture";
             this.btn_openPicture.Size = new System.Drawing.Size(35, 23);
             this.btn_openPicture.TabIndex = 4;
@@ -717,16 +854,9 @@
             this.btn_openPicture.UseVisualStyleBackColor = true;
             this.btn_openPicture.Click += new System.EventHandler(this.btn_openPicture_Click);
             // 
-            // txt_BookSt
-            // 
-            this.txt_BookSt.Location = new System.Drawing.Point(275, 350);
-            this.txt_BookSt.Name = "txt_BookSt";
-            this.txt_BookSt.Size = new System.Drawing.Size(166, 23);
-            this.txt_BookSt.TabIndex = 3;
-            // 
             // txt_BookMT
             // 
-            this.txt_BookMT.Location = new System.Drawing.Point(261, 120);
+            this.txt_BookMT.Location = new System.Drawing.Point(82, 241);
             this.txt_BookMT.Multiline = true;
             this.txt_BookMT.Name = "txt_BookMT";
             this.txt_BookMT.Size = new System.Drawing.Size(180, 82);
@@ -734,51 +864,23 @@
             // 
             // txt_BookPricein
             // 
-            this.txt_BookPricein.Location = new System.Drawing.Point(261, 69);
+            this.txt_BookPricein.Location = new System.Drawing.Point(82, 54);
             this.txt_BookPricein.Name = "txt_BookPricein";
             this.txt_BookPricein.Size = new System.Drawing.Size(180, 23);
             this.txt_BookPricein.TabIndex = 3;
             // 
             // txt_BookPriceout
             // 
-            this.txt_BookPriceout.Location = new System.Drawing.Point(261, 40);
+            this.txt_BookPriceout.Location = new System.Drawing.Point(82, 25);
             this.txt_BookPriceout.Name = "txt_BookPriceout";
             this.txt_BookPriceout.Size = new System.Drawing.Size(180, 23);
             this.txt_BookPriceout.TabIndex = 3;
-            // 
-            // btn_BookDelete
-            // 
-            this.btn_BookDelete.Location = new System.Drawing.Point(353, 384);
-            this.btn_BookDelete.Name = "btn_BookDelete";
-            this.btn_BookDelete.Size = new System.Drawing.Size(88, 35);
-            this.btn_BookDelete.TabIndex = 2;
-            this.btn_BookDelete.Text = "Ngừng bán";
-            this.btn_BookDelete.UseVisualStyleBackColor = true;
-            // 
-            // btn_BookUpdate
-            // 
-            this.btn_BookUpdate.Location = new System.Drawing.Point(275, 384);
-            this.btn_BookUpdate.Name = "btn_BookUpdate";
-            this.btn_BookUpdate.Size = new System.Drawing.Size(72, 35);
-            this.btn_BookUpdate.TabIndex = 2;
-            this.btn_BookUpdate.Text = "Sửa";
-            this.btn_BookUpdate.UseVisualStyleBackColor = true;
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(193, 357);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(74, 16);
-            this.label17.TabIndex = 1;
-            this.label17.Text = "Số trang:";
             // 
             // label12
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(184, 120);
+            this.label12.Location = new System.Drawing.Point(5, 241);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(49, 19);
             this.label12.TabIndex = 1;
@@ -788,17 +890,27 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(184, 69);
+            this.label7.Location = new System.Drawing.Point(6, 96);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(71, 19);
+            this.label7.Size = new System.Drawing.Size(56, 19);
             this.label7.TabIndex = 1;
-            this.label7.Text = "Giá Nhập:";
+            this.label7.Text = "Tác giả:";
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label28.Location = new System.Drawing.Point(5, 58);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(71, 19);
+            this.label28.TabIndex = 1;
+            this.label28.Text = "Giá Nhập:";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(184, 43);
+            this.label8.Location = new System.Drawing.Point(5, 28);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(61, 19);
             this.label8.TabIndex = 1;
@@ -806,7 +918,7 @@
             // 
             // picBox_Bookimage
             // 
-            this.picBox_Bookimage.Location = new System.Drawing.Point(17, 41);
+            this.picBox_Bookimage.Location = new System.Drawing.Point(280, 22);
             this.picBox_Bookimage.Name = "picBox_Bookimage";
             this.picBox_Bookimage.Size = new System.Drawing.Size(162, 220);
             this.picBox_Bookimage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1110,6 +1222,14 @@
             this.btn_Login.UseVisualStyleBackColor = true;
             this.btn_Login.Click += new System.EventHandler(this.buttonLogin_Click);
             // 
+            // txt_searchBook
+            // 
+            this.txt_searchBook.Location = new System.Drawing.Point(6, 25);
+            this.txt_searchBook.Name = "txt_searchBook";
+            this.txt_searchBook.Size = new System.Drawing.Size(161, 26);
+            this.txt_searchBook.TabIndex = 4;
+            this.txt_searchBook.TextChanged += new System.EventHandler(this.txt_searchBook_TextChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
@@ -1130,9 +1250,17 @@
             this.tcl_Function.ResumeLayout(false);
             this.tpe_Sale.ResumeLayout(false);
             this.tpe_buy.ResumeLayout(false);
+            this.tpe_buy.PerformLayout();
+            this.groupBox8.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_lstBill)).EndInit();
+            this.groupBox7.ResumeLayout(false);
+            this.groupBox7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_Bill)).EndInit();
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_bBook)).EndInit();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_Bill)).EndInit();
             this.tpe_Book.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Book)).EndInit();
@@ -1142,6 +1270,7 @@
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_TG)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_Bookimage)).EndInit();
             this.tpe_Author.ResumeLayout(false);
             this.tpe_Author.PerformLayout();
@@ -1195,23 +1324,17 @@
         private System.Windows.Forms.TextBox txt_BookPricein;
         private System.Windows.Forms.TextBox txt_BookPriceout;
         private System.Windows.Forms.TextBox txt_BookName;
-        private System.Windows.Forms.Button btn_BookDelete;
-        private System.Windows.Forms.Button btn_BookUpdate;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.PictureBox picBox_Bookimage;
         private System.Windows.Forms.DataGridView dgv_Book;
         private System.Windows.Forms.Button btn_bookSearch;
         private System.Windows.Forms.TextBox txt_bookSearch;
-        private System.Windows.Forms.Button btn_CreateBook;
         private System.Windows.Forms.TextBox txt_BookMT;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox txt_BookSt;
         private System.Windows.Forms.TextBox txt_BookK;
         private System.Windows.Forms.TextBox txt_BookSl;
-        private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label13;
@@ -1231,22 +1354,38 @@
         private System.Windows.Forms.TextBox txt_soTrang;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Button btn_loadAuthor;
-        private System.Windows.Forms.Button btn_billDelete;
         private System.Windows.Forms.Button btn_billUpdate;
         private System.Windows.Forms.Button btn_billCreate;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.TextBox txt_billSearch;
-        private System.Windows.Forms.Button btn_billSearch;
-        private System.Windows.Forms.TextBox txt_billSl;
-        private System.Windows.Forms.DateTimePicker date_Bill;
-        private System.Windows.Forms.ComboBox cbx_billNXB;
-        private System.Windows.Forms.TextBox txt_billID;
+        private System.Windows.Forms.DataGridView dgv_bBook;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.TextBox txt_billslBook;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.GroupBox groupBox7;
         private System.Windows.Forms.DataGridView dgv_Bill;
-        private System.Windows.Forms.Button btn_loadBill;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Button btn_billLoad;
+        private System.Windows.Forms.Label lb_billNameb;
+        private System.Windows.Forms.Label lb_billDate;
+        private System.Windows.Forms.TextBox txt_billID;
+        private System.Windows.Forms.Button btn_bookInsert;
+        private System.Windows.Forms.DataGridView dgv_TG;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.TextBox txt_giaNhap;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label lb_billMoney;
+        private System.Windows.Forms.TextBox txt_billNV;
+        private System.Windows.Forms.GroupBox groupBox8;
+        private System.Windows.Forms.DataGridView dgv_lstBill;
+        private System.Windows.Forms.TextBox txt_searchBook;
     }
 }
 

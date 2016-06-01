@@ -21,7 +21,7 @@ namespace BookShop.BLL
             db = new DBConnection();
         }
         /// <summary>
-        /// Đưa danh sách những phiếu nhập lên view
+        /// Đưa danh sách chi tiết phiếu nhập lên view
         /// </summary>
         /// <returns>datagridview</returns>
         public static DataGridView getAllBill()
@@ -29,95 +29,91 @@ namespace BookShop.BLL
             return BillDataAccess.getBillDAL();
         }
         /// <summary>
-        /// lấy ID phiếu nhập mới
+        /// Đưa danh sánh phiếu nhập lên view
         /// </summary>
-        /// <returns>int</returns>
-        public static int loadID()
+        /// <returns>datagridview</returns>
+        public static DataGridView getAllB()
         {
             var db = new DBConnection();
-            var item = db.PHIEUNHAPs.OrderByDescending(n => n.ID).Take(1).SingleOrDefault();
-            if (item == null)
-            {
-                return 1;
-            }
-            return ++item.ID;
+            var data = new DataGridView();
+            var item = db.PHIEUNHAPs.Where(n => n.ISDELETE == false).ToList();
+            data.DataSource = item;
+            return data;
         }
         /// <summary>
-        /// lấy đữ liệu nhà xuất bản đổ vào combobox
+        /// them phieu nhap
         /// </summary>
-        /// <returns>list</returns>
-        public static List<NHAXUATBAN> getNxbCBX()
-        {
-            var db = new DBConnection();
-            var lstcd = db.NHAXUATBANs.Where(n => n.ISDELETE != true).ToList();
-            return lstcd;
-        }
-        /// <summary>
-        /// Thêm mới phiếu nhập
-        /// </summary>
-        /// <param name="id">mã phiếu</param>
-        /// <param name="id_nxb">mã nhà xuất bản</param>
-        /// <param name="ngay">ngày nhập</param>
-        /// <param name="sl"> số lượng</param>
-        public static void createBill(int id, int id_nxb, DateTime ngay, int sl)
+        /// <param name="idpn">mã phiếu</param>
+        /// <param name="idnxb">mã nhà xuất bản</param>
+        /// <param name="tsl">tổng số lượng</param>
+        public static void createLstbill(int idpn,int idnxb,int tsl)
         {
             DBConnection db = new DBConnection();
             PHIEUNHAP pn = new PHIEUNHAP();
-            pn.ID = id;
-            pn.ID_NXB = id_nxb;
-            pn.NGAYNHAP = ngay;
-            pn.SOLUONG = sl;
-            pn.ISDELETE = true;
+            pn.ID = idpn;
+            pn.ID_NXB = idnxb;
+            pn.SOLUONG = tsl;
+            pn.ISDELETE = false;
             db.PHIEUNHAPs.Attach(pn);
             db.PHIEUNHAPs.Add(pn);
             db.SaveChanges();
         }
         /// <summary>
-        /// Sửa thông tin phiếu nhập
+        /// thêm mới hóa đơn
         /// </summary>
-        /// <param name="id">mã phiếu</param>
-        /// <param name="id_nxb">mã nhà xuất bản</param>
+        /// <param name="idPn">mã phiếu</param>
+        /// <param name="idS">mã sách</param>
+        /// <param name="sl">số lượng sách</param>
+        /// <param name="tien">tổng tiền</param>
         /// <param name="ngay">ngày nhập</param>
-        /// <param name="sl"> số lượng</param>
-        public static void updateBill(int id, int id_nxb, DateTime ngay, int sl)
+        /// <param name="idNV">mã nhân viên</param>
+        public static void insertBill(int idPn, int idS, int? sl, int? tien, DateTime? ngay, int? idNV)
         {
             DBConnection db = new DBConnection();
-            PHIEUNHAP pn = new PHIEUNHAP();
-            pn.ID = id;
-            pn.ID_NXB = id_nxb;
+            CHITIETPHIEUNHAP pn = new CHITIETPHIEUNHAP();
+            pn.ID_PN = idPn;
+            pn.ID_SACH = idS;
+            pn.SOLUONG = sl;      
+            pn.THANHTIEN = tien;
             pn.NGAYNHAP = ngay;
+            pn.ID_NV = idNV;
+            pn.ISDELETE = false;
+            db.CHITIETPHIEUNHAPs.Attach(pn);
+            db.CHITIETPHIEUNHAPs.Add(pn);
+            var book = (from a in db.SACHes where a.ID == idS select a).SingleOrDefault();
+            var bill = (from a in db.PHIEUNHAPs where a.ID == idPn select a).SingleOrDefault();
+            book.SOLUONG += sl;
+            bill.SOLUONG += sl;
+            db.SaveChanges();
+        }
+        /// <summary>
+        /// sửa hóa đơn
+        /// </summary>
+        /// <param name="idPn">mã phiếu</param>
+        /// <param name="idS">mã sách</param>
+        /// <param name="sl">số lượng sách</param>
+        /// <param name="tien">tổng tiền</param>
+        /// <param name="ngay">ngày nhập</param>
+        /// <param name="idNV">mã nhân viên</param>
+        public static void updateBill(int idPn, int idS, int sl, int tien, DateTime ngay, int idNV)
+        {
+            DBConnection db = new DBConnection();
+            CHITIETPHIEUNHAP pn = new CHITIETPHIEUNHAP();
+            pn.ID_PN = idPn;
+            pn.ID_SACH = idS;
             pn.SOLUONG = sl;
-            pn.ISDELETE = true;
-            db.PHIEUNHAPs.Attach(pn);
+            pn.THANHTIEN = tien;
+            pn.NGAYNHAP = ngay;
+            pn.ID_NV = idNV;
+            pn.ISDELETE = false;
+            db.CHITIETPHIEUNHAPs.Attach(pn);
             var entry = db.Entry(pn);
             entry.State = EntityState.Modified;
+            var book = (from a in db.SACHes where a.ID == idS select a).SingleOrDefault();
+            var bill = (from a in db.PHIEUNHAPs where a.ID == idPn select a).SingleOrDefault();
+            book.SOLUONG += sl;
+            bill.SOLUONG += sl;
             db.SaveChanges();
         }
-        /// <summary>
-        /// Xóa 1 phiếu nhập
-        /// </summary>
-        /// <param name="id">mã phiếu</param>
-        public static void deleteBill(int id)
-        {
-            DBConnection db = new DBConnection();
-            PHIEUNHAP pn = new PHIEUNHAP();
-            pn.ID = id;
-            db.PHIEUNHAPs.Attach(pn);
-            db.PHIEUNHAPs.Remove(pn);
-            db.SaveChanges();
-        }
-        /// <summary>
-        /// Tìm kiếm 1 phiếu nhập
-        /// </summary>
-        /// <param name="name"></param>
-        /// <returns>datagridview</returns>
-        public static DataGridView searchBill(int id)
-        {
-            DBConnection db = new DBConnection();
-            DataGridView data = new DataGridView();
-            var item = db.PHIEUNHAPs.Where(x => x.ISDELETE == true).ToList().FindAll(x => x.ID == id);
-            data.DataSource = item;
-            return data;
-        }
-    }
+   }
 }

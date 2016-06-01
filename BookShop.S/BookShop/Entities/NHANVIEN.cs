@@ -12,6 +12,7 @@ namespace BookShop.Entities
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public NHANVIEN()
         {
+            CHITIETPHIEUNHAPs = new HashSet<CHITIETPHIEUNHAP>();
             HOADONs = new HashSet<HOADON>();
         }
 
@@ -36,6 +37,9 @@ namespace BookShop.Entities
         public int? ID_QUYEN { get; set; }
 
         public bool? ISDELETE { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CHITIETPHIEUNHAP> CHITIETPHIEUNHAPs { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<HOADON> HOADONs { get; set; }

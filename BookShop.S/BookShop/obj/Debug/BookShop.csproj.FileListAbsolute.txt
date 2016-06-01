@@ -53,3 +53,18 @@ F:\CNPM Book Shop\BookShop\BookShop\bin\Debug\EntityFramework.dll
 F:\CNPM Book Shop\BookShop\BookShop\bin\Debug\EntityFramework.SqlServer.dll
 F:\CNPM Book Shop\BookShop\BookShop\bin\Debug\EntityFramework.xml
 F:\CNPM Book Shop\BookShop\BookShop\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\mhong\Documents\github\CNPM\BookShop\CNPM\BookShop_CNPM\BookShop.S\BookShop\bin\Debug\BookShop.exe.config
+C:\Users\mhong\Documents\github\CNPM\BookShop\CNPM\BookShop_CNPM\BookShop.S\BookShop\obj\Debug\BookShop.exe
+C:\Users\mhong\Documents\github\CNPM\BookShop\CNPM\BookShop_CNPM\BookShop.S\BookShop\obj\Debug\BookShop.pdb
+C:\Users\mhong\Documents\github\CNPM\BookShop\CNPM\BookShop_CNPM\BookShop.S\BookShop\obj\Debug\BookShop.Form1.resources
+C:\Users\mhong\Documents\github\CNPM\BookShop\CNPM\BookShop_CNPM\BookShop.S\BookShop\obj\Debug\BookShop.Properties.Resources.resources
+C:\Users\mhong\Documents\github\CNPM\BookShop\CNPM\BookShop_CNPM\BookShop.S\BookShop\obj\Debug\BookShop.csproj.GenerateResource.Cache
+C:\Users\mhong\Documents\github\CNPM\BookShop\CNPM\BookShop_CNPM\BookShop.S\BookShop\bin\Debug\BookShop.exe
+C:\Users\mhong\Documents\github\CNPM\BookShop\CNPM\BookShop_CNPM\BookShop.S\BookShop\bin\Debug\BookShop.pdb
+C:\Users\mhong\Documents\github\CNPM\BookShop\CNPM\BookShop_CNPM\BookShop.S\BookShop\bin\Debug\EntityFramework.dll
+C:\Users\mhong\Documents\github\CNPM\BookShop\CNPM\BookShop_CNPM\BookShop.S\BookShop\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\mhong\Documents\github\CNPM\BookShop\CNPM\BookShop_CNPM\BookShop.S\BookShop\bin\Debug\EntityFramework.xml
+C:\Users\mhong\Documents\github\CNPM\BookShop\CNPM\BookShop_CNPM\BookShop.S\BookShop\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\mhong\Documents\github\CNPM\BookShop\CNPM\BookShop_CNPM\BookShop.S\BookShop\obj\Debug\BookShop.csprojResolveAssemblyReference.cache
+C:\Users\mhong\Documents\github\CNPM\BookShop\CNPM\BookShop_CNPM\BookShop.S\BookShop\obj\Debug\BookShop.Bill_Create.resources
+C:\Users\mhong\Documents\github\CNPM\BookShop\CNPM\BookShop_CNPM\BookShop.S\BookShop\obj\Debug\BookShop.Bill_newCreate.resources

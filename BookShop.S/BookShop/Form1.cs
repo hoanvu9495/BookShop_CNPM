@@ -18,11 +18,13 @@ namespace BookShop
         public int indexRowSach;
         int indexrowTacgia;
         int indexrowhdnhap;
+        int indexrowsachnhap;
         string biasach;
         OpenFileDialog ofd = new OpenFileDialog();
         public Form1()
         { 
             InitializeComponent();
+            loadBill();
         }
         //private void button1_Click(object sender, EventArgs e)
         //{
@@ -91,15 +93,16 @@ namespace BookShop
             txt_BookK.Text = dgv_Book.Rows[indexRowSach].Cells[9].Value.ToString();
             txt_soTrang.Text = dgv_Book.Rows[indexRowSach].Cells[10].Value.ToString();
             picBox_Bookimage.Image = Image.FromFile(dgv_Book.Rows[indexRowSach].Cells[7].Value.ToString());
+            dgv_TG.DataSource = BookBLL.getTggrid(int.Parse(txt_BookID.Text)).DataSource;
+            dgv_TG.Columns[0].Visible = false;
+            dgv_TG.Columns[4].Visible = false;
+            dgv_TG.Columns[5].Visible = false;
+            dgv_TG.Columns[6].Visible = false;
         }
-        /// <summary>
-        /// lấy dữ liệu từ datagridview
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void tpe_Book_Click(object sender, EventArgs e)
         {
             dgv_Book.DataSource = BookBLL.getAllBook().DataSource;
+            
         }
         /// <summary>
         /// Load dữ liệu lên datagridview
@@ -109,6 +112,13 @@ namespace BookShop
         private void btn_loaddataBook_Click(object sender, EventArgs e)
         {
             loadBook();
+            dgv_Book.Columns[12].Visible = false;
+            dgv_Book.Columns[13].Visible = false;
+            dgv_Book.Columns[14].Visible = false;
+            dgv_Book.Columns[15].Visible = false;
+            dgv_Book.Columns[16].Visible = false;
+            dgv_Book.Columns[17].Visible = false;
+            MessageBox.Show("Load thành công!", "", MessageBoxButtons.OK);
         }
         /// <summary>
         /// Chọn ảnh cho sách
@@ -142,6 +152,7 @@ namespace BookShop
             int st = int.Parse(txt_soTrang.Text);
             BookBLL.insertBook(id, txt_BookName.Text, prout, prin, txt_BookMT.Text, cd, nxb, biasach, sl, txt_BookK.Text, st);
             dgv_Book.DataSource = BookBLL.getAllBook().DataSource;
+            MessageBox.Show("Thêm thành công!", "", MessageBoxButtons.OK);
         }
         /// <summary>
         /// Sửa thông tin 1 cuốn sách
@@ -159,6 +170,7 @@ namespace BookShop
             int st = int.Parse(txt_soTrang.Text);
             BookBLL.updateBook(id,txt_BookName.Text, prout, prin, txt_BookMT.Text, cd, nxb, biasach, sl, txt_BookK.Text, st);
             dgv_Book.DataSource = BookBLL.getAllBook().DataSource;
+            MessageBox.Show("Sửa thành công!", "", MessageBoxButtons.OK);
         }
 
 
@@ -179,6 +191,7 @@ namespace BookShop
         private void btn_loadAuthor_Click(object sender, EventArgs e)
         {
             loadAuthor();
+            MessageBox.Show("Load thành công!", "", MessageBoxButtons.OK);
         }
         /// <summary>
         /// Đưa thông tin tác giả lên datagridview
@@ -202,6 +215,7 @@ namespace BookShop
         {
             AuthorBLL.updateAuthor(int.Parse(txt_AuthorID.Text), txt_AuthorName.Text, txt_AuthorPhone.Text, txt_AuthorDC.Text);
             dgv_Author.DataSource = AuthorBLL.getAllAuthor().DataSource;
+            MessageBox.Show("Sửa thành công!", "", MessageBoxButtons.OK);
         }
         /// <summary>
         /// Xóa 1 tác giả
@@ -230,6 +244,7 @@ namespace BookShop
             int _ID = int.Parse(txt_AuthorID.Text);
             AuthorBLL.createAuthor(_ID, txt_AuthorName.Text, txt_AuthorPhone.Text, txt_AuthorDC.Text);
             dgv_Author.DataSource = AuthorBLL.getAllAuthor().DataSource;
+            MessageBox.Show("Thêm thành công!", "", MessageBoxButtons.OK);
         }
         /// <summary>
         /// ngưng bán 1 cuốn sách
@@ -267,88 +282,105 @@ namespace BookShop
             dgv_Book.DataSource = AuthorBLL.searchAuthor(txt_AuthorSearch.Text).DataSource;
         }
 
+
+        //-------------------------------------------------Hóa đơn nhập---------------------------------
         /// <summary>
-        /// Load thông tin tác giả
+        /// tải dữ liệu hóa đơn
         /// </summary>
-        public void loadbill()
+        public void loadBill()
         {
-            txt_billID.Text = BillBLL.loadID().ToString();
+
             dgv_Bill.DataSource = BillBLL.getAllBill().DataSource;
-            cbx_billNXB.DataSource = BillBLL.getNxbCBX();
-            cbx_billNXB.ValueMember = "ID";
-            cbx_billNXB.DisplayMember = "TEN";
+            dgv_bBook.DataSource = BookBLL.getAllBook().DataSource;
+            dgv_lstBill.DataSource = BillBLL.getAllB().DataSource;
         }
-        /// <summary>
-        /// load
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btn_loadBill_Click(object sender, EventArgs e)
+
+        private void groupBox5_Enter(object sender, EventArgs e)
         {
-            loadbill();
+
+        }
+
+        private void dgv_bBook_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
         }
         /// <summary>
-        /// Đưa thông tin phiếu nhập lên datagridview
+        /// hiển thị dữ liệu
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void dgv_Bill_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             indexrowhdnhap = e.RowIndex;
+            int id = int.Parse(dgv_Bill.Rows[indexrowhdnhap].Cells[1].Value.ToString()) - 1;
             txt_billID.Text = dgv_Bill.Rows[indexrowhdnhap].Cells[0].Value.ToString();
-            cbx_billNXB.SelectedValue = dgv_Bill.Rows[indexrowhdnhap].Cells[1].Value;
-            date_Bill.Text = dgv_Bill.Rows[indexrowhdnhap].Cells[2].Value.ToString();
-            txt_billSl.Text = dgv_Bill.Rows[indexrowhdnhap].Cells[3].Value.ToString();
+            txt_billNV.Text = dgv_Bill.Rows[indexrowhdnhap].Cells[5].Value.ToString();
+            lb_billDate.Text = dgv_Bill.Rows[indexrowhdnhap].Cells[4].Value.ToString();
+            txt_billslBook.Text = dgv_Bill.Rows[indexrowhdnhap].Cells[2].Value.ToString();
+            lb_billNameb.Text = dgv_bBook.Rows[id].Cells[1].Value.ToString();
+            txt_giaNhap.Text = dgv_bBook.Rows[id].Cells[3].Value.ToString();
+            lb_billMoney.Text = dgv_Bill.Rows[indexrowhdnhap].Cells[3].Value.ToString() + "  VND";
         }
         /// <summary>
-        /// Cập nhật thông tin phiếu nhập
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btn_billUpdate_Click(object sender, EventArgs e)
-        {
-            int id_nxb = int.Parse(cbx_billNXB.SelectedValue.ToString());
-            DateTime ngay = DateTime.Parse(date_Bill.Text);
-            BillBLL.updateBill(int.Parse(txt_billID.Text), id_nxb,ngay, int.Parse(txt_billSl.Text));
-            dgv_Bill.DataSource = BillBLL.getAllBill().DataSource;
-        }
-        /// <summary>
-        /// Xóa 1 phiếu nhập
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btn_billDelete_Click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show("Xóa?", "Question", MessageBoxButtons.YesNo) == DialogResult.Yes)
-            {
-                BillBLL.deleteBill(int.Parse(txt_billID.Text));
-                dgv_Bill.DataSource = BillBLL.getAllBill().DataSource;
-            }
-            else
-            {
-                this.Activate();
-            }
-        }
-        /// <summary>
-        /// Thêm mới 1 phiếu nhập
+        /// tạo mới dữ liệu
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void btn_billCreate_Click(object sender, EventArgs e)
         {
-            int _ID = int.Parse(txt_billID.Text);
-            BillBLL.createBill(_ID, int.Parse(cbx_billNXB.SelectedValue.ToString()), DateTime.Parse(date_Bill.Text), int.Parse(txt_billSl.Text));
-            dgv_Bill.DataSource = BillBLL.getAllBill().DataSource;
+            if(MessageBox.Show("Thêm mới chọn 'Yes' \n Sử dụng hóa đơn cũ chọn 'No' ","Thông báo",MessageBoxButtons.YesNo)==DialogResult.No)
+            {
+                Bill_Create bill = new Bill_Create();
+                bill.Show();
+            }
+            else
+            {
+                Bill_newCreate nb = new Bill_newCreate();
+                nb.Show();
+            }
         }
 
+        private void btn_billLoad_Click(object sender, EventArgs e)
+        {
+            loadBill();
+        }
+
+        private void btn_billUpdate_Click(object sender, EventArgs e)
+        {
+            
+        }
         /// <summary>
-        /// tìm kiếm 1 phiếu nhập nào đó theo thông tin sẵn có
+        /// Tìm kiếm dữ liệu
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void btn_billSearch_Click(object sender, EventArgs e)
+        private void txt_billSearch_TextChanged(object sender, EventArgs e)
         {
-            dgv_Bill.DataSource = BillBLL.searchBill(int.Parse(txt_billID.Text)).DataSource;
+            var db = new DBConnection();   
+            if (txt_billSearch.Text != "")
+            {
+                var lstindex = db.CHITIETPHIEUNHAPs.Where(n => n.ISDELETE == false).ToList().FindAll(x => x.ID_PN == int.Parse(txt_billSearch.Text));
+                dgv_Bill.DataSource = lstindex;
+            }
+            else
+            {
+                dgv_Bill.DataSource = BillBLL.getAllBill().DataSource;
+            }
         }
+
+        private void txt_searchBook_TextChanged(object sender, EventArgs e)
+        {
+            var db = new DBConnection();
+            if (txt_searchBook.Text != "")
+            {
+                var lstindex = db.SACHes.Where(n => n.ISDELETE == false).ToList().FindAll(x => x.TEN.Contains(txt_searchBook.Text));
+                dgv_bBook.DataSource = lstindex;
+            }
+            else
+            {
+                dgv_bBook.DataSource = BookBLL.getAllBook().DataSource;
+            }
+        }
+
     }
 }

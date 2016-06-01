@@ -20,8 +20,6 @@ namespace BookShop.Entities
 
         public int? ID_NXB { get; set; }
 
-        public DateTime? NGAYNHAP { get; set; }
-
         public int? SOLUONG { get; set; }
 
         public bool? ISDELETE { get; set; }

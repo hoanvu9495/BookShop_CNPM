@@ -56,10 +56,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bill_Create.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bill_Create.Designer.cs">
+      <DependentUpon>Bill_Create.cs</DependentUpon>
+    </Compile>
     <Compile Include="BLL\Account.cs" />
     <Compile Include="BLL\AuthorBLL.cs" />
     <Compile Include="BLL\BillBLL.cs" />
     <Compile Include="BLL\BookBLL.cs" />
+    <Compile Include="Bill_newCreate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bill_newCreate.Designer.cs">
+      <DependentUpon>Bill_newCreate.cs</DependentUpon>
+    </Compile>
     <Compile Include="DAL\AccountDataAccess.cs" />
     <Compile Include="DAL\AuthorDataAccess.cs" />
     <Compile Include="DAL\BillDataAccess.cs" />
@@ -79,7 +91,6 @@
     <Compile Include="Entities\PHANQUYEN.cs" />
     <Compile Include="Entities\PHIEUNHAP.cs" />
     <Compile Include="Entities\SACH.cs" />
-    <Compile Include="Entities\sysdiagram.cs" />
     <Compile Include="Entities\TACGIA.cs" />
     <Compile Include="Entities\VIETSACH.cs" />
     <Compile Include="Form1.cs">
@@ -90,6 +101,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Bill_Create.resx">
+      <DependentUpon>Bill_Create.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bill_newCreate.resx">
+      <DependentUpon>Bill_newCreate.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

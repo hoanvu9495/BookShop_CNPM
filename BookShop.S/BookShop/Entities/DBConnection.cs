@@ -8,7 +8,7 @@ namespace BookShop.Entities
     public partial class DBConnection : DbContext
     {
         public DBConnection()
-            : base("name=DBConnection")
+            : base("name=DBConnection3")
         {
         }
 
@@ -25,7 +25,6 @@ namespace BookShop.Entities
         public virtual DbSet<PHANQUYEN> PHANQUYENs { get; set; }
         public virtual DbSet<PHIEUNHAP> PHIEUNHAPs { get; set; }
         public virtual DbSet<SACH> SACHes { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<TACGIA> TACGIAs { get; set; }
         public virtual DbSet<VIETSACH> VIETSACHes { get; set; }
 
@@ -68,6 +67,11 @@ namespace BookShop.Entities
                 .Property(e => e.MATKHAU)
                 .IsFixedLength()
                 .IsUnicode(false);
+
+            modelBuilder.Entity<NHANVIEN>()
+                .HasMany(e => e.CHITIETPHIEUNHAPs)
+                .WithOptional(e => e.NHANVIEN)
+                .HasForeignKey(e => e.ID_NV);
 
             modelBuilder.Entity<NHANVIEN>()
                 .HasMany(e => e.HOADONs)

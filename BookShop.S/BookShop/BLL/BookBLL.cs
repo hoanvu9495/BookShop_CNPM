@@ -63,6 +63,18 @@ namespace BookShop.BLL
             return lstcd;
         }
         /// <summary>
+        /// lấy tác giả
+        /// </summary>
+        /// <returns></returns>
+        public static DataGridView getTggrid(int id)
+        {
+            var db = new DBConnection();
+            var data = new DataGridView();
+            var lsttg = db.VIETSACHes.Where(n => n.ISDELETE != true && n.ID_SACH==id).ToList();
+            data.DataSource = lsttg;
+            return data;
+        }
+        /// <summary>
         /// Sửa thông tin 1 cuốn sách
         /// </summary>
         /// <param name="id">mã sách</param>
@@ -90,7 +102,7 @@ namespace BookShop.BLL
             sa.SOLUONG = soluong;
             sa.KHO = kho;
             sa.SOTRANG = sotrang;
-            sa.ISDELETE = true;
+            sa.ISDELETE = false;
             db.SACHes.Attach(sa);
             var entry = db.Entry(sa);
             entry.State = EntityState.Modified;
@@ -109,40 +121,7 @@ namespace BookShop.BLL
         /// <param name="soluong">số lượng</param>
         /// <param name="kho">khổ</param>
         /// <param name="sotrang">số trang</param>
-        public static void insertBook(int id, string name, int price_Out, int price_In, string mota, int id_Chude, int id_Nxb,string bia, int soluong, string kho, int sotrang)
-        {
-            DBConnection db = new DBConnection();
-            SACH sa = new SACH();
-            sa.ID = id;
-            sa.TEN = name.Trim();
-            sa.GIABAN = price_Out;
-            sa.GIANHAP = price_In;
-            sa.MOTA = mota;
-            sa.ID_CHUDE = id_Chude;
-            sa.ID_NXB = id_Nxb;
-            sa.BIA = bia;
-            sa.SOLUONG = soluong;
-            sa.KHO = kho;
-            sa.SOTRANG = sotrang;
-            sa.ISDELETE = true;
-            db.SACHes.Attach(sa);
-            db.SACHes.Add(sa);
-            db.SaveChanges();
-        }
-        /// <summary>
-        /// Tìm kiếm 1 cuốn sách
-        /// </summary>
-        /// <param name="name"></param>
-        /// <returns>datagridview</returns>
-        public static DataGridView searchBook(string name)
-        {
-            DBConnection db = new DBConnection();
-            DataGridView data = new DataGridView();
-            var item = db.SACHes.Where(x => x.ISDELETE == true).ToList().FindAll(x=> x.TEN==name);
-            data.DataSource = item;
-            return data;
-        }
-        public static void stopBook(int id, string name, int price_Out, int price_In, string mota, int id_Chude, int id_Nxb, string bia, int soluong, string kho, int sotrang)
+        public static void insertBook(int id, string name, int price_Out, int price_In, string mota, int id_Chude, int id_Nxb, string bia, int soluong, string kho, int sotrang)
         {
             DBConnection db = new DBConnection();
             SACH sa = new SACH();
@@ -158,6 +137,53 @@ namespace BookShop.BLL
             sa.KHO = kho;
             sa.SOTRANG = sotrang;
             sa.ISDELETE = false;
+            db.SACHes.Attach(sa);
+            db.SACHes.Add(sa);
+            db.SaveChanges();
+        }
+        /// <summary>
+        /// Tìm kiếm 1 cuốn sách
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns>datagridview</returns>
+        public static DataGridView searchBook(string name)
+        {
+            DBConnection db = new DBConnection();
+            DataGridView data = new DataGridView();
+            var item = db.SACHes.Where(x => x.ISDELETE == false).ToList().FindAll(x=> x.TEN==name);
+            data.DataSource = item;
+            return data;
+        }
+        /// <summary>
+        /// Dừng bán sách
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="name"></param>
+        /// <param name="price_Out"></param>
+        /// <param name="price_In"></param>
+        /// <param name="mota"></param>
+        /// <param name="id_Chude"></param>
+        /// <param name="id_Nxb"></param>
+        /// <param name="bia"></param>
+        /// <param name="soluong"></param>
+        /// <param name="kho"></param>
+        /// <param name="sotrang"></param>
+        public static void stopBook(int id, string name, int price_Out, int price_In, string mota, int id_Chude, int id_Nxb, string bia, int soluong, string kho, int sotrang)
+        {
+            DBConnection db = new DBConnection();
+            SACH sa = new SACH();
+            sa.ID = id;
+            sa.TEN = name.Trim();
+            sa.GIABAN = price_Out;
+            sa.GIANHAP = price_In;
+            sa.MOTA = mota;
+            sa.ID_CHUDE = id_Chude;
+            sa.ID_NXB = id_Nxb;
+            sa.BIA = bia;
+            sa.SOLUONG = soluong;
+            sa.KHO = kho;
+            sa.SOTRANG = sotrang;
+            sa.ISDELETE = true;
             db.SACHes.Attach(sa);
             var entry = db.Entry(sa);
             entry.State = EntityState.Modified;

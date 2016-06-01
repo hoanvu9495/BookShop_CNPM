@@ -21,7 +21,15 @@ namespace BookShop.Entities
 
         public int? SOLUONG { get; set; }
 
+        public int? THANHTIEN { get; set; }
+
+        public DateTime? NGAYNHAP { get; set; }
+
+        public int? ID_NV { get; set; }
+
         public bool? ISDELETE { get; set; }
+
+        public virtual NHANVIEN NHANVIEN { get; set; }
 
         public virtual PHIEUNHAP PHIEUNHAP { get; set; }
 
